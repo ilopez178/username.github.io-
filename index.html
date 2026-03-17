@@ -1045,10 +1045,10 @@
     .contact { padding: 5rem 0; }
 
     .contact-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      max-width: 680px;
     }
 
     .contact-heading {
@@ -1287,7 +1287,7 @@
       .work-grid { grid-template-columns: 1fr; }
       .testimonials-grid { grid-template-columns: 1fr; }
 
-      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-inner { gap: 2rem; }
     }
   </style>
 </head>
@@ -1343,7 +1343,7 @@
           Product Manager · Ramsey Solutions · Tennessee
         </p>
         <h1 class="hero-name">Irving <span>Lopez</span></h1>
-        <div class="domain-chip">🏠 Real Estate · Tech</div>
+        <div class="domain-chip">Tech · Real Estate · Operations</div>
         <p class="hero-tagline">
           I'm a <strong>product manager</strong> focused on solving real customer problems in ways that move the business forward — and using technology to make it happen. On the side, I help small businesses do the same with <strong>monday.com</strong> and workflow automation.
         </p>
@@ -1770,7 +1770,6 @@
 <section class="contact" id="contact">
   <div class="wrap">
     <div class="contact-inner">
-      <div>
         <h2 class="contact-heading">Get in touch</h2>
         <p class="contact-sub">Happy to chat — no pitch, just a conversation.</p>
         <div class="contact-links">
@@ -1796,27 +1795,26 @@
             <span class="cl-arrow">↗</span>
           </a>
         </div>
-      </div>
-      <div>
-        <p class="social-section-title">Find me on</p>
-        <div class="social-grid">
-          <a href="https://www.linkedin.com/in/irving-lop" target="_blank" rel="noopener" class="social-btn">
-            <span>LinkedIn</span><span class="social-arr">↗</span>
-          </a>
-          <a href="https://www.upwork.com/freelancers/~010c369f358457a4b2?mp_source=share" target="_blank" rel="noopener" class="social-btn">
-            <span>Upwork</span><span class="social-arr">↗</span>
-          </a>
-          <a href="https://www.fastexpert.com/pros-technology/irving-lopez-102263/" target="_blank" rel="noopener" class="social-btn">
-            <span>FastExpert</span><span class="social-arr">↗</span>
-          </a>
-          <a href="https://www.instagram.com/irving_lopez14/" target="_blank" rel="noopener" class="social-btn">
-            <span>Instagram</span><span class="social-arr">↗</span>
-          </a>
-          <a href="https://www.facebook.com/share/18WpqXZXTE/?mibextid=LQQJ4d" target="_blank" rel="noopener" class="social-btn">
-            <span>Facebook</span><span class="social-arr">↗</span>
-          </a>
+        <div class="social-section" style="margin-top:2rem;">
+          <p class="social-section-title">Find me on</p>
+          <div class="social-grid">
+            <a href="https://www.linkedin.com/in/irving-lop" target="_blank" rel="noopener" class="social-btn">
+              <span>LinkedIn</span><span class="social-arr">↗</span>
+            </a>
+            <a href="https://www.upwork.com/freelancers/~010c369f358457a4b2?mp_source=share" target="_blank" rel="noopener" class="social-btn">
+              <span>Upwork</span><span class="social-arr">↗</span>
+            </a>
+            <a href="https://www.fastexpert.com/pros-technology/irving-lopez-102263/" target="_blank" rel="noopener" class="social-btn">
+              <span>FastExpert</span><span class="social-arr">↗</span>
+            </a>
+            <a href="https://www.instagram.com/irving_lopez14/" target="_blank" rel="noopener" class="social-btn">
+              <span>Instagram</span><span class="social-arr">↗</span>
+            </a>
+            <a href="https://www.facebook.com/share/18WpqXZXTE/?mibextid=LQQJ4d" target="_blank" rel="noopener" class="social-btn">
+              <span>Facebook</span><span class="social-arr">↗</span>
+            </a>
+          </div>
         </div>
-      </div>
     </div>
   </div>
 </section>
