@@ -2,1160 +2,539 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="Irving Lopez — Systems Consultant & monday.com Expert. I help businesses eliminate chaos and create clarity through monday.com implementations, automated workflows, and scalable systems.">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Irving Lopez — Systems Consultant & monday.com Expert</title>
-
-    <!-- Fonts -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Irving Lopez — monday.com consultant helping businesses build better systems.">
+    <title>Irving Lopez</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
     <style>
-        /* =====================
-           CUSTOM PROPERTIES
-        ===================== */
-        :root {
-            --black:       #0a0a0a;
-            --surface-1:   #111111;
-            --surface-2:   #181818;
-            --surface-3:   #222222;
-            --border:      #252525;
-            --border-light:#333333;
-            --text-dim:    #555555;
-            --text-muted:  #777777;
-            --text-secondary: #aaaaaa;
-            --text-primary:#e0e0e0;
-            --white:       #f4f4f4;
-
-            --font-display: 'Syne', sans-serif;
-            --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-
-            --radius:    10px;
-            --radius-sm: 6px;
-            --ease:      cubic-bezier(0.4, 0, 0.2, 1);
-            --t:         0.28s;
-        }
-
-        /* =====================
-           RESET & BASE
-        ===================== */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: var(--font-body);
-            background: var(--black);
-            color: var(--text-primary);
-            line-height: 1.65;
-            font-weight: 400;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            -webkit-tap-highlight-color: transparent;
+        :root {
+            --bg: #0f0f0f;
+            --surface: #161616;
+            --border: #1e1e1e;
+            --text: #d4d4d4;
+            --muted: #707070;
+            --dim: #3a3a3a;
+            --white: #f0f0f0;
+            --accent: #f0f0f0;
         }
 
-        /* Subtle noise grain */
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.35;
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+            font-size: 15px;
         }
 
         a { color: inherit; text-decoration: none; }
-        img { max-width: 100%; display: block; }
 
-        /* =====================
-           LAYOUT
-        ===================== */
-        .container {
-            width: 100%;
-            max-width: 1080px;
+        .wrap {
+            max-width: 1040px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 2rem;
         }
 
-        /* =====================
-           NAVIGATION
-        ===================== */
+        /* ── NAV ── */
         nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            padding: 1.1rem 0;
-            transition: background var(--t) var(--ease), border-color var(--t) var(--ease);
-            border-bottom: 1px solid transparent;
+            border-bottom: 1px solid var(--border);
+            padding: 1.125rem 0;
         }
 
-        nav.scrolled {
-            background: rgba(10,10,10,0.85);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-bottom-color: var(--border);
-        }
-
-        .nav-inner {
+        nav .wrap {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .nav-logo {
-            font-family: var(--font-display);
-            font-size: 1rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
+        .nav-name {
+            font-size: 0.875rem;
+            font-weight: 600;
             color: var(--white);
+            letter-spacing: -0.01em;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 2.25rem;
-            list-style: none;
+            gap: 1.5rem;
         }
 
-        .nav-links a {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            transition: color var(--t);
-            font-weight: 400;
-            letter-spacing: 0.01em;
+        .nav-link {
+            font-size: 0.8rem;
+            color: var(--muted);
+            transition: color 0.15s;
         }
 
-        .nav-links a:hover { color: var(--white); }
+        .nav-link:hover { color: var(--text); }
 
         .nav-cta {
-            padding: 0.55rem 1.1rem !important;
-            background: var(--white) !important;
-            color: var(--black) !important;
-            border-radius: var(--radius-sm) !important;
-            font-weight: 600 !important;
-            letter-spacing: 0 !important;
-            transition: opacity var(--t) !important;
+            font-size: 0.8rem;
+            font-weight: 500;
+            background: var(--white);
+            color: var(--bg);
+            padding: 0.45rem 1rem;
+            border-radius: 5px;
+            transition: opacity 0.15s;
         }
-        .nav-cta:hover { opacity: 0.82 !important; color: var(--black) !important; }
 
-        /* =====================
-           HERO
-        ===================== */
+        .nav-cta:hover { opacity: 0.85; }
+
+        /* ── HERO ── */
         .hero {
-            min-height: 100svh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 8rem 0 5rem;
-            position: relative;
+            padding: 5rem 0 4rem;
+            border-bottom: 1px solid var(--border);
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -5%;
-            right: -10%;
-            width: 55%;
-            height: 80%;
-            background: radial-gradient(ellipse at top right, rgba(255,255,255,0.025) 0%, transparent 65%);
-            pointer-events: none;
-        }
-
-        .hero-eyebrow {
-            display: inline-flex;
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
-            gap: 0.6rem;
-            font-size: 0.72rem;
-            letter-spacing: 0.18em;
+        }
+
+        .hero-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: var(--text-dim);
-            font-weight: 500;
-            margin-bottom: 2.25rem;
+            color: var(--dim);
+            font-weight: 600;
+            margin-bottom: 1.25rem;
         }
 
-        .hero-eyebrow::before {
-            content: '';
-            display: block;
-            width: 28px;
-            height: 1px;
-            background: var(--text-dim);
-            flex-shrink: 0;
-        }
-
-        .hero-headline {
-            font-family: var(--font-display);
-            font-size: clamp(4rem, 12vw, 8rem);
-            font-weight: 800;
-            letter-spacing: -0.045em;
-            line-height: 0.92;
+        .hero-name {
+            font-size: 2.5rem;
+            font-weight: 600;
             color: var(--white);
-            margin-bottom: 2.25rem;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1.25rem;
         }
 
-        .hero-headline .muted { color: var(--text-dim); }
-
-        .hero-sub {
-            font-size: clamp(1rem, 1.8vw, 1.15rem);
-            color: var(--text-muted);
-            max-width: 500px;
-            line-height: 1.75;
-            margin-bottom: 3rem;
+        .hero-bio {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.8;
             font-weight: 300;
+            margin-bottom: 2rem;
+            max-width: 40ch;
         }
 
-        .hero-sub strong {
-            color: var(--text-primary);
-            font-weight: 500;
-        }
+        .hero-bio strong { color: var(--text); font-weight: 500; }
 
-        .hero-actions {
+        .hero-ctas {
             display: flex;
-            gap: 0.75rem;
+            gap: 0.625rem;
             flex-wrap: wrap;
         }
 
-        /* =====================
-           BUTTONS
-        ===================== */
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.875rem 1.625rem;
-            border-radius: var(--radius-sm);
-            font-size: 0.875rem;
+            gap: 0.375rem;
+            padding: 0.6rem 1.1rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
             font-weight: 500;
-            transition: opacity var(--t), transform var(--t) var(--ease);
-            cursor: pointer;
+            transition: opacity 0.15s;
+            white-space: nowrap;
         }
 
-        .btn:hover { transform: translateY(-1px); }
+        .btn:hover { opacity: 0.75; }
+        .btn-primary { background: var(--white); color: var(--bg); }
+        .btn-ghost { border: 1px solid var(--border); color: var(--muted); }
 
-        .btn-white {
-            background: var(--white);
-            color: var(--black);
-        }
-        .btn-white:hover { opacity: 0.88; }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text-secondary);
-            border: 1px solid var(--border-light);
-        }
-        .btn-outline:hover {
-            border-color: var(--text-muted);
-            color: var(--white);
+        /* Hero right card */
+        .hero-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.75rem;
         }
 
-        /* =====================
-           HERO STATS BAR
-        ===================== */
-        .hero-bar {
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-            margin-top: 5rem;
-            padding-top: 2.5rem;
-            border-top: 1px solid var(--border);
-            flex-wrap: wrap;
+        .hero-card-title {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--dim);
+            font-weight: 600;
+            margin-bottom: 1.25rem;
         }
 
-        .stat { display: flex; flex-direction: column; gap: 0.2rem; }
+        .stat-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat {
+            padding: 1rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
 
         .stat-num {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            font-weight: 800;
+            font-size: 1.5rem;
+            font-weight: 600;
             color: var(--white);
-            letter-spacing: -0.03em;
+            letter-spacing: -0.02em;
             line-height: 1;
+            margin-bottom: 0.3rem;
         }
 
         .stat-label {
             font-size: 0.75rem;
-            color: var(--text-dim);
+            color: var(--muted);
             font-weight: 400;
         }
 
-        .bar-divider {
-            width: 1px;
-            height: 2.25rem;
-            background: var(--border);
+        .platform-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
         }
 
-        .hero-loc {
-            margin-left: auto;
+        .platform-item {
             display: flex;
             align-items: center;
-            gap: 0.4rem;
+            justify-content: space-between;
             font-size: 0.8rem;
-            color: var(--text-dim);
+            color: var(--muted);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
         }
 
-        .hero-loc svg { width: 13px; height: 13px; opacity: 0.5; flex-shrink: 0; }
+        .platform-item:last-child { border-bottom: none; }
+        .platform-dot { width: 6px; height: 6px; border-radius: 50%; background: #3a3a3a; }
 
-        /* =====================
-           SECTION SHARED
-        ===================== */
-        section { border-top: 1px solid var(--border); }
+        /* ── SERVICES ── */
+        .services {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
 
         .section-label {
-            font-size: 0.68rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--text-dim);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .section-pad { padding: 7rem 0; }
-
-        /* =====================
-           ABOUT
-        ===================== */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 6rem;
-            align-items: start;
-        }
-
-        .about-heading {
-            font-family: var(--font-display);
-            font-size: clamp(2.25rem, 4.5vw, 3.25rem);
-            font-weight: 800;
-            letter-spacing: -0.035em;
-            line-height: 1.08;
-            color: var(--white);
-            position: sticky;
-            top: 6rem;
-        }
-
-        .about-body p {
-            font-size: 1rem;
-            color: var(--text-muted);
-            line-height: 1.82;
-            margin-bottom: 1.4rem;
-            font-weight: 300;
-        }
-
-        .about-body p:last-of-type { margin-bottom: 0; }
-
-        .about-body strong {
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.45rem;
-            margin-top: 2rem;
-        }
-
-        .tag {
-            padding: 0.35rem 0.85rem;
-            background: var(--surface-2);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            font-weight: 400;
-            transition: all var(--t);
-        }
-
-        .tag:hover { border-color: var(--border-light); color: var(--text-primary); }
-
-        /* =====================
-           SERVICES
-        ===================== */
-        .services-top {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 3.5rem;
-        }
-
-        .services-heading {
-            font-family: var(--font-display);
-            font-size: clamp(2.25rem, 4.5vw, 3.25rem);
-            font-weight: 800;
-            letter-spacing: -0.035em;
-            line-height: 1.08;
-            color: var(--white);
-        }
-
-        .services-heading .muted { color: var(--text-dim); }
-
-        .services-sub {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            max-width: 260px;
-            line-height: 1.65;
-        }
-
-        /* Featured card */
-        .card-main {
-            background: var(--surface-1);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 2.5rem;
-            margin-bottom: 1px;
-            position: relative;
-            overflow: hidden;
-            transition: border-color var(--t), transform var(--t) var(--ease);
-        }
-
-        .card-main::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
-        }
-
-        .card-main:hover {
-            border-color: var(--border-light);
-            transform: translateY(-2px);
-        }
-
-        .card-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            padding: 0.28rem 0.7rem;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--border-light);
-            border-radius: 100px;
-            font-size: 0.68rem;
+            font-size: 0.7rem;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
+            color: var(--dim);
+            font-weight: 600;
         }
 
-        .card-badge::before {
-            content: '';
-            width: 5px;
-            height: 5px;
-            background: var(--text-secondary);
-            border-radius: 50%;
-        }
-
-        .card-main h3 {
-            font-family: var(--font-display);
-            font-size: clamp(1.5rem, 3vw, 2.1rem);
-            font-weight: 700;
-            letter-spacing: -0.025em;
-            color: var(--white);
-            margin-bottom: 0.8rem;
-        }
-
-        .card-main p {
-            font-size: 0.97rem;
-            color: var(--text-muted);
-            line-height: 1.75;
-            max-width: 580px;
-            font-weight: 300;
-        }
-
-        .card-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 2.25rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.45rem;
-        }
-
-        .pill {
-            padding: 0.3rem 0.8rem;
-            background: var(--surface-3);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        /* 3-col grid */
         .service-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1px;
             background: var(--border);
-            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            border-radius: 8px;
             overflow: hidden;
-            margin-top: 1px;
         }
 
-        .svc {
-            background: var(--surface-1);
-            padding: 2rem;
-            transition: background var(--t);
+        .service-card {
+            background: var(--bg);
+            padding: 1.75rem;
+            transition: background 0.15s;
         }
 
-        .svc:hover { background: var(--surface-2); }
+        .service-card:hover { background: var(--surface); }
 
-        .svc-icon {
-            width: 34px;
-            height: 34px;
-            color: var(--text-dim);
+        .service-num {
+            font-size: 0.65rem;
+            color: var(--dim);
+            font-weight: 600;
+            letter-spacing: 0.08em;
             margin-bottom: 1.25rem;
         }
 
-        .svc h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--white);
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.01em;
-        }
-
-        .svc p {
-            font-size: 0.845rem;
-            color: var(--text-muted);
-            line-height: 1.68;
-            font-weight: 300;
-        }
-
-        /* =====================
-           PROCESS
-        ===================== */
-        .process-header { margin-bottom: 3.5rem; }
-
-        .process-heading {
-            font-family: var(--font-display);
-            font-size: clamp(2.25rem, 4.5vw, 3.25rem);
-            font-weight: 800;
-            letter-spacing: -0.035em;
-            color: var(--white);
-            margin-bottom: 0.75rem;
-        }
-
-        .process-sub {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            max-width: 440px;
-            line-height: 1.7;
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
-        }
-
-        .step {
-            background: var(--surface-1);
-            padding: 2.5rem;
-        }
-
-        .step-num {
-            font-family: var(--font-display);
-            font-size: 0.65rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-dim);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        .step h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--white);
-            margin-bottom: 0.7rem;
-            letter-spacing: -0.01em;
-        }
-
-        .step p {
-            font-size: 0.845rem;
-            color: var(--text-muted);
-            line-height: 1.72;
-            font-weight: 300;
-        }
-
-        /* =====================
-           PLATFORMS BAR
-        ===================== */
-        .platforms {
-            padding: 3.5rem 0;
-            border-top: 1px solid var(--border);
-        }
-
-        .platforms-row {
-            display: flex;
-            align-items: center;
-            gap: 1.25rem;
-            flex-wrap: wrap;
-        }
-
-        .platforms-label {
-            font-size: 0.7rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--text-dim);
-            white-space: nowrap;
+        .service-title {
+            font-size: 0.925rem;
             font-weight: 500;
+            color: var(--white);
+            margin-bottom: 0.625rem;
+            line-height: 1.4;
         }
 
-        .platforms-line {
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-            min-width: 20px;
+        .service-desc {
+            font-size: 0.8rem;
+            color: var(--muted);
+            line-height: 1.7;
+            font-weight: 300;
         }
 
-        .platform-links { display: flex; gap: 0.6rem; flex-wrap: wrap; }
-
-        .plink {
-            padding: 0.45rem 0.9rem;
-            background: var(--surface-2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            transition: all var(--t);
-            display: flex;
-            align-items: center;
-            gap: 0.35rem;
+        /* ── CONTACT ── */
+        .contact {
+            padding: 4rem 0;
         }
 
-        .plink:hover { border-color: var(--border-light); color: var(--white); transform: translateY(-1px); }
-
-        /* =====================
-           CONTACT
-        ===================== */
         .contact-inner {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            align-items: start;
+            gap: 4rem;
         }
 
         .contact-heading {
-            font-family: var(--font-display);
-            font-size: clamp(2.75rem, 5.5vw, 4.5rem);
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            line-height: 0.96;
+            font-size: 1.25rem;
+            font-weight: 600;
             color: var(--white);
-            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
         }
 
         .contact-sub {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.7;
+            font-size: 0.825rem;
+            color: var(--muted);
+            margin-bottom: 1.75rem;
             font-weight: 300;
-            margin-bottom: 2.25rem;
         }
 
-        .contact-links { display: flex; flex-direction: column; gap: 0.6rem; }
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
 
-        .clink {
+        .contact-link {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1.2rem 1.4rem;
-            background: var(--surface-1);
+            padding: 0.875rem 1rem;
+            background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            transition: all var(--t);
+            border-radius: 6px;
+            transition: border-color 0.15s;
         }
 
-        .clink:hover {
-            border-color: var(--border-light);
-            background: var(--surface-2);
-            transform: translateX(3px);
-        }
+        .contact-link:hover { border-color: var(--dim); }
 
-        .clink-left { display: flex; flex-direction: column; gap: 0.15rem; }
+        .cl-meta { display: flex; flex-direction: column; gap: 0.15rem; }
+        .cl-label { font-size: 0.65rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+        .cl-val { font-size: 0.85rem; color: var(--text); }
+        .cl-arrow { color: var(--dim); font-size: 0.85rem; transition: color 0.15s; }
+        .contact-link:hover .cl-arrow { color: var(--muted); }
 
-        .clink-type {
-            font-size: 0.67rem;
-            letter-spacing: 0.14em;
+        /* Social */
+        .social-title {
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: var(--text-dim);
+            color: var(--dim);
             font-weight: 600;
+            margin-bottom: 1rem;
         }
 
-        .clink-val {
-            font-size: 0.92rem;
-            color: var(--text-primary);
+        .social-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
         }
-
-        .clink-arrow {
-            color: var(--text-dim);
-            transition: transform var(--t), color var(--t);
-            flex-shrink: 0;
-        }
-
-        .clink:hover .clink-arrow { transform: translateX(3px); color: var(--white); }
-
-        .social-section { margin-top: 1.75rem; }
-
-        .social-label {
-            font-size: 0.68rem;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: var(--text-dim);
-            font-weight: 600;
-            margin-bottom: 0.9rem;
-        }
-
-        .social-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 
         .social-btn {
-            padding: 0.5rem 0.95rem;
-            background: var(--surface-2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            transition: all var(--t);
-        }
-
-        .social-btn:hover { border-color: var(--border-light); color: var(--white); }
-
-        /* Contact right — statement */
-        .contact-statement {
-            padding-top: 0.5rem;
-        }
-
-        .statement-text {
-            font-family: var(--font-display);
-            font-size: clamp(1.6rem, 3.2vw, 2.6rem);
-            font-weight: 800;
-            letter-spacing: -0.025em;
-            line-height: 1.22;
-            color: var(--text-dim);
-        }
-
-        .statement-text em {
-            font-style: normal;
-            color: var(--white);
-        }
-
-        /* =====================
-           FOOTER
-        ===================== */
-        footer {
-            padding: 2rem 0;
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--muted);
+            transition: all 0.15s;
         }
 
-        .footer-name {
-            font-family: var(--font-display);
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: var(--text-dim);
+        .social-btn:hover { border-color: var(--dim); color: var(--text); }
+        .social-arr { font-size: 0.75rem; opacity: 0.4; }
+
+        /* ── FOOTER ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 1.5rem 0;
         }
 
-        .footer-copy { font-size: 0.78rem; color: var(--text-dim); }
-
-        .back-top {
-            font-size: 0.78rem;
-            color: var(--text-dim);
+        footer .wrap {
             display: flex;
             align-items: center;
-            gap: 0.35rem;
-            transition: color var(--t);
+            justify-content: space-between;
         }
 
-        .back-top:hover { color: var(--white); }
+        .footer-text { font-size: 0.775rem; color: var(--dim); }
 
-        /* =====================
-           ANIMATIONS
-        ===================== */
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
-        }
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .wrap { padding: 0 1.25rem; }
 
-        .reveal.visible { opacity: 1; transform: translateY(0); }
+            .nav-links { gap: 1rem; }
+            .nav-link { display: none; }
 
-        /* =====================
-           RESPONSIVE — TABLET
-        ===================== */
-        @media (max-width: 900px) {
-            .service-grid { grid-template-columns: 1fr 1fr; }
-            .steps { grid-template-columns: 1fr; }
-            .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-            .about-heading { position: static; }
-            .contact-inner { grid-template-columns: 1fr; gap: 3.5rem; }
-        }
+            .hero { padding: 3rem 0; }
+            .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+            .hero-name { font-size: 1.875rem; }
+            .hero-card { display: none; }
 
-        /* =====================
-           RESPONSIVE — MOBILE
-        ===================== */
-        @media (max-width: 640px) {
-            .nav-links { display: none; }
-
-            .hero { padding: 6.5rem 0 3.5rem; }
-
-            .hero-headline { font-size: 3.5rem; }
-
-            .hero-actions { flex-direction: column; }
-            .btn { width: 100%; justify-content: center; }
-
-            .hero-bar { margin-top: 3rem; gap: 1.25rem; }
-            .bar-divider { display: none; }
-            .hero-loc { margin-left: 0; width: 100%; }
-
-            .section-pad { padding: 5rem 0; }
-
-            .about-heading { font-size: 2rem; }
-
-            .services-top { flex-direction: column; align-items: flex-start; }
-            .services-sub { max-width: 100%; }
-
+            .services { padding: 3rem 0; }
             .service-grid { grid-template-columns: 1fr; }
 
-            .card-main { padding: 1.75rem; }
-            .card-footer { flex-direction: column; align-items: flex-start; }
-
-            .contact-heading { font-size: 2.5rem; }
-        }
-
-        @media (max-width: 380px) {
-            .hero-headline { font-size: 3rem; }
-            .container { padding: 0 1.1rem; }
+            .contact { padding: 3rem 0; }
+            .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
-<!-- ========================
-     NAVIGATION
-========================= -->
-<nav id="nav">
-    <div class="container nav-inner">
-        <a href="#" class="nav-logo">Irving Lopez</a>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#process">Process</a></li>
-            <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
-        </ul>
+<!-- NAV -->
+<nav>
+    <div class="wrap">
+        <span class="nav-name">Irving Lopez</span>
+        <div class="nav-links">
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#contact" class="nav-link">Contact</a>
+            <a href="mailto:irving@irvinglopez.com" class="nav-cta">Email me</a>
+        </div>
     </div>
 </nav>
 
-<!-- ========================
-     HERO
-========================= -->
-<header class="hero">
-    <div class="container">
-        <span class="hero-eyebrow">Systems Consultant &amp; monday.com Expert</span>
-
-        <h1 class="hero-headline">
-            Irving<br>
-            <span class="muted">Lopez.</span>
-        </h1>
-
-        <p class="hero-sub">
-            I help businesses <strong>eliminate chaos and create clarity</strong> — through
-            monday.com implementations, automated workflows, and systems built to scale.
-        </p>
-
-        <div class="hero-actions">
-            <a href="mailto:irving@irvinglopez.com" class="btn btn-white">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                Email Me
-            </a>
-            <a href="https://www.upwork.com/freelancers/~010c369f358457a4b2?mp_source=share" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-                Hire Me on Upwork
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-            </a>
-        </div>
-
-        <div class="hero-bar">
-            <div class="stat">
-                <span class="stat-num">5+</span>
-                <span class="stat-label">Years Experience</span>
-            </div>
-            <div class="bar-divider"></div>
-            <div class="stat">
-                <span class="stat-num">50+</span>
-                <span class="stat-label">Teams Helped</span>
-            </div>
-            <div class="bar-divider"></div>
-            <div class="stat">
-                <span class="stat-num">100%</span>
-                <span class="stat-label">Remote-Ready</span>
-            </div>
-            <div class="hero-loc">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                Tennessee, USA
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- ========================
-     ABOUT
-========================= -->
-<section class="section-pad" id="about">
-    <div class="container">
-        <p class="section-label">About</p>
-        <div class="about-grid">
+<!-- HERO -->
+<section class="hero">
+    <div class="wrap">
+        <div class="hero-inner">
             <div>
-                <h2 class="about-heading">Grounded<br>in systems.<br>Built for<br>growth.</h2>
-            </div>
-            <div class="about-body reveal">
-                <p>
-                    I'm a <strong>Product Manager at Ramsey Solutions</strong> and the founder of
-                    <strong>Streamline</strong> — a consultancy built on a single belief:
-                    the right system changes everything.
+                <p class="hero-label">Systems Consultant · monday.com Expert</p>
+                <h1 class="hero-name">Irving Lopez</h1>
+                <p class="hero-bio">
+                    I help small and mid-sized businesses <strong>replace chaos with clarity</strong> —
+                    through monday.com implementations, workflow automation, and operational
+                    systems built to scale.
                 </p>
-                <p>
-                    My work lives at the intersection of operations, technology, and people.
-                    I help teams move from scattered spreadsheets and disconnected tools to
-                    clean, automated workflows that actually work. Raised in New Mexico,
-                    now based in Tennessee — I bring a grounded, no-nonsense approach to
-                    every engagement.
-                </p>
-                <p>
-                    Whether you're a growing startup or an established SMB, if your team
-                    is hitting bottlenecks, I build the systems that remove them.
-                </p>
-                <div class="tags">
-                    <span class="tag">monday.com</span>
-                    <span class="tag">CRM Setup</span>
-                    <span class="tag">Workflow Automation</span>
-                    <span class="tag">Product Management</span>
-                    <span class="tag">Systems Design</span>
-                    <span class="tag">Tool Integrations</span>
-                    <span class="tag">Financial Coaching</span>
-                    <span class="tag">Streamline</span>
+                <div class="hero-ctas">
+                    <a href="mailto:irving@irvinglopez.com" class="btn btn-primary">Email me</a>
+                    <a href="https://www.upwork.com/freelancers/~010c369f358457a4b2?mp_source=share" target="_blank" rel="noopener" class="btn btn-ghost">Upwork ↗</a>
+                    <a href="tel:+15053609429" class="btn btn-ghost">(505) 360-9429</a>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- ========================
-     SERVICES
-========================= -->
-<section class="section-pad" id="services">
-    <div class="container">
-        <div class="services-top">
-            <div>
-                <p class="section-label">Services</p>
-                <h2 class="services-heading">What I<br><span class="muted">Do.</span></h2>
-            </div>
-            <p class="services-sub">From monday.com builds to full operational overhauls — here's how I help teams work smarter.</p>
-        </div>
-
-        <!-- Featured: monday.com -->
-        <div class="card-main reveal">
-            <span class="card-badge">Primary Offering</span>
-            <h3>monday.com Implementation &amp; Management</h3>
-            <p>
-                I design and build custom monday.com workspaces from the ground up — tailored to
-                your team's exact workflow. Whether you need a CRM, project management hub, or a
-                full operational command center, I handle the setup, automations, and ongoing
-                optimization so your team can focus on the work that actually matters.
-            </p>
-            <div class="card-footer">
-                <div class="pills">
-                    <span class="pill">CRM Buildout</span>
-                    <span class="pill">Custom Boards</span>
-                    <span class="pill">Automations</span>
-                    <span class="pill">Integrations</span>
-                    <span class="pill">Team Onboarding</span>
-                    <span class="pill">Ongoing Management</span>
-                </div>
-                <a href="mailto:irving@irvinglopez.com?subject=monday.com%20Inquiry" class="btn btn-white">Let's Talk</a>
-            </div>
-        </div>
-
-        <!-- 3-col grid -->
-        <div class="service-grid reveal">
-            <div class="svc">
-                <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                <h4>Workflow Automation</h4>
-                <p>Eliminate repetitive manual tasks. I build automation sequences that trigger the right actions at the right time — no code required on your end.</p>
-            </div>
-            <div class="svc">
-                <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-                <h4>Tool Integrations</h4>
-                <p>Connect monday.com to the tools your team already uses — Slack, Gmail, HubSpot, Salesforce, and more — for one unified workspace.</p>
-            </div>
-            <div class="svc">
-                <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                <h4>Team Onboarding &amp; Training</h4>
-                <p>Get your team fully comfortable with their new system. I provide hands-on onboarding and documentation to ensure adoption actually sticks.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ========================
-     PROCESS
-========================= -->
-<section class="section-pad" id="process">
-    <div class="container">
-        <p class="section-label">Process</p>
-        <div class="process-header">
-            <h2 class="process-heading">How I Work.</h2>
-            <p class="process-sub">Simple, transparent, results-driven. Every engagement follows the same three-step model.</p>
-        </div>
-
-        <div class="steps reveal">
-            <div class="step">
-                <p class="step-num">Step 01</p>
-                <h4>Discover</h4>
-                <p>We start with a deep dive into your current operations — your tools, your pain points, your goals. No assumptions, just listening.</p>
-            </div>
-            <div class="step">
-                <p class="step-num">Step 02</p>
-                <h4>Build</h4>
-                <p>I design and implement your monday.com workspace — custom boards, automations, and integrations — built to match how your team actually works.</p>
-            </div>
-            <div class="step">
-                <p class="step-num">Step 03</p>
-                <h4>Scale</h4>
-                <p>Once live, I support your team through onboarding and ongoing optimization — ensuring the system grows with your business, not against it.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ========================
-     PLATFORMS BAR
-========================= -->
-<div class="platforms">
-    <div class="container">
-        <div class="platforms-row">
-            <span class="platforms-label">Find me on</span>
-            <div class="platforms-line"></div>
-            <div class="platform-links">
-                <a href="https://www.linkedin.com/in/irving-lop" target="_blank" rel="noopener noreferrer" class="plink">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                    LinkedIn
-                </a>
-                <a href="https://www.upwork.com/freelancers/~010c369f358457a4b2?mp_source=share" target="_blank" rel="noopener noreferrer" class="plink">Upwork</a>
-                <a href="https://www.fastexpert.com/pros-technology/irving-lopez-102263/" target="_blank" rel="noopener noreferrer" class="plink">FastExpert</a>
-                <a href="https://www.instagram.com/irving_lopez14/" target="_blank" rel="noopener noreferrer" class="plink">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
-                    Instagram
-                </a>
-                <a href="https://www.facebook.com/share/18WpqXZXTE/?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer" class="plink">Facebook</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ========================
-     CONTACT
-========================= -->
-<section class="section-pad" id="contact">
-    <div class="container">
-        <div class="contact-inner">
-            <div>
-                <p class="section-label">Contact</p>
-                <h2 class="contact-heading">Let's build<br>something.</h2>
-                <p class="contact-sub">Ready to streamline your operations? Reach out directly — no forms, no fluff.</p>
-
-                <div class="contact-links">
-                    <a href="mailto:irving@irvinglopez.com" class="clink">
-                        <div class="clink-left">
-                            <span class="clink-type">Email</span>
-                            <span class="clink-val">irving@irvinglopez.com</span>
-                        </div>
-                        <svg class="clink-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                    <a href="tel:+15053609429" class="clink">
-                        <div class="clink-left">
-                            <span class="clink-type">Phone</span>
-                            <span class="clink-val">(505) 360-9429</span>
-                        </div>
-                        <svg class="clink-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                </div>
-
-                <div class="social-section">
-                    <p class="social-label">Or connect here</p>
-                    <div class="social-row">
-                        <a href="https://www.linkedin.com/in/irving-lop" target="_blank" rel="noopener noreferrer" class="social-btn">LinkedIn</a>
-                        <a href="https://www.upwork.com/freelancers/~010c369f358457a4b2?mp_source=share" target="_blank" rel="noopener noreferrer" class="social-btn">Upwork</a>
-                        <a href="https://www.instagram.com/irving_lopez14/" target="_blank" rel="noopener noreferrer" class="social-btn">Instagram</a>
-                        <a href="https://www.facebook.com/share/18WpqXZXTE/?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer" class="social-btn">Facebook</a>
+            <div class="hero-card">
+                <p class="hero-card-title">By the numbers</p>
+                <div class="stat-row">
+                    <div class="stat">
+                        <p class="stat-num">5+</p>
+                        <p class="stat-label">Years experience</p>
+                    </div>
+                    <div class="stat">
+                        <p class="stat-num">50+</p>
+                        <p class="stat-label">Teams helped</p>
+                    </div>
+                    <div class="stat">
+                        <p class="stat-num">100%</p>
+                        <p class="stat-label">Remote-ready</p>
+                    </div>
+                    <div class="stat">
+                        <p class="stat-num">TN</p>
+                        <p class="stat-label">Based in Tennessee</p>
                     </div>
                 </div>
-            </div>
-
-            <div class="contact-statement reveal">
-                <p class="statement-text">
-                    If your team is drowning in manual work,<br>
-                    you don't need more people.<br>
-                    <em>You need better systems.</em>
-                </p>
+                <div class="platform-list">
+                    <div class="platform-item"><span>monday.com Expert</span><span class="platform-dot"></span></div>
+                    <div class="platform-item"><span>Upwork Top Rated</span><span class="platform-dot"></span></div>
+                    <div class="platform-item"><span>FastExpert Verified</span><span class="platform-dot"></span></div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ========================
-     FOOTER
-========================= -->
+<!-- SERVICES -->
+<section class="services" id="services">
+    <div class="wrap">
+        <div class="section-header">
+            <span class="section-label">What I do</span>
+        </div>
+        <div class="service-grid">
+            <div class="service-card">
+                <p class="service-num">01</p>
+                <h3 class="service-title">monday.com Implementation</h3>
+                <p class="service-desc">Custom workspace builds — CRM setup, project boards, automations, and integrations tailored to how your team actually works.</p>
+            </div>
+            <div class="service-card">
+                <p class="service-num">02</p>
+                <h3 class="service-title">Workflow Automation</h3>
+                <p class="service-desc">Eliminate manual, repetitive work by connecting your tools and building automations that run quietly in the background.</p>
+            </div>
+            <div class="service-card">
+                <p class="service-num">03</p>
+                <h3 class="service-title">Ongoing Management & Training</h3>
+                <p class="service-desc">Continuous optimization and hands-on team onboarding so the system actually gets used and keeps improving over time.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <div class="wrap">
+        <div class="contact-inner">
+            <div>
+                <h2 class="contact-heading">Let's work together</h2>
+                <p class="contact-sub">Reach out directly — no forms, no wait.</p>
+                <div class="contact-links">
+                    <a href="mailto:irving@irvinglopez.com" class="contact-link">
+                        <div class="cl-meta">
+                            <span class="cl-label">Email</span>
+                            <span class="cl-val">irving@irvinglopez.com</span>
+                        </div>
+                        <span class="cl-arrow">→</span>
+                    </a>
+                    <a href="tel:+15053609429" class="contact-link">
+                        <div class="cl-meta">
+                            <span class="cl-label">Phone</span>
+                            <span class="cl-val">(505) 360-9429</span>
+                        </div>
+                        <span class="cl-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <p class="social-title">Find me on</p>
+                <div class="social-grid">
+                    <a href="https://www.linkedin.com/in/irving-lop" target="_blank" rel="noopener" class="social-btn">
+                        <span>LinkedIn</span><span class="social-arr">↗</span>
+                    </a>
+                    <a href="https://www.upwork.com/freelancers/~010c369f358457a4b2?mp_source=share" target="_blank" rel="noopener" class="social-btn">
+                        <span>Upwork</span><span class="social-arr">↗</span>
+                    </a>
+                    <a href="https://www.fastexpert.com/pros-technology/irving-lopez-102263/" target="_blank" rel="noopener" class="social-btn">
+                        <span>FastExpert</span><span class="social-arr">↗</span>
+                    </a>
+                    <a href="https://www.instagram.com/irving_lopez14/" target="_blank" rel="noopener" class="social-btn">
+                        <span>Instagram</span><span class="social-arr">↗</span>
+                    </a>
+                    <a href="https://www.facebook.com/share/18WpqXZXTE/?mibextid=LQQJ4d" target="_blank" rel="noopener" class="social-btn">
+                        <span>Facebook</span><span class="social-arr">↗</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-    <div class="container footer-inner">
-        <span class="footer-name">Irving Lopez</span>
-        <span class="footer-copy">&copy; 2025 &middot; All rights reserved</span>
-        <a href="#" class="back-top">
-            Back to top
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
-        </a>
+    <div class="wrap">
+        <span class="footer-text">Irving Lopez © 2025</span>
+        <span class="footer-text">Tennessee, USA</span>
     </div>
 </footer>
-
-<script>
-    // Nav scroll class
-    const nav = document.getElementById('nav');
-    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 24);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
-    // Scroll-reveal via IntersectionObserver
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.classList.add('visible');
-                io.unobserve(e.target);
-            }
-        });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-
-    reveals.forEach(el => io.observe(el));
-</script>
 
 </body>
 </html>
