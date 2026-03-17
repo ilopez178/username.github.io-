@@ -316,7 +316,7 @@
 
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .stat-item {
@@ -331,7 +331,6 @@
     .stat-item.visible { opacity: 1; transform: translateY(0); }
     .stat-item:nth-child(2).visible { transition-delay: 0.1s; }
     .stat-item:nth-child(3).visible { transition-delay: 0.2s; }
-    .stat-item:nth-child(4).visible { transition-delay: 0.3s; }
 
     .stat-num {
       font-size: clamp(1.75rem, 3vw, 2.5rem);
@@ -933,20 +932,16 @@
   <div class="wrap">
     <div class="stats-grid">
       <div class="stat-item">
-        <div class="stat-num"><span class="accent">4+</span></div>
+        <div class="stat-num"><span class="accent">5+</span></div>
         <div class="stat-label">Years in Product</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num"><span class="accent">$2.8M</span></div>
-        <div class="stat-label">Revenue recovered & collected</div>
+        <div class="stat-num"><span class="accent">+$8.2M</span></div>
+        <div class="stat-label">Attributed & Recorded Revenue</div>
       </div>
       <div class="stat-item">
         <div class="stat-num"><span class="accent">100+</span></div>
         <div class="stat-label">Features & products shipped</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num"><span class="accent">3</span></div>
-        <div class="stat-label">Markets served — agents, buyers & sellers, business</div>
       </div>
     </div>
   </div>
@@ -964,7 +959,7 @@
             I'm a product manager at <strong>Ramsey Solutions</strong> in Tennessee, where I lead product work across a three-sided real estate marketplace — serving agents, buyers and sellers, and the business itself.
           </p>
           <p>
-            Over 4+ years I've worked across the full funnel: SEO, paid acquisition, marketing automation, lead form optimization, full-stack internal tools, ML-powered connection systems, and AI-powered features. My focus is always the same — understand the real customer problem, find the solution that creates business value, and use technology as the lever.
+            Over 5+ years I've worked across the full funnel: SEO, paid acquisition, marketing automation, lead form optimization, full-stack internal tools, ML-powered connection systems, and AI-powered features. My focus is always the same — understand the real customer problem, find the solution that creates business value, and use technology as the lever.
           </p>
           <p>
             On the side, I bring that same thinking to small businesses: monday.com setups, automations, and integrations built around how they actually operate.
@@ -1116,7 +1111,7 @@
         <p class="tq-text">I've loved seeing how influential you've become in the business. Keep freaking going.</p>
         <div class="tq-divider"></div>
         <div>
-          <div class="tq-name">Jason J.</div>
+          <div class="tq-name">Jason</div>
           <div class="tq-context">Leader · Ramsey Solutions</div>
         </div>
       </div>
@@ -1143,7 +1138,7 @@
         <p class="tq-text">You have a lot going on with a depth of stakeholders, and you're doing an awesome job. Super proud of you.</p>
         <div class="tq-divider"></div>
         <div>
-          <div class="tq-name">Casey C.</div>
+          <div class="tq-name">Casey</div>
           <div class="tq-context">Leader · Ramsey Solutions</div>
         </div>
       </div>
@@ -1247,9 +1242,9 @@
     /* ── TYPING ANIMATION ── */
     const phrases = [
       'product manager · Ramsey Solutions',
-      'real estate tech · 4+ years',
+      'real estate tech · 5+ years',
       'customer problems → business outcomes',
-      '$2.8M recovered and counting',
+      '+$8.2M attributed & recorded',
       'monday.com consultant on the side',
       'technology as the lever',
     ];
