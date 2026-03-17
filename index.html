@@ -241,7 +241,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: rgba(255,255,255,0.4);
       font-weight: 600;
       margin-bottom: 1.5rem;
     }
@@ -1084,22 +1084,23 @@
     }
 
     .contact-link:hover {
-      border-color: rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.02);
+      border-color: rgba(14,165,233,0.3);
+      background: rgba(14,165,233,0.04);
       transform: translateX(3px);
     }
 
     .cl-meta { display: flex; flex-direction: column; gap: 0.15rem; }
-    .cl-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; }
-    .cl-val { font-size: 0.85rem; color: var(--text); }
+    .cl-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; transition: color 0.15s; }
+    .cl-val { font-size: 0.85rem; color: var(--text); transition: color 0.15s; }
     .cl-arrow { color: var(--dim); font-size: 0.85rem; transition: color 0.15s; }
-    .contact-link:hover .cl-arrow { color: var(--text); }
+    .contact-link:hover .cl-val { color: var(--accent); }
+    .contact-link:hover .cl-arrow { color: var(--accent); }
 
     .social-section-title {
       font-size: 0.68rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--accent);
       font-weight: 600;
       margin-bottom: 1rem;
     }
@@ -1124,13 +1125,14 @@
     }
 
     .social-btn:hover {
-      border-color: rgba(255,255,255,0.1);
-      color: var(--text);
+      border-color: rgba(14,165,233,0.3);
+      background: rgba(14,165,233,0.04);
+      color: var(--accent);
       transform: translateY(-1px);
     }
 
     .social-arr { font-size: 0.75rem; opacity: 0.4; transition: opacity 0.15s; }
-    .social-btn:hover .social-arr { opacity: 1; color: var(--text); }
+    .social-btn:hover .social-arr { opacity: 1; color: var(--accent); }
 
     /* ── FOOTER ── */
     footer {
@@ -1436,15 +1438,22 @@
         <div class="ahi">
           <span class="ahi-icon">⚙️</span>
           <div>
-            <div class="ahi-label">Tech Breadth</div>
-            <div class="ahi-text">SEO · Paid Search · ML algorithms · AI · APIs · Full-stack · CMS · Automation · SQL · GraphQL · HTML · CSS · JavaScript · Analytics · Webhooks</div>
+            <div class="ahi-label">Product & Tech Breadth</div>
+            <div class="ahi-text">SEO · Paid Acquisition · ML algorithms · AI integrations · APIs · Full-stack · CMS · Marketing Automation · Analytics · Webhooks</div>
           </div>
         </div>
         <div class="ahi">
           <span class="ahi-icon">💻</span>
           <div>
             <div class="ahi-label">Code Skills · Certified</div>
-            <div class="ahi-text">SQL · GraphQL · HTML · CSS · JavaScript</div>
+            <div class="ahi-text">SQL · GraphQL · HTML · CSS · JavaScript — can write it, read it, and ask the right questions about it</div>
+          </div>
+        </div>
+        <div class="ahi">
+          <span class="ahi-icon">🤝</span>
+          <div>
+            <div class="ahi-label">Engineering Fluency</div>
+            <div class="ahi-text">Translates business and customer requirements into specs engineers want to build from · takes a first pass at the work · knows how to clarify the right things and stay out of the way</div>
           </div>
         </div>
         <div class="ahi">
