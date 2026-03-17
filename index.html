@@ -666,7 +666,7 @@
     .ticker-inner {
       display: flex;
       gap: 2.5rem;
-      animation: ticker 55s linear infinite;
+      animation: ticker 28s linear infinite;
       white-space: nowrap;
     }
 
@@ -677,6 +677,35 @@
 
     .ticker-item { font-size: 0.8rem; color: var(--accent); font-weight: 500; }
     .ticker-item span { color: rgba(14,165,233,0.45); margin-right: 0.25rem; }
+
+    .ticker-track { touch-action: none; pointer-events: none; }
+
+    /* Static tools grid — mobile only */
+    .tools-static {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .tools-static {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.75rem;
+        padding: 0.875rem 1.25rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+      }
+      .tools-static-pill {
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: var(--accent);
+        background: rgba(14,165,233,0.07);
+        border: 1px solid rgba(14,165,233,0.15);
+        padding: 0.2rem 0.6rem;
+        border-radius: 4px;
+        white-space: nowrap;
+      }
+    }
 
     /* ── PM WORK ── */
     .pm-work {
@@ -1538,6 +1567,7 @@
         <div class="ticker-inner" id="ticker"></div>
       </div>
     </div>
+    <div class="tools-static" id="tools-static"></div>
   </div>
 </section>
 
@@ -1797,10 +1827,10 @@
         <h2 class="contact-heading">Get in touch</h2>
         <p class="contact-sub">Have a project, a question, or just want to talk — I'm easy to reach.</p>
         <div class="contact-links">
-          <a href="mailto:irving@irvinglopez.com" class="contact-link">
+          <a href="mailto:contact@irvinglopez.com" class="contact-link">
             <div class="cl-meta">
               <span class="cl-label">Email</span>
-              <span class="cl-val">irving@irvinglopez.com</span>
+              <span class="cl-val">contact@irvinglopez.com</span>
             </div>
             <span class="cl-arrow">→</span>
           </a>
@@ -1863,7 +1893,7 @@
     });
 
     /* ── DYNAMIC YEARS (runs first so phrases can use it) ── */
-    const startYear = 2019;
+    const startYear = 2020;
     const currentYear = new Date().getFullYear();
     const yearsInProduct = currentYear - startYear;
 
@@ -1970,28 +2000,28 @@
         {
           el: accents[0],
           end: yearsInProduct,
-          duration: 750,
+          duration: 1000,
           format: v => Math.floor(v),
           final: yearsInProduct + '+'
         },
         {
           el: accents[1],
           end: 8,
-          duration: 1200,
+          duration: 1500,
           format: v => '$' + Math.floor(v) + 'M',
           final: '$8M+'
         },
         {
           el: accents[2],
           end: 100,
-          duration: 1000,
+          duration: 1300,
           format: v => Math.floor(v / 10) * 10,
           final: '100+'
         },
         {
           el: accents[3],
           end: 120,
-          duration: 1100,
+          duration: 1400,
           format: v => Math.floor(v / 10) * 10 + 'k',
           final: '120k+'
         }
@@ -2081,6 +2111,13 @@
         .map((t) => `<span class="ticker-item"><span>✦</span>${t}</span>`)
         .join('');
       tickerEl.innerHTML = items;
+    }
+
+    const toolsStaticEl = document.getElementById('tools-static');
+    if (toolsStaticEl) {
+      toolsStaticEl.innerHTML = tools
+        .map((t) => `<span class="tools-static-pill">${t}</span>`)
+        .join('');
     }
 
 
