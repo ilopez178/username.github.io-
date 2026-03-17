@@ -197,6 +197,30 @@
       box-shadow: 0 0 20px rgba(14,165,233,0.3);
     }
 
+    .mobile-menu-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: none;
+      border: 1px solid var(--border2);
+      border-radius: 8px;
+      color: var(--muted);
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .mobile-menu-close:hover {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    .mobile-menu { position: fixed; }
+
     /* ── HERO ── */
     .hero {
       padding: 5.5rem 0 5rem;
@@ -217,7 +241,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--accent);
       font-weight: 600;
       margin-bottom: 1.5rem;
     }
@@ -225,7 +249,7 @@
     .hero-eyebrow-dot {
       width: 5px;
       height: 5px;
-      background: #404040;
+      background: var(--accent);
       border-radius: 50%;
       animation: pulse 2s infinite;
     }
@@ -275,7 +299,7 @@
 
     .typing-line {
       min-height: 1.5em;
-      color: var(--text);
+      color: var(--accent);
       font-size: 0.9rem;
       margin-bottom: 2rem;
     }
@@ -421,7 +445,7 @@
 
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
     }
 
     .stat-item {
@@ -534,7 +558,7 @@
 
     .ai-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
@@ -861,6 +885,17 @@
       padding: 1.5rem;
     }
 
+    .review-upwork-link {
+      display: inline-block;
+      margin-top: 0.875rem;
+      font-size: 0.68rem;
+      color: var(--dim);
+      letter-spacing: 0.04em;
+      transition: color 0.15s;
+    }
+
+    .review-upwork-link:hover { color: var(--muted); }
+
     .review-stars {
       font-size: 0.8rem;
       color: #f5a623;
@@ -980,7 +1015,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--muted);
+      color: var(--accent);
       margin-bottom: 1rem;
     }
 
@@ -1002,7 +1037,7 @@
 
     .lang-level {
       font-size: 0.72rem;
-      color: #888;
+      color: var(--accent);
       font-weight: 400;
     }
 
@@ -1142,6 +1177,31 @@
       background: #1a1a1a;
       transform: translateY(-2px);
     }
+
+    /* ── BLUE PERIMETER GLOW ── */
+    @keyframes glowPulse {
+      0%   { box-shadow: 0 0 0 0 rgba(14,165,233,0); }
+      40%  { box-shadow: 0 0 0 1px rgba(14,165,233,0.5), 0 0 18px rgba(14,165,233,0.14); }
+      100% { box-shadow: 0 0 0 1px rgba(14,165,233,0.25), 0 0 8px rgba(14,165,233,0.06); }
+    }
+
+    .ai-card:hover,
+    .work-card:hover,
+    .service-card:hover,
+    .review-card:hover,
+    .testimonial-card:hover {
+      animation: glowPulse 0.4s ease forwards;
+    }
+
+    .cert-card:hover {
+      box-shadow: 0 0 0 1px rgba(14,165,233,0.3), 0 12px 36px rgba(0,0,0,0.5), 0 0 12px rgba(14,165,233,0.08);
+    }
+
+    .ahi:hover {
+      border-color: rgba(14,165,233,0.25);
+      box-shadow: 0 0 0 1px rgba(14,165,233,0.1);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
     .stat-item {
       transition: opacity 0.5s, transform 0.5s, background 0.2s;
       cursor: default;
@@ -1214,8 +1274,9 @@
       .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
       .stat-item:nth-child(odd) { border-right: 1px solid var(--border); }
       .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+      .stat-item:nth-last-child(-n+2):nth-child(even) { border-right: none; }
 
-      .ai-grid,
+      .ai-grid { grid-template-columns: 1fr; }
       .service-grid { grid-template-columns: repeat(2, 1fr); }
       .certs-grid { grid-template-columns: 1fr; }
       .reviews-grid { grid-template-columns: 1fr; }
@@ -1253,7 +1314,12 @@
 </nav>
 
 <!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobile-menu">
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <line x1="4" y1="4" x2="16" y2="16"/><line x1="16" y1="4" x2="4" y2="16"/>
+    </svg>
+  </button>
   <a href="#about"          class="mobile-menu-link">About</a>
   <a href="#work"           class="mobile-menu-link">Work</a>
   <a href="#testimonials"   class="mobile-menu-link">Testimonials</a>
@@ -1275,7 +1341,7 @@
           Product Manager · Ramsey Solutions · Tennessee
         </p>
         <h1 class="hero-name">Irving <span>Lopez</span></h1>
-        <div class="domain-chip">🏠 Real Estate · 3-Sided Marketplace</div>
+        <div class="domain-chip">🏠 Real Estate · Tech</div>
         <p class="hero-tagline">
           I'm a <strong>product manager</strong> focused on solving real customer problems in ways that move the business forward — and using technology to make it happen. On the side, I help small businesses do the same with <strong>monday.com</strong> and workflow automation.
         </p>
@@ -1310,7 +1376,7 @@
   <div class="wrap">
     <div class="stats-grid">
       <div class="stat-item">
-        <div class="stat-num"><span class="accent">5+</span></div>
+        <div class="stat-num"><span class="accent" id="years-stat">5+</span></div>
         <div class="stat-label">Years in Product</div>
       </div>
       <div class="stat-item">
@@ -1320,6 +1386,10 @@
       <div class="stat-item">
         <div class="stat-num"><span class="accent">100+</span></div>
         <div class="stat-label">Features & products shipped</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span class="accent">120k+</span></div>
+        <div class="stat-label">Customers & users served yearly</div>
       </div>
     </div>
   </div>
@@ -1337,7 +1407,10 @@
             I'm a product manager at <strong>Ramsey Solutions</strong> in Tennessee, where I lead product work across a three-sided real estate marketplace — serving agents, buyers and sellers, and the business itself.
           </p>
           <p>
-            Over 5+ years I've worked across the full funnel: SEO, paid acquisition, marketing automation, lead form optimization, full-stack internal tools, ML-powered connection systems, and AI-powered features. My focus is always the same — understand the real customer problem, find the solution that creates business value, and use technology as the lever.
+            Over <span id="about-years">5</span>+ years I've shipped across the full funnel: SEO, paid acquisition, marketing automation, full-stack internal tools, ML-powered connection systems, and AI-powered features. My focus is always the same — understand the real customer problem, find the solution that creates business value, and use technology as the lever.
+          </p>
+          <p>
+            I place a lot of emphasis on clear, precise communication — understanding a problem at depth so I can translate it at the right altitude for engineers, designers, executives, or customers. Good product work lives or dies by how well you can bridge that gap.
           </p>
           <p>
             On the side, I bring that same thinking to small businesses: monday.com setups, automations, and integrations built around how they actually operate.
@@ -1364,7 +1437,7 @@
           <span class="ahi-icon">⚙️</span>
           <div>
             <div class="ahi-label">Tech Breadth</div>
-            <div class="ahi-text">SEO · Paid · ML algorithms · AI · Full-stack · CMS · Automation</div>
+            <div class="ahi-text">SEO · Paid Search · ML algorithms · AI · APIs · Full-stack · CMS · Automation · SQL · Mixpanel · Figma · Jira · Google Analytics · Webhooks</div>
           </div>
         </div>
         <div class="ahi">
@@ -1406,6 +1479,16 @@
           <span class="ai-tool-tag">Marketplace</span>
           <span class="ai-tool-tag">Stakeholder Mgmt</span>
           <span class="ai-tool-tag">Trade-offs</span>
+        </div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-icon">🤝</div>
+        <h3 class="ai-card-title">I lead across disciplines</h3>
+        <p class="ai-card-desc">Day-to-day I work alongside software engineers, automation engineers, designers, data analysts, and SEO specialists. I bridge the technical and the strategic — translating customer problems into precise specs and business goals into things teams can actually build.</p>
+        <div class="ai-tools">
+          <span class="ai-tool-tag">Cross-functional</span>
+          <span class="ai-tool-tag">Engineering Collab</span>
+          <span class="ai-tool-tag">Communication</span>
         </div>
       </div>
     </div>
@@ -1574,16 +1657,19 @@
         <div class="review-stars">★★★★★</div>
         <p class="review-text">Irving was super helpful providing feedback for our application, his consulting really helped get our project off the ground. Thanks again!</p>
         <div class="review-meta">monday.com Search Tool Review · Sep 2025</div>
+        <a href="https://www.upwork.com/freelancers/~010c369f358457a4b2" target="_blank" rel="noopener" class="review-upwork-link">View on Upwork ↗</a>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">I hired Irving for a monday.com update and he exceeded expectations. I had a tight deadline and needed someone who could jump in with minimal direction. He quickly understood the project and delivered.</p>
         <div class="review-meta">AI monday.com Board Set Up · Jun 2025</div>
+        <a href="https://www.upwork.com/freelancers/~010c369f358457a4b2" target="_blank" rel="noopener" class="review-upwork-link">View on Upwork ↗</a>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">He's the backbone of the team when it comes to monday.com integrations and system improvements. I would recommend Irving a million times over.</p>
         <div class="review-meta">Brytton · Senior Team Manager · Dec 2024</div>
+        <a href="https://www.upwork.com/freelancers/~010c369f358457a4b2" target="_blank" rel="noopener" class="review-upwork-link">View on Upwork ↗</a>
       </div>
     </div>
   </div>
@@ -1722,10 +1808,15 @@
       }, 300);
     });
 
+    /* ── DYNAMIC YEARS (runs first so phrases can use it) ── */
+    const startYear = 2019;
+    const currentYear = new Date().getFullYear();
+    const yearsInProduct = currentYear - startYear;
+
     /* ── TYPING ANIMATION ── */
     const phrases = [
       'product manager · Ramsey Solutions',
-      'real estate tech · 5+ years',
+      `real estate tech · ${yearsInProduct}+ years`,
       'customer problems → business outcomes',
       '$8.2M+ attributed & recorded',
       'monday.com consultant on the side',
@@ -1793,22 +1884,46 @@
     }
 
 
+    /* ── DYNAMIC YEARS (DOM update) ── */
+    const yearsStat = document.getElementById('years-stat');
+    const aboutYears = document.getElementById('about-years');
+    if (yearsStat) yearsStat.textContent = yearsInProduct + '+';
+    if (aboutYears) aboutYears.textContent = yearsInProduct;
+
     /* ── HAMBURGER MENU ── */
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
+    const menuClose = document.getElementById('mobile-menu-close');
+
+    const openMenu = () => {
+      mobileMenu.classList.add('open');
+      hamburger.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      const firstLink = mobileMenu.querySelector('.mobile-menu-link');
+      if (firstLink) firstLink.focus();
+    };
+
+    const closeMenu = () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      hamburger.focus();
+    };
 
     hamburger.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburger.classList.toggle('open', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+      mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
     });
 
+    if (menuClose) menuClose.addEventListener('click', closeMenu);
+
     mobileMenu.querySelectorAll('.mobile-menu-link, .mobile-menu-cta').forEach((link) => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        hamburger.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
     });
 
 
