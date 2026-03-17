@@ -117,6 +117,23 @@
       box-shadow: 0 0 16px rgba(14,165,233,0.25);
     }
 
+    .nav-cta-ghost {
+      font-size: 0.78rem;
+      font-weight: 500;
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border2);
+      padding: 0.45rem 1rem;
+      border-radius: 6px;
+      transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .nav-cta-ghost:hover {
+      color: var(--text);
+      background: var(--card);
+      border-color: rgba(14,165,233,0.3);
+    }
+
     /* ── HAMBURGER ── */
     .hamburger {
       display: none;
@@ -1305,6 +1322,7 @@
       <a href="#certifications" class="nav-link">Certifications</a>
       <a href="#education"      class="nav-link">Education</a>
       <a href="#contact"        class="nav-link">Contact</a>
+      <a href="tel:+15053609429" class="nav-cta-ghost">Call me</a>
       <a href="mailto:irving@irvinglopez.com" class="nav-cta">Email me</a>
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span class="hamburger-bar"></span>
@@ -1345,13 +1363,13 @@
         <h1 class="hero-name">Irving <span>Lopez</span></h1>
         <div class="domain-chip">Tech · Real Estate · Operations</div>
         <p class="hero-tagline">
-          I'm a <strong>product manager</strong> who gets excited about real customer problems — the kind that, when solved right, actually move the business. I use tech as the lever, not the answer. On the side, I help small businesses work smarter with <strong>monday.com</strong> and workflow automation.
+          I'm a <strong>product manager</strong> who digs into real customer problems and ships solutions that move the business. Tech is the lever, not the answer. On the side, I help small businesses work smarter with <strong>monday.com</strong> and automation.
         </p>
         <p class="typing-line" id="typing-line"><span class="cursor"></span></p>
         <div class="hero-ctas">
           <a href="mailto:irving@irvinglopez.com" class="btn btn-primary">Email me</a>
+          <a href="tel:+15053609429" class="btn btn-ghost">Call me</a>
           <a href="https://www.upwork.com/freelancers/~010c369f358457a4b2?mp_source=share" target="_blank" rel="noopener" class="btn btn-ghost">Upwork ↗</a>
-          <a href="tel:+15053609429" class="btn btn-ghost">(505) 360-9429</a>
         </div>
       </div>
 
@@ -1406,13 +1424,13 @@
         <h2 class="section-title">PM by day. Consultant on the side.</h2>
         <div class="about-text">
           <p>
-            I'm a product manager at <strong>Ramsey Solutions</strong> in Tennessee, where I get to lead product work across a three-sided real estate marketplace — serving agents, buyers and sellers, and the business itself.
+            I'm a product manager at <strong>Ramsey Solutions</strong> in Tennessee, leading product work across a three-sided real estate marketplace — agents, buyers and sellers, and the business.
           </p>
           <p>
-            Over <span id="about-years">5</span>+ years I've shipped across the full funnel — SEO, paid acquisition, marketing automation, full-stack tools, ML-powered connection systems, and AI-driven features. My focus is always the same: dig into the real customer problem, find the solution that creates business value, and use technology to make it happen.
+            Over <span id="about-years">5</span>+ years I've shipped across the full funnel — SEO, paid acquisition, ML-powered connections, and AI-driven features. The focus is always the same: find the real problem, and use tech to solve it in a way that creates business value.
           </p>
           <p>
-            Clear communication is something I genuinely care about. I try to understand problems deeply so I can translate them for whoever needs to hear it — whether that's an engineer, an executive, or a customer. Good product work really does live or die by how well you bridge that gap.
+            Clear communication is something I genuinely care about. I translate between engineers, executives, and customers — good product work lives or dies on that bridge.
           </p>
           <p>
             On the side, I bring that same thinking to small businesses — monday.com setups, automations, and integrations built around how they actually work.
@@ -1453,7 +1471,7 @@
           <span class="ahi-icon">🤝</span>
           <div>
             <div class="ahi-label">Engineering Fluency</div>
-            <div class="ahi-text">Translates business and customer requirements into specs engineers want to build from · takes a first pass at the work · knows how to clarify the right things and stay out of the way</div>
+            <div class="ahi-text">Writes specs engineers want to build from · takes a first pass · knows when to clarify and when to get out of the way</div>
           </div>
         </div>
         <div class="ahi">
@@ -1470,7 +1488,7 @@
       <div class="ai-card">
         <div class="ai-icon">🔍</div>
         <h3 class="ai-card-title">I find the problem others miss</h3>
-        <p class="ai-card-desc">I dig until I hit root cause — not just symptoms. That's how I found a referral payment gap that had gone unnoticed for years. Three days of digging led to $50K recovered immediately and $2.8M over four years.</p>
+        <p class="ai-card-desc">I dig until I hit root cause, not just symptoms. Found a referral payment gap unnoticed for years — $50K recovered in three days, $2.8M over four years.</p>
         <div class="ai-tools">
           <span class="ai-tool-tag">Discovery</span>
           <span class="ai-tool-tag">Data Analysis</span>
@@ -1490,7 +1508,7 @@
       <div class="ai-card">
         <div class="ai-icon">⚖️</div>
         <h3 class="ai-card-title">I balance three sides of a market</h3>
-        <p class="ai-card-desc">At Ramsey, every decision has to work for agents, for buyers and sellers, and for the business. I navigate that tension every day — making trade-offs explicit and moving the whole system forward.</p>
+        <p class="ai-card-desc">At Ramsey, every decision has to work for agents, buyers, sellers, and the business. I make trade-offs explicit and keep the whole system moving.</p>
         <div class="ai-tools">
           <span class="ai-tool-tag">Marketplace</span>
           <span class="ai-tool-tag">Stakeholder Mgmt</span>
@@ -1500,7 +1518,7 @@
       <div class="ai-card">
         <div class="ai-icon">🤝</div>
         <h3 class="ai-card-title">I lead across disciplines</h3>
-        <p class="ai-card-desc">Day-to-day I work alongside engineers, designers, data analysts, and SEO specialists. I like bridging the technical and the strategic — turning customer problems into specs teams want to build from, and business goals into things that can actually ship.</p>
+        <p class="ai-card-desc">I work alongside engineers, designers, and analysts every day — bridging the technical and the strategic, turning problems into specs teams want to build from.</p>
         <div class="ai-tools">
           <span class="ai-tool-tag">Cross-functional</span>
           <span class="ai-tool-tag">Engineering Collab</span>
@@ -1523,13 +1541,13 @@
   <div class="wrap">
     <p class="section-eyebrow">PM Work</p>
     <h2 class="section-title">What I've built.</h2>
-    <p class="section-sub">Here's a look at some of the work I've done over the past few years at Ramsey Solutions — across a real estate marketplace that serves agents, buyers and sellers, and the business.</p>
+    <p class="section-sub">A look at what I've shipped at Ramsey Solutions — across a three-sided real estate marketplace.</p>
 
     <div class="work-grid">
       <div class="work-card">
         <p class="work-eyebrow">Revenue Impact</p>
         <h3 class="work-title">Found $2.8M hiding in plain sight</h3>
-        <p class="work-desc">Referral fees were closing and we weren't collecting — a gap that had gone unnoticed for years. I found it, built the case, and led the fix end-to-end: integrating an MLS data partner and building the system to track and collect. What started as $50K recovered in three days turned into a multi-million dollar operation.</p>
+        <p class="work-desc">Referral fees were closing and we weren't collecting — unnoticed for years. I found it, built the case, and led the fix: MLS integration, tracking system, collection flow. $50K recovered in three days. $2.8M and counting.</p>
         <div class="work-stat">
           <span class="work-stat-num">$2.8M</span>
           <span class="work-stat-label">collected and counting</span>
@@ -1538,7 +1556,7 @@
       <div class="work-card">
         <p class="work-eyebrow">Full-Funnel Product Work</p>
         <h3 class="work-title">Across marketing, data, and AI</h3>
-        <p class="work-desc">Shipped across the full stack — SEO strategy, Google Ads and Tag Manager, Klaviyo email automation, Magnolia CMS, lead form optimization, data pipelines, and AI-powered features built with Anthropic and OpenAI APIs. Every project tied to a real business metric.</p>
+        <p class="work-desc">SEO, Google Ads, Klaviyo, Magnolia CMS, data pipelines, AI features with Anthropic and OpenAI APIs — 100+ projects, every one tied to a real business metric.</p>
         <div class="work-stat">
           <span class="work-stat-num">100+</span>
           <span class="work-stat-label">features & products shipped</span>
@@ -1547,7 +1565,7 @@
       <div class="work-card">
         <p class="work-eyebrow">ML & Platform</p>
         <h3 class="work-title">Built the connection system</h3>
-        <p class="work-desc">Helped design and ship a connection system powered by an ML algorithm — matching buyers and sellers to the right agents. It took close collaboration across engineering, data science, and ops to get the model and the product working together at scale.</p>
+        <p class="work-desc">Designed and shipped a connection system powered by an ML algorithm — matching buyers and sellers to the right agents, built with engineering, data science, and ops.</p>
         <div class="work-stat">
           <span class="work-stat-num">3-sided</span>
           <span class="work-stat-label">marketplace served</span>
@@ -1556,7 +1574,7 @@
       <div class="work-card">
         <p class="work-eyebrow">Metric Optimization</p>
         <h3 class="work-title">Moved the numbers that matter</h3>
-        <p class="work-desc">Improved select rate, collection rate, session count, SEO rankings, and conversion rates across key product surfaces. Led multiple cross-functional teams through distinct objective areas — always tying the work back to a real customer problem or a measurable business outcome.</p>
+        <p class="work-desc">Improved select rate, collection rate, session count, SEO rankings, and conversions across key surfaces. Led cross-functional teams through multiple objective areas — always tied to a real customer problem.</p>
         <div class="work-stat">
           <span class="work-stat-num">5+</span>
           <span class="work-stat-label">years of consistent outcomes</span>
@@ -1643,27 +1661,27 @@
       <div class="service-card">
         <p class="service-num">01</p>
         <h3 class="service-title">Custom Workflows</h3>
-        <p class="service-desc">Setting up boards that fit your business, not the other way around — built from scratch around how your team actually operates.</p>
+        <p class="service-desc">Boards built around how your team actually works — not the default templates.</p>
       </div>
       <div class="service-card">
         <p class="service-num">02</p>
         <h3 class="service-title">Automations &amp; Integrations</h3>
-        <p class="service-desc">Reducing manual work and connecting monday.com with your other tools — so everything talks to each other and nothing falls through the cracks.</p>
+        <p class="service-desc">Connect monday.com to your other tools so everything talks to each other and nothing slips.</p>
       </div>
       <div class="service-card">
         <p class="service-num">03</p>
         <h3 class="service-title">Process Improvement</h3>
-        <p class="service-desc">Making your workflows more efficient and easier to manage — identifying the friction points and building systems that scale with your team.</p>
+        <p class="service-desc">Find the friction, fix the flow — systems that scale as your team grows.</p>
       </div>
       <div class="service-card">
         <p class="service-num">04</p>
         <h3 class="service-title">Dashboards &amp; Reporting</h3>
-        <p class="service-desc">Helping you track progress and make better decisions — building views and reports that surface what actually matters to your business.</p>
+        <p class="service-desc">Views and reports that surface what actually matters — so decisions are easier to make.</p>
       </div>
       <div class="service-card">
         <p class="service-num">05</p>
         <h3 class="service-title">Onboarding &amp; Training</h3>
-        <p class="service-desc">Training individuals and teams so they feel confident using monday.com — so adoption sticks and the setup actually gets used.</p>
+        <p class="service-desc">Training that sticks — so your team actually uses the setup and gets value from it.</p>
       </div>
     </div>
 
@@ -1772,7 +1790,7 @@
     <div class="contact-inner">
       <div>
         <h2 class="contact-heading">Get in touch</h2>
-        <p class="contact-sub">Happy to chat! Whether you have a question, a project idea, or just want to connect — reach out anytime.</p>
+        <p class="contact-sub">Have a project, a question, or just want to talk — I'm easy to reach.</p>
         <div class="contact-links">
           <a href="mailto:irving@irvinglopez.com" class="contact-link">
             <div class="cl-meta">
