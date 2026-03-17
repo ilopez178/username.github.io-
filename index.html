@@ -103,17 +103,18 @@
     .nav-cta {
       font-size: 0.78rem;
       font-weight: 500;
-      background: #161616;
-      color: #e0e0e0;
-      border: 1px solid #2a2a2a;
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid var(--accent);
       padding: 0.45rem 1rem;
       border-radius: 6px;
       transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
     }
 
     .nav-cta:hover {
-      background: #1f1f1f;
-      box-shadow: none;
+      background: var(--accent2);
+      border-color: var(--accent2);
+      box-shadow: 0 0 16px rgba(14,165,233,0.25);
     }
 
     /* ── HAMBURGER ── */
@@ -452,7 +453,7 @@
       font-size: 0.68rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #6b6b6b;
+      color: var(--accent);
       font-weight: 600;
       margin-bottom: 0.75rem;
     }
@@ -633,8 +634,8 @@
       to   { transform: translateX(-50%); }
     }
 
-    .ticker-item { font-size: 0.8rem; color: var(--text); }
-    .ticker-item span { color: var(--muted); margin-right: 0.25rem; }
+    .ticker-item { font-size: 0.8rem; color: var(--accent); font-weight: 500; }
+    .ticker-item span { color: rgba(14,165,233,0.45); margin-right: 0.25rem; }
 
     /* ── PM WORK ── */
     .pm-work {
@@ -668,7 +669,7 @@
       font-size: 0.65rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #555;
+      color: var(--accent);
       font-weight: 600;
       margin-bottom: 0.6rem;
     }
@@ -699,7 +700,7 @@
     .work-stat-num {
       font-size: 1.65rem;
       font-weight: 700;
-      color: var(--white);
+      color: var(--accent);
       letter-spacing: -0.04em;
       line-height: 1;
     }
@@ -750,8 +751,8 @@
     .tq-mark {
       font-size: 3.5rem;
       line-height: 0.8;
-      color: var(--muted);
-      opacity: 0.25;
+      color: var(--accent);
+      opacity: 0.55;
       font-family: Georgia, 'Times New Roman', serif;
       user-select: none;
     }
@@ -814,7 +815,7 @@
 
     .service-num {
       font-size: 0.65rem;
-      color: #555;
+      color: var(--accent);
       font-weight: 600;
       letter-spacing: 0.1em;
       margin-bottom: 1.25rem;
@@ -1356,21 +1357,21 @@
           <span class="ahi-icon">🏡</span>
           <div>
             <div class="ahi-label">Product Domain</div>
-            <div class="ahi-text">Three-sided marketplace — agents, buyers & sellers, and the business</div>
+            <div class="ahi-text">Real Estate: Three-sided marketplace — agents, buyers & sellers, and the business</div>
           </div>
         </div>
         <div class="ahi">
           <span class="ahi-icon">⚙️</span>
           <div>
             <div class="ahi-label">Tech Breadth</div>
-            <div class="ahi-text">SEO · Paid · ML algorithms · AI (Anthropic, OpenAI) · Full-stack · CMS · Automation</div>
+            <div class="ahi-text">SEO · Paid · ML algorithms · AI · Full-stack · CMS · Automation</div>
           </div>
         </div>
         <div class="ahi">
           <span class="ahi-icon">📍</span>
           <div>
             <div class="ahi-label">Location</div>
-            <div class="ahi-text">Tennessee, USA · Remote-friendly</div>
+            <div class="ahi-text">Tennessee, USA</div>
           </div>
         </div>
       </div>
@@ -1637,11 +1638,11 @@
         <div class="lang-block-title">Languages</div>
         <div class="lang-item">
           <span class="lang-name">English</span>
-          <span class="lang-level">Native or Bilingual</span>
+          <span class="lang-level">Bilingual</span>
         </div>
         <div class="lang-item">
           <span class="lang-name">Spanish</span>
-          <span class="lang-level">Native or Bilingual</span>
+          <span class="lang-level">Bilingual</span>
         </div>
       </div>
     </div>
