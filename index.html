@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Irving Lopez — Product Manager based in Tennessee. I focus on solving real customer problems in ways that create business value, using technology as the lever. On the side I help small businesses with monday.com and workflow automation.">
+  <meta name="description" content="Irving Lopez — Product Manager at Ramsey Solutions. Focused on real estate tech, solving real customer problems, and shipping products that create measurable business value.">
   <title>Irving Lopez</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,9 +41,9 @@
     a { color: inherit; text-decoration: none; }
 
     .wrap {
-      max-width: 1080px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 2.5rem;
     }
 
     /* ── NAV ── */
@@ -170,7 +170,7 @@
       color: var(--muted);
       line-height: 1.75;
       font-weight: 300;
-      max-width: 44ch;
+      max-width: 52ch;
       margin-bottom: 1.5rem;
     }
 
@@ -310,7 +310,7 @@
     /* ── STATS BAR ── */
     .stats-bar {
       border-bottom: 1px solid var(--border);
-      padding: 3rem 0;
+      padding: 0;
       background: var(--surface);
     }
 
@@ -320,7 +320,7 @@
     }
 
     .stat-item {
-      padding: 1.25rem 2rem;
+      padding: 2rem 2.5rem;
       border-right: 1px solid var(--border);
       opacity: 0;
       transform: translateY(12px);
@@ -329,26 +329,23 @@
 
     .stat-item:last-child { border-right: none; }
     .stat-item.visible { opacity: 1; transform: translateY(0); }
+    .stat-item:nth-child(2).visible { transition-delay: 0.1s; }
+    .stat-item:nth-child(3).visible { transition-delay: 0.2s; }
+    .stat-item:nth-child(4).visible { transition-delay: 0.3s; }
 
     .stat-num {
-      font-size: 2rem;
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
       font-weight: 700;
       color: var(--white);
       letter-spacing: -0.04em;
       line-height: 1;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.4rem;
     }
 
     .stat-num .accent { color: var(--accent); }
+    .stat-label { font-size: 0.775rem; color: var(--muted); line-height: 1.4; }
 
-    .stat-label { font-size: 0.775rem; color: var(--muted); }
-
-    /* ── AI SECTION ── */
-    .ai-section {
-      padding: 5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
+    /* ── SHARED SECTION STYLES ── */
     .section-eyebrow {
       font-size: 0.68rem;
       letter-spacing: 0.14em;
@@ -359,21 +356,78 @@
     }
 
     .section-title {
-      font-size: 1.75rem;
+      font-size: clamp(2rem, 3.5vw, 3.25rem);
       font-weight: 700;
       color: var(--white);
-      letter-spacing: -0.03em;
-      margin-bottom: 0.75rem;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
     }
 
     .section-sub {
-      font-size: 0.875rem;
+      font-size: 0.9rem;
       color: var(--muted);
-      max-width: 52ch;
       font-weight: 300;
-      line-height: 1.75;
+      line-height: 1.8;
       margin-bottom: 3rem;
     }
+
+    /* ── ABOUT ── */
+    .about-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      margin-bottom: 3.5rem;
+    }
+
+    .about-text p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-text strong { color: var(--text); font-weight: 500; }
+
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .ahi {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1rem 1.25rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: border-color 0.15s;
+    }
+
+    .ahi:hover { border-color: rgba(14,165,233,0.2); }
+
+    .ahi-icon { font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+    .ahi-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .ahi-text { font-size: 0.82rem; color: var(--text); line-height: 1.5; }
 
     .ai-grid {
       display: grid;
@@ -465,15 +519,12 @@
       flex-shrink: 0;
     }
 
-    .ticker-track {
-      overflow: hidden;
-      flex: 1;
-    }
+    .ticker-track { overflow: hidden; flex: 1; }
 
     .ticker-inner {
       display: flex;
       gap: 2.5rem;
-      animation: ticker 22s linear infinite;
+      animation: ticker 24s linear infinite;
       white-space: nowrap;
     }
 
@@ -484,6 +535,139 @@
 
     .ticker-item { font-size: 0.8rem; color: var(--text); }
     .ticker-item span { color: var(--accent); margin-right: 0.25rem; }
+
+    /* ── PM WORK ── */
+    .pm-work {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .work-card {
+      background: var(--card);
+      padding: 2.5rem;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s, transform 0.5s, background 0.2s;
+    }
+
+    .work-card:hover { background: #181818; }
+    .work-card.visible { opacity: 1; transform: translateY(0); }
+    .work-card:nth-child(2) { transition-delay: 0.08s; }
+    .work-card:nth-child(3) { transition-delay: 0.16s; }
+    .work-card:nth-child(4) { transition-delay: 0.24s; }
+
+    .work-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .work-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+    }
+
+    .work-desc {
+      font-size: 0.825rem;
+      color: var(--muted);
+      line-height: 1.75;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .work-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+
+    .work-stat-num {
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .work-stat-label { font-size: 0.75rem; color: var(--muted); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .testimonial-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s, transform 0.5s, border-color 0.15s;
+    }
+
+    .testimonial-card:hover { border-color: rgba(14,165,233,0.25); }
+    .testimonial-card.visible { opacity: 1; transform: translateY(0); }
+    .testimonial-card:nth-child(2) { transition-delay: 0.1s; }
+    .testimonial-card:nth-child(3) { transition-delay: 0.2s; }
+
+    .testimonial-card img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .testimonial-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tp-icon { font-size: 1.75rem; opacity: 0.25; }
+    .tp-label { font-size: 0.7rem; color: var(--dim); letter-spacing: 0.06em; }
+
+    .testimonial-meta {
+      padding: 1rem 1.25rem;
+    }
+
+    .tm-name {
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .tm-role { font-size: 0.75rem; color: var(--muted); }
 
     /* ── SERVICES ── */
     .services {
@@ -642,17 +826,17 @@
 
     .footer-text { font-size: 0.775rem; color: var(--dim); }
 
-    .footer-ai-tag {
-      font-size: 0.65rem;
-      color: var(--accent);
-      background: rgba(14,165,233,0.08);
-      border: 1px solid rgba(14,165,233,0.15);
-      padding: 0.15rem 0.5rem;
-      border-radius: 4px;
-      font-weight: 500;
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .about-header { gap: 3rem; }
+      .work-grid { grid-template-columns: 1fr; }
     }
 
-    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .about-header { grid-template-columns: 1fr; gap: 2rem; }
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+    }
+
     @media (max-width: 768px) {
       .wrap { padding: 0 1.25rem; }
       .nav-link { display: none; }
@@ -672,6 +856,9 @@
       .ai-grid,
       .service-grid { grid-template-columns: 1fr; }
 
+      .work-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+
       .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
     }
   </style>
@@ -684,6 +871,7 @@
     <span class="nav-name">Irving Lopez</span>
     <div class="nav-links">
       <a href="#about"    class="nav-link">About</a>
+      <a href="#work"     class="nav-link">Work</a>
       <a href="#services" class="nav-link">Services</a>
       <a href="#contact"  class="nav-link">Contact</a>
       <a href="mailto:irving@irvinglopez.com" class="nav-cta">Email me</a>
@@ -698,7 +886,7 @@
       <div>
         <p class="hero-eyebrow">
           <span class="hero-eyebrow-dot"></span>
-          Product Manager · Tennessee
+          Product Manager · Ramsey Solutions · Tennessee
         </p>
         <h1 class="hero-name">Irving <span>Lopez</span></h1>
         <p class="hero-tagline">
@@ -730,30 +918,112 @@
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="ai-section" id="about">
+<!-- STATS BAR -->
+<div class="stats-bar">
   <div class="wrap">
-    <p class="section-eyebrow">About me</p>
-    <h2 class="section-title">PM first. Consultant on the side.</h2>
-    <p class="section-sub">
-      I'm a product manager based in Tennessee. My work lives at the intersection of three things: understanding what customers actually need, finding solutions that create real business value, and using technology to connect the two. On the side, I bring that same thinking to small businesses — monday.com setups, automations, and integrations built around how they actually operate. I work remotely with clients across the country and genuinely enjoy figuring out how a business runs before touching anything.
-    </p>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num"><span class="accent">4+</span></div>
+        <div class="stat-label">Years in Product</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span class="accent">$2.8M</span></div>
+        <div class="stat-label">Revenue recovered & collected</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span class="accent">100+</span></div>
+        <div class="stat-label">Features & products shipped</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span class="accent">3</span></div>
+        <div class="stat-label">Markets served — agents, buyers & sellers, business</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="wrap">
+    <div class="about-header">
+      <div class="about-header-left">
+        <p class="section-eyebrow">About me</p>
+        <h2 class="section-title">PM first.<br>Consultant on the side.</h2>
+        <div class="about-text">
+          <p>
+            I'm a product manager at <strong>Ramsey Solutions</strong> in Tennessee, where I lead product work across a three-sided real estate marketplace — serving agents, buyers and sellers, and the business itself.
+          </p>
+          <p>
+            Over 4+ years I've worked across the full funnel: SEO, paid acquisition, marketing automation, lead form optimization, full-stack internal tools, ML-powered connection systems, and AI-powered features. My focus is always the same — understand the real customer problem, find the solution that creates business value, and use technology as the lever.
+          </p>
+          <p>
+            On the side, I bring that same thinking to small businesses: monday.com setups, automations, and integrations built around how they actually operate.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-highlights">
+        <div class="ahi">
+          <span class="ahi-icon">🏢</span>
+          <div>
+            <div class="ahi-label">Current Role</div>
+            <div class="ahi-text">Product Manager · Ramsey Solutions · Real Estate</div>
+          </div>
+        </div>
+        <div class="ahi">
+          <span class="ahi-icon">🏡</span>
+          <div>
+            <div class="ahi-label">Product Domain</div>
+            <div class="ahi-text">Three-sided marketplace — agents, buyers & sellers, and the business</div>
+          </div>
+        </div>
+        <div class="ahi">
+          <span class="ahi-icon">⚙️</span>
+          <div>
+            <div class="ahi-label">Tech Breadth</div>
+            <div class="ahi-text">SEO · Paid · ML algorithms · AI (Anthropic, OpenAI) · Full-stack · CMS · Automation</div>
+          </div>
+        </div>
+        <div class="ahi">
+          <span class="ahi-icon">📍</span>
+          <div>
+            <div class="ahi-label">Location</div>
+            <div class="ahi-text">Tennessee, USA · Remote-friendly</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="ai-grid">
       <div class="ai-card">
-        <div class="ai-icon">📋</div>
-        <h3 class="ai-card-title">I start by listening</h3>
-        <p class="ai-card-desc">Before building anything, I want to understand how your team actually works — what's breaking down, what's getting dropped, and what a good day looks like.</p>
+        <div class="ai-icon">🔍</div>
+        <h3 class="ai-card-title">I find the problem others miss</h3>
+        <p class="ai-card-desc">I dig until I understand root cause — not just symptoms. That's how I discovered a referral payment gap that had been overlooked for years. Three days of investigation led to $50K recovered immediately and $2.8M over four years.</p>
+        <div class="ai-tools">
+          <span class="ai-tool-tag">Discovery</span>
+          <span class="ai-tool-tag">Data Analysis</span>
+          <span class="ai-tool-tag">Customer Interviews</span>
+        </div>
       </div>
       <div class="ai-card">
-        <div class="ai-icon">🔧</div>
-        <h3 class="ai-card-title">I build what fits</h3>
-        <p class="ai-card-desc">No cookie-cutter setups. I tailor monday.com boards, automations, and integrations to match how your team operates — not how a template says you should.</p>
+        <div class="ai-icon">🚀</div>
+        <h3 class="ai-card-title">I ship across the full stack</h3>
+        <p class="ai-card-desc">From SEO and marketing funnels to ML algorithms and AI integrations — I've led work across 100+ features and products, collaborating closely with engineering, data, and design to get things to market and performing.</p>
+        <div class="ai-tools">
+          <span class="ai-tool-tag">Roadmapping</span>
+          <span class="ai-tool-tag">Cross-functional</span>
+          <span class="ai-tool-tag">Full-stack</span>
+        </div>
       </div>
       <div class="ai-card">
-        <div class="ai-icon">📌</div>
-        <h3 class="ai-card-title">I stick around</h3>
-        <p class="ai-card-desc">The system only works if people use it. I do onboarding, answer questions, and keep things optimized after launch — not just hand it off and disappear.</p>
+        <div class="ai-icon">⚖️</div>
+        <h3 class="ai-card-title">I balance three sides of a market</h3>
+        <p class="ai-card-desc">At Ramsey, every decision has to work for agents, for buyers and sellers, and for the business. I navigate that tension every day — making trade-offs explicit and moving the whole system forward.</p>
+        <div class="ai-tools">
+          <span class="ai-tool-tag">Marketplace</span>
+          <span class="ai-tool-tag">Stakeholder Mgmt</span>
+          <span class="ai-tool-tag">Trade-offs</span>
+        </div>
       </div>
     </div>
 
@@ -766,11 +1036,101 @@
   </div>
 </section>
 
+<!-- PM WORK -->
+<section class="pm-work" id="work">
+  <div class="wrap">
+    <p class="section-eyebrow">PM Work</p>
+    <h2 class="section-title">What I've built.</h2>
+    <p class="section-sub">Four years of product work at Ramsey Solutions, across a real estate marketplace that serves agents, buyers and sellers, and the business.</p>
+
+    <div class="work-grid">
+      <div class="work-card">
+        <p class="work-eyebrow">Revenue Impact</p>
+        <h3 class="work-title">Found $2.8M hiding in plain sight</h3>
+        <p class="work-desc">Referral fees were closing without us collecting — a gap that had gone unnoticed for years. I identified the problem, determined the solution, and led implementation end-to-end: integrating an MLS data partner that covered both buyers and sellers and building the system to track and collect. What started as $50K recovered in three days became a multi-million dollar operation.</p>
+        <div class="work-stat">
+          <span class="work-stat-num">$2.8M</span>
+          <span class="work-stat-label">collected and counting</span>
+        </div>
+      </div>
+      <div class="work-card">
+        <p class="work-eyebrow">Full-Funnel Product Work</p>
+        <h3 class="work-title">Across marketing, data, and AI</h3>
+        <p class="work-desc">Shipped across the full stack — SEO strategy, Google Ads and Tag Manager integrations, Klaviyo email automation, Magnolia CMS, lead form optimization, data mapping to internal databases, and building AI-powered features using Anthropic and OpenAI APIs. Each project tied to a real business metric.</p>
+        <div class="work-stat">
+          <span class="work-stat-num">100+</span>
+          <span class="work-stat-label">features & products shipped</span>
+        </div>
+      </div>
+      <div class="work-card">
+        <p class="work-eyebrow">ML & Platform</p>
+        <h3 class="work-title">Built the connection system</h3>
+        <p class="work-desc">Helped design and ship a connection system powered by an ML algorithm — matching buyers and sellers to agents based on fit. Required close collaboration across engineering, data science, and operations to get the model and the product working together at scale.</p>
+        <div class="work-stat">
+          <span class="work-stat-num">3-sided</span>
+          <span class="work-stat-label">marketplace served</span>
+        </div>
+      </div>
+      <div class="work-card">
+        <p class="work-eyebrow">Metric Optimization</p>
+        <h3 class="work-title">Moved the numbers that matter</h3>
+        <p class="work-desc">Improved select rate, collection rate, session count, SEO rankings, and conversion rates across key product surfaces. Led multiple cross-functional teams through distinct objective areas — always tying the work back to a real customer problem or a measurable business outcome.</p>
+        <div class="work-stat">
+          <span class="work-stat-num">4+</span>
+          <span class="work-stat-label">years of consistent outcomes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="wrap">
+    <p class="section-eyebrow">Leadership</p>
+    <h2 class="section-title">What leaders say.</h2>
+    <p class="section-sub">Feedback from leaders I've had the chance to work under at Ramsey Solutions.</p>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-placeholder">
+          <span class="tp-icon">💬</span>
+          <span class="tp-label">Photo coming soon</span>
+        </div>
+        <div class="testimonial-meta">
+          <div class="tm-name">Leader recommendation</div>
+          <div class="tm-role">Ramsey Solutions</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-placeholder">
+          <span class="tp-icon">💬</span>
+          <span class="tp-label">Photo coming soon</span>
+        </div>
+        <div class="testimonial-meta">
+          <div class="tm-name">Leader recommendation</div>
+          <div class="tm-role">Ramsey Solutions</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-placeholder">
+          <span class="tp-icon">💬</span>
+          <span class="tp-label">Photo coming soon</span>
+        </div>
+        <div class="testimonial-meta">
+          <div class="tm-name">Leader recommendation</div>
+          <div class="tm-role">Ramsey Solutions</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SERVICES -->
 <section class="services" id="services">
   <div class="wrap">
     <p class="section-eyebrow">Side consulting</p>
-    <h2 class="section-title">How I help small businesses</h2>
+    <h2 class="section-title">How I help small businesses.</h2>
     <p class="section-sub">A handful of things I help clients with on the side.</p>
 
     <div class="service-grid">
@@ -861,12 +1221,12 @@
 
     /* ── TYPING ANIMATION ── */
     const phrases = [
-      'product manager by trade',
+      'product manager · Ramsey Solutions',
+      'real estate tech · 4+ years',
       'customer problems → business outcomes',
-      'based in Tennessee',
+      '$2.8M recovered and counting',
       'monday.com consultant on the side',
       'technology as the lever',
-      'workflow automation nerd',
     ];
 
     const typingEl = document.getElementById('typing-line');
@@ -906,24 +1266,6 @@
     setTimeout(type, 900);
 
 
-    /* ── COUNTER ANIMATION ── */
-    const easeOut = (t) => 1 - (1 - t) ** 3;
-
-    const animateCount = (el, target, duration = 1400) => {
-      const countEl = el.querySelector('.count');
-      if (!countEl) return;
-      const start = performance.now();
-
-      const step = (now) => {
-        const progress = Math.min((now - start) / duration, 1);
-        countEl.textContent = Math.round(easeOut(progress) * target);
-        if (progress < 1) requestAnimationFrame(step);
-      };
-
-      requestAnimationFrame(step);
-    };
-
-
     /* ── INTERSECTION OBSERVER ── */
     const once = (selector, cb, threshold = 0.15) => {
       const io = new IntersectionObserver((entries) => {
@@ -936,7 +1278,8 @@
       document.querySelectorAll(selector).forEach((el) => io.observe(el));
     };
 
-    once('.ai-card, .service-card', (el) => el.classList.add('visible'));
+    once('.ai-card, .service-card, .work-card, .testimonial-card', (el) => el.classList.add('visible'));
+    once('.stat-item', (el) => el.classList.add('visible'));
 
 
     /* ── ACTIVE NAV ── */
@@ -955,11 +1298,12 @@
     sections.forEach((s) => navIO.observe(s));
 
 
-    /* ── AI TICKER ── */
+    /* ── TICKER ── */
     const tools = [
-      'monday.com', 'Zapier', 'Make', 'Notion',
-      'Slack', 'HubSpot', 'Airtable', 'n8n',
-      'ChatGPT', 'Claude', 'Google Workspace', 'Loom',
+      'monday.com', 'Anthropic', 'OpenAI', 'Google Ads',
+      'Google Tag Manager', 'Klaviyo', 'Magnolia CMS', 'HubSpot',
+      'Zapier', 'Make', 'Notion', 'Airtable',
+      'Slack', 'n8n', 'Google Workspace', 'Loom',
     ];
 
     const tickerEl = document.getElementById('ticker');
