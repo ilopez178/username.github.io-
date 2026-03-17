@@ -841,6 +841,82 @@
       font-weight: 300;
     }
 
+    /* ── EDUCATION & LANGUAGES ── */
+    .edu-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .edu-lang-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      margin-top: 2.5rem;
+      align-items: start;
+    }
+
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .edu-entry {
+      border-left: 2px solid var(--accent);
+      padding-left: 1.25rem;
+    }
+
+    .edu-school {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .edu-degree {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .lang-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+
+    .lang-block-title {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .lang-item:last-child { border-bottom: none; }
+
+    .lang-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .lang-level {
+      font-size: 0.72rem;
+      color: var(--accent);
+      font-weight: 400;
+    }
+
     /* ── CONTACT ── */
     .contact { padding: 5rem 0; }
 
@@ -977,6 +1053,7 @@
       .service-grid { grid-template-columns: repeat(2, 1fr); }
       .certs-grid { grid-template-columns: 1fr; }
       .reviews-grid { grid-template-columns: 1fr; }
+      .edu-lang-grid { grid-template-columns: 1fr; }
 
       .work-grid { grid-template-columns: 1fr; }
       .testimonials-grid { grid-template-columns: 1fr; }
@@ -1211,9 +1288,8 @@
 
     <div class="testimonials-grid">
       <div class="testimonial-card">
-        <div class="tq-stars">★★★★★</div>
         <div class="tq-mark">"</div>
-        <p class="tq-text">He's the backbone of the team when it comes to monday.com integrations and system improvements. I would recommend Irving a million times over — he poses questions that most people don't thoroughly think through.</p>
+        <p class="tq-text">He's the backbone of the team when it comes to monday.com integrations and system improvements. I would recommend Irving a million times over...</p>
         <div class="tq-divider"></div>
         <div>
           <div class="tq-name">Brytton</div>
@@ -1347,6 +1423,39 @@
         <div class="cert-issuer">Coursera · Google</div>
         <div class="cert-name">Google Data Analytics Professional Certificate</div>
         <div class="cert-date">Issued July 2022</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION & LANGUAGES -->
+<section class="edu-section" id="education">
+  <div class="wrap">
+    <p class="section-eyebrow">Background</p>
+    <h2 class="section-title">Education & Languages.</h2>
+
+    <div class="edu-lang-grid">
+      <div class="edu-list">
+        <div class="edu-entry">
+          <div class="edu-school">The University of New Mexico</div>
+          <div class="edu-degree">Bachelor's degree, Spanish Language and Literature · 2013 – 2016</div>
+        </div>
+        <div class="edu-entry">
+          <div class="edu-school">The University of New Mexico</div>
+          <div class="edu-degree">Bachelor's degree, Criminology · 2013 – 2016</div>
+        </div>
+      </div>
+
+      <div class="lang-block">
+        <div class="lang-block-title">Languages</div>
+        <div class="lang-item">
+          <span class="lang-name">English</span>
+          <span class="lang-level">Native or Bilingual</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">Spanish</span>
+          <span class="lang-level">Native or Bilingual</span>
+        </div>
       </div>
     </div>
   </div>
