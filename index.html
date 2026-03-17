@@ -116,6 +116,86 @@
       box-shadow: none;
     }
 
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      border: none;
+      background: none;
+      z-index: 110;
+    }
+
+    .hamburger-bar {
+      width: 21px;
+      height: 1.5px;
+      background: var(--muted);
+      border-radius: 1px;
+      transition: transform 0.22s cubic-bezier(0.4,0,0.2,1), opacity 0.15s;
+    }
+
+    .hamburger.open .hamburger-bar { background: var(--white); }
+    .hamburger.open .hamburger-bar:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open .hamburger-bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open .hamburger-bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 105;
+      background: rgba(8,8,8,0.97);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      padding: 2rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu-link {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--muted);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      transition: color 0.15s, background 0.15s;
+      letter-spacing: -0.02em;
+      width: 100%;
+      text-align: center;
+      max-width: 280px;
+    }
+
+    .mobile-menu-link:hover { color: var(--white); background: rgba(255,255,255,0.04); }
+
+    .mobile-menu-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1.5rem;
+      padding: 0.75rem 2.5rem;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 280px;
+      transition: background 0.15s, box-shadow 0.15s;
+    }
+
+    .mobile-menu-cta:hover {
+      background: var(--accent2);
+      box-shadow: 0 0 20px rgba(14,165,233,0.3);
+    }
+
     /* ── HERO ── */
     .hero {
       padding: 5.5rem 0 5rem;
@@ -165,6 +245,21 @@
     }
 
     .hero-name span { color: var(--white); }
+
+    .domain-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: rgba(14,165,233,0.08);
+      border: 1px solid rgba(14,165,233,0.22);
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.04em;
+    }
 
     .hero-tagline {
       font-size: 1rem;
@@ -218,14 +313,15 @@
     }
 
     .btn-primary {
-      background: #1c1c1c;
-      color: #e8e8e8;
-      border: 1px solid #303030;
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid var(--accent);
     }
 
     .btn-primary:hover {
-      background: #242424;
-      box-shadow: none;
+      background: var(--accent2);
+      border-color: var(--accent2);
+      box-shadow: 0 0 22px rgba(14,165,233,0.3);
       transform: translateY(-1px);
     }
 
@@ -348,7 +444,7 @@
       margin-bottom: 0.4rem;
     }
 
-    .stat-num .accent { color: var(--white); }
+    .stat-num .accent { color: var(--accent); }
     .stat-label { font-size: 0.775rem; color: var(--muted); line-height: 1.4; }
 
     /* ── SHARED SECTION STYLES ── */
@@ -1104,6 +1200,8 @@
       .wrap { padding: 0 1.25rem; }
       .nav-link { display: none; }
       .nav-links { gap: 0.75rem; }
+      .hamburger { display: flex; }
+      .nav-cta { display: none; }
 
       .hero { padding: 3rem 0; }
       .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -1144,9 +1242,26 @@
       <a href="#education"      class="nav-link">Education</a>
       <a href="#contact"        class="nav-link">Contact</a>
       <a href="mailto:irving@irvinglopez.com" class="nav-cta">Email me</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
     </div>
   </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about"          class="mobile-menu-link">About</a>
+  <a href="#work"           class="mobile-menu-link">Work</a>
+  <a href="#testimonials"   class="mobile-menu-link">Testimonials</a>
+  <a href="#services"       class="mobile-menu-link">Consulting</a>
+  <a href="#certifications" class="mobile-menu-link">Certifications</a>
+  <a href="#education"      class="mobile-menu-link">Education</a>
+  <a href="#contact"        class="mobile-menu-link">Contact</a>
+  <a href="mailto:irving@irvinglopez.com" class="mobile-menu-cta">Email me</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -1159,6 +1274,7 @@
           Product Manager · Ramsey Solutions · Tennessee
         </p>
         <h1 class="hero-name">Irving <span>Lopez</span></h1>
+        <div class="domain-chip">🏠 Real Estate · 3-Sided Marketplace</div>
         <p class="hero-tagline">
           I'm a <strong>product manager</strong> focused on solving real customer problems in ways that move the business forward — and using technology to make it happen. On the side, I help small businesses do the same with <strong>monday.com</strong> and workflow automation.
         </p>
@@ -1674,6 +1790,25 @@
         photoRing.classList.add('spin-done');
       });
     }
+
+
+    /* ── HAMBURGER MENU ── */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    mobileMenu.querySelectorAll('.mobile-menu-link, .mobile-menu-cta').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
 
 
     /* ── ACTIVE NAV ── */
