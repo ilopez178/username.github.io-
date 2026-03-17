@@ -23,7 +23,7 @@
       --white:    #f2f2f2;
       --accent:   #0ea5e9;
       --accent2:  #38bdf8;
-      --glow:     rgba(14,165,233,0.15);
+      --glow:     rgba(255,255,255,0.03);
     }
 
     html { scroll-behavior: smooth; }
@@ -91,7 +91,7 @@
       left: 0;
       width: 0;
       height: 1px;
-      background: var(--accent);
+      background: rgba(14,165,233,0.4);
       transition: width 0.2s;
     }
 
@@ -103,16 +103,17 @@
     .nav-cta {
       font-size: 0.78rem;
       font-weight: 500;
-      background: var(--accent);
-      color: #fff;
+      background: #161616;
+      color: #e0e0e0;
+      border: 1px solid #2a2a2a;
       padding: 0.45rem 1rem;
       border-radius: 6px;
-      transition: opacity 0.15s, box-shadow 0.15s;
+      transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
     }
 
     .nav-cta:hover {
-      opacity: 0.9;
-      box-shadow: 0 0 20px var(--glow);
+      background: #1f1f1f;
+      box-shadow: none;
     }
 
     /* ── HERO ── */
@@ -135,7 +136,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--muted);
       font-weight: 600;
       margin-bottom: 1.5rem;
     }
@@ -143,7 +144,7 @@
     .hero-eyebrow-dot {
       width: 5px;
       height: 5px;
-      background: var(--accent);
+      background: #404040;
       border-radius: 50%;
       animation: pulse 2s infinite;
     }
@@ -163,7 +164,7 @@
       white-space: nowrap;
     }
 
-    .hero-name span { color: var(--accent); }
+    .hero-name span { color: var(--white); }
 
     .hero-tagline {
       font-size: 1rem;
@@ -187,7 +188,7 @@
       display: inline-block;
       width: 2px;
       height: 1em;
-      background: var(--accent);
+      background: rgba(14,165,233,0.7);
       vertical-align: middle;
       margin-left: 1px;
       animation: blink 1s step-end infinite;
@@ -217,13 +218,14 @@
     }
 
     .btn-primary {
-      background: var(--accent);
-      color: #fff;
+      background: #1c1c1c;
+      color: #e8e8e8;
+      border: 1px solid #303030;
     }
 
     .btn-primary:hover {
-      opacity: 0.9;
-      box-shadow: 0 0 24px var(--glow);
+      background: #242424;
+      box-shadow: none;
       transform: translateY(-1px);
     }
 
@@ -265,7 +267,7 @@
     .photo-ring.spin-done::before {
       animation: none;
       background: transparent;
-      border: 3px solid var(--accent);
+      border: 3px solid rgba(14,165,233,0.4);
     }
 
     @keyframes spinOnce { to { transform: rotate(360deg); } }
@@ -298,9 +300,9 @@
       gap: 0.4rem;
       font-size: 0.72rem;
       font-weight: 500;
-      color: var(--accent);
-      background: rgba(14,165,233,0.08);
-      border: 1px solid rgba(14,165,233,0.2);
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
       padding: 0.35rem 0.75rem;
       border-radius: 20px;
     }
@@ -308,7 +310,7 @@
     .badge-dot {
       width: 5px;
       height: 5px;
-      background: var(--accent);
+      background: #4a4a4a;
       border-radius: 50%;
       animation: pulse 2s infinite;
     }
@@ -347,7 +349,7 @@
       margin-bottom: 0.4rem;
     }
 
-    .stat-num .accent { color: var(--accent); }
+    .stat-num .accent { color: var(--white); }
     .stat-label { font-size: 0.775rem; color: var(--muted); line-height: 1.4; }
 
     /* ── SHARED SECTION STYLES ── */
@@ -355,7 +357,7 @@
       font-size: 0.68rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: #6b6b6b;
       font-weight: 600;
       margin-bottom: 0.75rem;
     }
@@ -461,8 +463,8 @@
     .ai-icon {
       width: 36px;
       height: 36px;
-      background: rgba(14,165,233,0.1);
-      border: 1px solid rgba(14,165,233,0.2);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -495,9 +497,9 @@
     .ai-tool-tag {
       font-size: 0.68rem;
       font-weight: 500;
-      color: var(--accent);
-      background: rgba(14,165,233,0.08);
-      border: 1px solid rgba(14,165,233,0.15);
+      color: #888;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
       padding: 0.2rem 0.55rem;
       border-radius: 4px;
     }
@@ -1069,10 +1071,13 @@
   <div class="wrap">
     <span class="nav-name">Irving Lopez</span>
     <div class="nav-links">
-      <a href="#about"    class="nav-link">About</a>
-      <a href="#work"     class="nav-link">Work</a>
-      <a href="#services" class="nav-link">Services</a>
-      <a href="#contact"  class="nav-link">Contact</a>
+      <a href="#about"          class="nav-link">About</a>
+      <a href="#work"           class="nav-link">Work</a>
+      <a href="#testimonials"   class="nav-link">Testimonials</a>
+      <a href="#services"       class="nav-link">Consulting</a>
+      <a href="#certifications" class="nav-link">Certifications</a>
+      <a href="#education"      class="nav-link">Education</a>
+      <a href="#contact"        class="nav-link">Contact</a>
       <a href="mailto:irving@irvinglopez.com" class="nav-cta">Email me</a>
     </div>
   </div>
@@ -1289,11 +1294,11 @@
     <div class="testimonials-grid">
       <div class="testimonial-card">
         <div class="tq-mark">"</div>
-        <p class="tq-text">He's the backbone of the team when it comes to monday.com integrations and system improvements. I would recommend Irving a million times over...</p>
+        <p class="tq-text">He's the backbone of the team when it comes to monday.com integrations and system improvements. I would recommend Irving a million times over.</p>
         <div class="tq-divider"></div>
         <div>
           <div class="tq-name">Brytton</div>
-          <div class="tq-context">Senior Team Manager, Product Integrations · Verified on Upwork</div>
+          <div class="tq-context">Senior Team Manager · Sourced</div>
         </div>
       </div>
       <div class="testimonial-card">
