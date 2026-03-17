@@ -259,10 +259,16 @@
       inset: -3px;
       border-radius: 50%;
       background: conic-gradient(var(--accent) 0deg, transparent 120deg, var(--accent2) 240deg, transparent 360deg);
-      animation: spin 8s linear infinite;
+      animation: spinOnce 8s linear 1 forwards;
     }
 
-    @keyframes spin { to { transform: rotate(360deg); } }
+    .photo-ring.spin-done::before {
+      animation: none;
+      background: transparent;
+      border: 3px solid var(--accent);
+    }
+
+    @keyframes spinOnce { to { transform: rotate(360deg); } }
 
     .photo-ring img,
     .photo-fallback {
@@ -642,6 +648,13 @@
     /* center lone card in last row of 3-col grid */
     .testimonial-card:nth-child(3n+2):last-child { grid-column: 2; }
 
+    .tq-stars {
+      font-size: 0.9rem;
+      color: #f5a623;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
     .tq-mark {
       font-size: 3.5rem;
       line-height: 0.8;
@@ -730,6 +743,51 @@
       color: var(--muted);
       line-height: 1.75;
       font-weight: 300;
+    }
+
+    /* ── CLIENT REVIEWS ── */
+    .reviews-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin: 3rem 0 1.25rem;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .review-card {
+      background: var(--card);
+      padding: 1.5rem;
+    }
+
+    .review-stars {
+      font-size: 0.8rem;
+      color: #f5a623;
+      margin-bottom: 0.5rem;
+    }
+
+    .review-text {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 0.875rem;
+    }
+
+    .review-meta {
+      font-size: 0.7rem;
+      color: var(--accent);
+      font-weight: 500;
     }
 
     /* ── CERTIFICATIONS ── */
@@ -918,6 +976,7 @@
       .ai-grid,
       .service-grid { grid-template-columns: repeat(2, 1fr); }
       .certs-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
 
       .work-grid { grid-template-columns: 1fr; }
       .testimonials-grid { grid-template-columns: 1fr; }
@@ -990,7 +1049,7 @@
         <div class="stat-label">Years in Product</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num"><span class="accent">+$8.2M</span></div>
+        <div class="stat-num"><span class="accent">$8.2M+</span></div>
         <div class="stat-label">Attributed & Recorded Revenue</div>
       </div>
       <div class="stat-item">
@@ -1007,7 +1066,7 @@
     <div class="about-header">
       <div class="about-header-left">
         <p class="section-eyebrow">About me</p>
-        <h2 class="section-title">PM first.<br>Consultant on the side.</h2>
+        <h2 class="section-title">PM first. Consultant on the side.</h2>
         <div class="about-text">
           <p>
             I'm a product manager at <strong>Ramsey Solutions</strong> in Tennessee, where I lead product work across a three-sided real estate marketplace — serving agents, buyers and sellers, and the business itself.
@@ -1152,8 +1211,9 @@
 
     <div class="testimonials-grid">
       <div class="testimonial-card">
+        <div class="tq-stars">★★★★★</div>
         <div class="tq-mark">"</div>
-        <p class="tq-text">Irving is a very unique talent that is hard to come by. I have had the privilege of working with him for the last 5+ years. Irving is an awesome leader, team contributor, and product manager. He leads a team of 5 developers in his full-time role with Ramsey Solutions and also does some incredible work in his part-time gigs. He's the backbone of our team when it comes to Monday.com integrations and system improvements. I would recommend Irving a million times over because he is just that excellent at what he does and he poses questions that most people don't thoroughly think through.</p>
+        <p class="tq-text">He's the backbone of the team when it comes to monday.com integrations and system improvements. I would recommend Irving a million times over — he poses questions that most people don't thoroughly think through.</p>
         <div class="tq-divider"></div>
         <div>
           <div class="tq-name">Brytton</div>
@@ -1241,6 +1301,25 @@
         <p class="service-num">05</p>
         <h3 class="service-title">Onboarding &amp; Training</h3>
         <p class="service-desc">Training individuals and teams so they feel confident using monday.com — so adoption sticks and the setup actually gets used.</p>
+      </div>
+    </div>
+
+    <p class="reviews-title">Client reviews on Upwork · All 5.0 ★</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Irving was super helpful providing feedback for our application, his consulting really helped get our project off the ground. Thanks again!</p>
+        <div class="review-meta">monday.com Search Tool Review · Sep 2025</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I hired Irving for a monday.com update and he exceeded expectations. I had a tight deadline and needed someone who could jump in with minimal direction. He quickly understood the project and delivered.</p>
+        <div class="review-meta">AI monday.com Board Set Up · Jun 2025</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">He's the backbone of the team when it comes to monday.com integrations and system improvements. I would recommend Irving a million times over.</p>
+        <div class="review-meta">Brytton · Senior Team Manager · Dec 2024</div>
       </div>
     </div>
   </div>
@@ -1344,7 +1423,7 @@
       'product manager · Ramsey Solutions',
       'real estate tech · 5+ years',
       'customer problems → business outcomes',
-      '+$8.2M attributed & recorded',
+      '$8.2M+ attributed & recorded',
       'monday.com consultant on the side',
       'technology as the lever',
     ];
@@ -1400,6 +1479,14 @@
 
     once('.ai-card, .service-card, .work-card, .testimonial-card, .cert-card', (el) => el.classList.add('visible'));
     once('.stat-item', (el) => el.classList.add('visible'));
+
+    /* ── PHOTO RING: spin once on load, then static blue ring ── */
+    const photoRing = document.querySelector('.photo-ring');
+    if (photoRing) {
+      photoRing.addEventListener('animationend', () => {
+        photoRing.classList.add('spin-done');
+      });
+    }
 
 
     /* ── ACTIVE NAV ── */
