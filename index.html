@@ -624,50 +624,60 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 10px;
-      overflow: hidden;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
       opacity: 0;
       transform: translateY(16px);
       transition: opacity 0.5s, transform 0.5s, border-color 0.15s;
     }
 
-    .testimonial-card:hover { border-color: rgba(14,165,233,0.25); }
+    .testimonial-card:hover { border-color: rgba(14,165,233,0.2); }
     .testimonial-card.visible { opacity: 1; transform: translateY(0); }
-    .testimonial-card:nth-child(2) { transition-delay: 0.1s; }
-    .testimonial-card:nth-child(3) { transition-delay: 0.2s; }
+    .testimonial-card:nth-child(2) { transition-delay: 0.08s; }
+    .testimonial-card:nth-child(3) { transition-delay: 0.16s; }
+    .testimonial-card:nth-child(4) { transition-delay: 0.24s; }
+    .testimonial-card:nth-child(5) { transition-delay: 0.32s; }
 
-    .testimonial-card img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
+    /* center lone card in last row of 3-col grid */
+    .testimonial-card:nth-child(3n+2):last-child { grid-column: 2; }
+
+    .tq-mark {
+      font-size: 3.5rem;
+      line-height: 0.8;
+      color: var(--accent);
+      opacity: 0.25;
+      font-family: Georgia, 'Times New Roman', serif;
+      user-select: none;
     }
 
-    .testimonial-placeholder {
-      width: 100%;
-      aspect-ratio: 4/3;
-      background: var(--surface);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      border-bottom: 1px solid var(--border);
+    .tq-text {
+      font-size: 0.875rem;
+      color: var(--text);
+      line-height: 1.75;
+      font-weight: 300;
+      font-style: italic;
+      flex: 1;
     }
 
-    .tp-icon { font-size: 1.75rem; opacity: 0.25; }
-    .tp-label { font-size: 0.7rem; color: var(--dim); letter-spacing: 0.06em; }
-
-    .testimonial-meta {
-      padding: 1rem 1.25rem;
+    .tq-divider {
+      height: 1px;
+      background: var(--border);
     }
 
-    .tm-name {
+    .tq-name {
       font-size: 0.825rem;
       font-weight: 600;
-      color: var(--text);
+      color: var(--white);
       margin-bottom: 0.2rem;
     }
 
-    .tm-role { font-size: 0.75rem; color: var(--muted); }
+    .tq-context {
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
 
     /* ── SERVICES ── */
     .services {
@@ -1093,33 +1103,48 @@
 
     <div class="testimonials-grid">
       <div class="testimonial-card">
-        <div class="testimonial-placeholder">
-          <span class="tp-icon">💬</span>
-          <span class="tp-label">Photo coming soon</span>
-        </div>
-        <div class="testimonial-meta">
-          <div class="tm-name">Leader recommendation</div>
-          <div class="tm-role">Ramsey Solutions</div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-placeholder">
-          <span class="tp-icon">💬</span>
-          <span class="tp-label">Photo coming soon</span>
-        </div>
-        <div class="testimonial-meta">
-          <div class="tm-name">Leader recommendation</div>
-          <div class="tm-role">Ramsey Solutions</div>
+        <div class="tq-mark">"</div>
+        <p class="tq-text">We wouldn't be anywhere near where we are without you.</p>
+        <div class="tq-divider"></div>
+        <div>
+          <div class="tq-name">Rel</div>
+          <div class="tq-context">Keepin' It REL Award · Ramsey Solutions</div>
         </div>
       </div>
       <div class="testimonial-card">
-        <div class="testimonial-placeholder">
-          <span class="tp-icon">💬</span>
-          <span class="tp-label">Photo coming soon</span>
+        <div class="tq-mark">"</div>
+        <p class="tq-text">I've loved seeing how influential you've become in the business. Keep freaking going.</p>
+        <div class="tq-divider"></div>
+        <div>
+          <div class="tq-name">Jason J.</div>
+          <div class="tq-context">Leader · Ramsey Solutions</div>
         </div>
-        <div class="testimonial-meta">
-          <div class="tm-name">Leader recommendation</div>
-          <div class="tm-role">Ramsey Solutions</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="tq-mark">"</div>
+        <p class="tq-text">Small but significant things that lead to big influence. I'm really thankful for the opportunity to work with you.</p>
+        <div class="tq-divider"></div>
+        <div>
+          <div class="tq-name">Hunter</div>
+          <div class="tq-context">Leader · Ramsey Solutions</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="tq-mark">"</div>
+        <p class="tq-text">Your ownership, positive attitude, and GSD approach has been impressive to see.</p>
+        <div class="tq-divider"></div>
+        <div>
+          <div class="tq-name">Elizabeth</div>
+          <div class="tq-context">Summit Award · Ramsey Solutions</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="tq-mark">"</div>
+        <p class="tq-text">You have a lot going on with a depth of stakeholders, and you're doing an awesome job. Super proud of you.</p>
+        <div class="tq-divider"></div>
+        <div>
+          <div class="tq-name">Casey C.</div>
+          <div class="tq-context">Leader · Ramsey Solutions</div>
         </div>
       </div>
     </div>
