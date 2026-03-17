@@ -649,7 +649,7 @@
     .ticker-inner {
       display: flex;
       gap: 2.5rem;
-      animation: ticker 24s linear infinite;
+      animation: ticker 55s linear infinite;
       white-space: nowrap;
     }
 
@@ -1437,7 +1437,14 @@
           <span class="ahi-icon">⚙️</span>
           <div>
             <div class="ahi-label">Tech Breadth</div>
-            <div class="ahi-text">SEO · Paid Search · ML algorithms · AI · APIs · Full-stack · CMS · Automation · SQL · Mixpanel · Figma · Jira · Google Analytics · Webhooks</div>
+            <div class="ahi-text">SEO · Paid Search · ML algorithms · AI · APIs · Full-stack · CMS · Automation · SQL · GraphQL · HTML · CSS · JavaScript · Analytics · Webhooks</div>
+          </div>
+        </div>
+        <div class="ahi">
+          <span class="ahi-icon">💻</span>
+          <div>
+            <div class="ahi-label">Code Skills · Certified</div>
+            <div class="ahi-text">SQL · GraphQL · HTML · CSS · JavaScript</div>
           </div>
         </div>
         <div class="ahi">
@@ -1698,6 +1705,21 @@
         <div class="cert-name">Google Data Analytics Professional Certificate</div>
         <div class="cert-date">Issued July 2022</div>
       </div>
+      <div class="cert-card">
+        <div class="cert-issuer">Certified · SQL</div>
+        <div class="cert-name">Structured Query Language</div>
+        <div class="cert-date">Database querying & analytics</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">Certified · GraphQL</div>
+        <div class="cert-name">GraphQL API Queries</div>
+        <div class="cert-date">API design & data fetching</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">Certified · Frontend</div>
+        <div class="cert-name">HTML · CSS · JavaScript</div>
+        <div class="cert-date">Web fundamentals & interactivity</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1945,10 +1967,16 @@
 
     /* ── TICKER ── */
     const tools = [
-      'monday.com', 'Anthropic', 'OpenAI', 'Google Ads',
-      'Google Tag Manager', 'Klaviyo', 'Magnolia CMS', 'HubSpot',
-      'Zapier', 'Make', 'Notion', 'Airtable',
-      'Slack', 'n8n', 'Google Workspace', 'Loom',
+      'monday.com', 'Mixpanel', 'Figma', 'FigJam',
+      'Redshift', 'Twilio', 'Calendly', 'Tableau',
+      'Optimizely', 'Notion', 'Jira', 'Zendesk',
+      'HotJar', 'Zoom', 'GitHub', 'SendGrid',
+      'Salesforce', 'Outreach', 'Stripe', 'Mapbox',
+      'Postman', 'Zapier', 'Pendo', 'Claude',
+      'ChatGPT', 'Google Workspace', 'Microsoft 365',
+      'Google Ads', 'Google Tag Manager', 'Klaviyo',
+      'Magnolia CMS', 'HubSpot', 'Make', 'Airtable',
+      'Slack', 'n8n', 'Loom', 'Anthropic',
     ];
 
     const tickerEl = document.getElementById('ticker');
