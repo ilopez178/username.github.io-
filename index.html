@@ -1405,7 +1405,7 @@
         <div class="stat-label">Years in Product</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num"><span class="accent">$8.2M+</span></div>
+        <div class="stat-num"><span class="accent">$8M+</span></div>
         <div class="stat-label">Attributed & Recorded Revenue</div>
       </div>
       <div class="stat-item">
@@ -1872,7 +1872,7 @@
       'product manager · Ramsey Solutions',
       `real estate tech · ${yearsInProduct}+ years`,
       'customer problems → business outcomes',
-      '$8.2M+ attributed & recorded',
+      '$8M+ attributed & recorded',
       'monday.com consultant on the side',
       'technology as the lever',
     ];
@@ -1970,28 +1970,28 @@
         {
           el: accents[0],
           end: yearsInProduct,
-          duration: 1100,
+          duration: 750,
           format: v => Math.floor(v),
           final: yearsInProduct + '+'
         },
         {
           el: accents[1],
-          end: 8.2,
-          duration: 1800,
+          end: 8,
+          duration: 1200,
           format: v => '$' + Math.floor(v) + 'M',
-          final: '$8.2M+'
+          final: '$8M+'
         },
         {
           el: accents[2],
           end: 100,
-          duration: 1500,
+          duration: 1000,
           format: v => Math.floor(v / 10) * 10,
           final: '100+'
         },
         {
           el: accents[3],
           end: 120,
-          duration: 1700,
+          duration: 1100,
           format: v => Math.floor(v / 10) * 10 + 'k',
           final: '120k+'
         }
