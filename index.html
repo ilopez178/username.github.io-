@@ -1286,13 +1286,13 @@
         padding: 0.35rem 0.65rem;
       }
 
-      .hero { padding: 1.75rem 0 2rem; }
-      .hero-inner { grid-template-columns: 1fr; gap: 1.25rem; }
+      .hero { padding: 2.25rem 0 2.5rem; }
+      .hero-inner { grid-template-columns: 1fr; gap: 1.75rem; }
       .hero-name { font-size: 2.5rem; white-space: normal; margin-bottom: 0.5rem; }
-      .hero-photo-col { order: -1; gap: 0.625rem; }
-      .photo-ring { width: 140px; height: 140px; }
-      .hero-tagline { font-size: 0.925rem; line-height: 1.6; margin-bottom: 1rem; }
-      .typing-line { margin-bottom: 1.25rem; }
+      .hero-photo-col { order: -1; gap: 0.75rem; }
+      .photo-ring { width: 145px; height: 145px; }
+      .hero-tagline { font-size: 0.925rem; line-height: 1.6; margin-bottom: 1.1rem; }
+      .typing-line { margin-bottom: 1.4rem; }
 
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
@@ -1939,10 +1939,74 @@
 
 
     /* ── DYNAMIC YEARS (DOM update) ── */
-    const yearsStat = document.getElementById('years-stat');
     const aboutYears = document.getElementById('about-years');
-    if (yearsStat) yearsStat.textContent = yearsInProduct + '+';
     if (aboutYears) aboutYears.textContent = yearsInProduct;
+
+    /* ── STAT COUNTER ANIMATIONS ── */
+    (function () {
+      const statsBar = document.querySelector('.stats-bar');
+      if (!statsBar) return;
+
+      const easeOut = t => 1 - Math.pow(1 - t, 3);
+
+      function runCounter(el, cfg) {
+        const { end, duration, format, final } = cfg;
+        el.textContent = format(0);
+        const t0 = performance.now();
+        const tick = (now) => {
+          const p = Math.min((now - t0) / duration, 1);
+          if (p < 1) {
+            el.textContent = format(end * easeOut(p));
+            requestAnimationFrame(tick);
+          } else {
+            el.textContent = final;
+          }
+        };
+        requestAnimationFrame(tick);
+      }
+
+      const accents = statsBar.querySelectorAll('.stat-num .accent');
+      const configs = [
+        {
+          el: accents[0],
+          end: yearsInProduct,
+          duration: 1100,
+          format: v => Math.floor(v),
+          final: yearsInProduct + '+'
+        },
+        {
+          el: accents[1],
+          end: 8.2,
+          duration: 1800,
+          format: v => '$' + Math.floor(v) + 'M',
+          final: '$8.2M+'
+        },
+        {
+          el: accents[2],
+          end: 100,
+          duration: 1500,
+          format: v => Math.floor(v / 10) * 10,
+          final: '100+'
+        },
+        {
+          el: accents[3],
+          end: 120,
+          duration: 1700,
+          format: v => Math.floor(v / 10) * 10 + 'k',
+          final: '120k+'
+        }
+      ];
+
+      let fired = false;
+      const io = new IntersectionObserver((entries) => {
+        if (fired || !entries[0].isIntersecting) return;
+        fired = true;
+        configs.forEach(c => { if (c.el) runCounter(c.el, c); });
+        io.disconnect();
+      }, { threshold: 0.4 });
+
+      io.observe(statsBar);
+    }());
 
     /* ── HAMBURGER MENU ── */
     const hamburger = document.getElementById('hamburger');
