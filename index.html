@@ -686,7 +686,7 @@
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
@@ -706,6 +706,8 @@
     .service-card.visible { opacity: 1; transform: translateY(0); }
     .service-card:nth-child(2) { transition-delay: 0.1s; }
     .service-card:nth-child(3) { transition-delay: 0.2s; }
+    .service-card:nth-child(4) { transition-delay: 0.3s; }
+    .service-card:nth-child(5) { transition-delay: 0.4s; }
 
     .service-num {
       font-size: 0.65rem;
@@ -727,6 +729,57 @@
       font-size: 0.8rem;
       color: var(--muted);
       line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* ── CERTIFICATIONS ── */
+    .certs-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .cert-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s, transform 0.5s, background 0.2s;
+    }
+
+    .cert-card:hover { background: #181818; }
+    .cert-card.visible { opacity: 1; transform: translateY(0); }
+    .cert-card:nth-child(2) { transition-delay: 0.1s; }
+    .cert-card:nth-child(3) { transition-delay: 0.2s; }
+
+    .cert-issuer {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .cert-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+
+    .cert-date {
+      font-size: 0.78rem;
+      color: var(--muted);
       font-weight: 300;
     }
 
@@ -863,7 +916,8 @@
       .stat-item:nth-last-child(-n+2) { border-bottom: none; }
 
       .ai-grid,
-      .service-grid { grid-template-columns: 1fr; }
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .certs-grid { grid-template-columns: 1fr; }
 
       .work-grid { grid-template-columns: 1fr; }
       .testimonials-grid { grid-template-columns: 1fr; }
@@ -1046,7 +1100,7 @@
   <div class="wrap">
     <p class="section-eyebrow">PM Work</p>
     <h2 class="section-title">What I've built.</h2>
-    <p class="section-sub">Four years of product work at Ramsey Solutions, across a real estate marketplace that serves agents, buyers and sellers, and the business.</p>
+    <p class="section-sub">Five years of product work at Ramsey Solutions, across a real estate marketplace that serves agents, buyers and sellers, and the business.</p>
 
     <div class="work-grid">
       <div class="work-card">
@@ -1081,7 +1135,7 @@
         <h3 class="work-title">Moved the numbers that matter</h3>
         <p class="work-desc">Improved select rate, collection rate, session count, SEO rankings, and conversion rates across key product surfaces. Led multiple cross-functional teams through distinct objective areas — always tying the work back to a real customer problem or a measurable business outcome.</p>
         <div class="work-stat">
-          <span class="work-stat-num">4+</span>
+          <span class="work-stat-num">5+</span>
           <span class="work-stat-label">years of consistent outcomes</span>
         </div>
       </div>
@@ -1097,6 +1151,15 @@
     <p class="section-sub">Feedback from leaders I've had the chance to work under at Ramsey Solutions.</p>
 
     <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="tq-mark">"</div>
+        <p class="tq-text">Irving is a very unique talent that is hard to come by. I have had the privilege of working with him for the last 5+ years. Irving is an awesome leader, team contributor, and product manager. He leads a team of 5 developers in his full-time role with Ramsey Solutions and also does some incredible work in his part-time gigs. He's the backbone of our team when it comes to Monday.com integrations and system improvements. I would recommend Irving a million times over because he is just that excellent at what he does and he poses questions that most people don't thoroughly think through.</p>
+        <div class="tq-divider"></div>
+        <div>
+          <div class="tq-name">Brytton</div>
+          <div class="tq-context">Senior Team Manager, Product Integrations · Verified on Upwork</div>
+        </div>
+      </div>
       <div class="testimonial-card">
         <div class="tq-mark">"</div>
         <p class="tq-text">We wouldn't be anywhere near where we are without you.</p>
@@ -1156,18 +1219,55 @@
     <div class="service-grid">
       <div class="service-card">
         <p class="service-num">01</p>
-        <h3 class="service-title">monday.com Setup</h3>
-        <p class="service-desc">Building out workspaces from scratch — CRM boards, project tracking, automations, and integrations set up the way your team actually works.</p>
+        <h3 class="service-title">Custom Workflows</h3>
+        <p class="service-desc">Setting up boards that fit your business, not the other way around — built from scratch around how your team actually operates.</p>
       </div>
       <div class="service-card">
         <p class="service-num">02</p>
-        <h3 class="service-title">Workflow Automation</h3>
-        <p class="service-desc">Connecting tools and automating the repetitive stuff — so your team spends less time on manual tasks and more time on real work.</p>
+        <h3 class="service-title">Automations &amp; Integrations</h3>
+        <p class="service-desc">Reducing manual work and connecting monday.com with your other tools — so everything talks to each other and nothing falls through the cracks.</p>
       </div>
       <div class="service-card">
         <p class="service-num">03</p>
-        <h3 class="service-title">Training &amp; Ongoing Support</h3>
-        <p class="service-desc">Helping your team get comfortable with the setup, answering questions as they come up, and tweaking things as your needs change.</p>
+        <h3 class="service-title">Process Improvement</h3>
+        <p class="service-desc">Making your workflows more efficient and easier to manage — identifying the friction points and building systems that scale with your team.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">04</p>
+        <h3 class="service-title">Dashboards &amp; Reporting</h3>
+        <p class="service-desc">Helping you track progress and make better decisions — building views and reports that surface what actually matters to your business.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">05</p>
+        <h3 class="service-title">Onboarding &amp; Training</h3>
+        <p class="service-desc">Training individuals and teams so they feel confident using monday.com — so adoption sticks and the setup actually gets used.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certs-section" id="certifications">
+  <div class="wrap">
+    <p class="section-eyebrow">Credentials</p>
+    <h2 class="section-title">Certifications.</h2>
+    <p class="section-sub">Verified credentials in the tools and disciplines I work with.</p>
+
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-issuer">monday.com · Partner Verified</div>
+        <div class="cert-name">Advanced Workflow</div>
+        <div class="cert-date">Issued July 2024</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">monday.com · Partner Verified</div>
+        <div class="cert-name">monday.com Work Management</div>
+        <div class="cert-date">Issued July 2024</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">Coursera · Google</div>
+        <div class="cert-name">Google Data Analytics Professional Certificate</div>
+        <div class="cert-date">Issued July 2022</div>
       </div>
     </div>
   </div>
@@ -1298,7 +1398,7 @@
       document.querySelectorAll(selector).forEach((el) => io.observe(el));
     };
 
-    once('.ai-card, .service-card, .work-card, .testimonial-card', (el) => el.classList.add('visible'));
+    once('.ai-card, .service-card, .work-card, .testimonial-card, .cert-card', (el) => el.classList.add('visible'));
     once('.stat-item', (el) => el.classList.add('visible'));
 
 
