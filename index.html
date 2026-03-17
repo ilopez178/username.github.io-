@@ -154,12 +154,13 @@
     }
 
     .hero-name {
-      font-size: 3.25rem;
+      font-size: clamp(3rem, 5vw, 4.75rem);
       font-weight: 700;
       color: var(--white);
-      letter-spacing: -0.04em;
-      line-height: 1.05;
+      letter-spacing: -0.05em;
+      line-height: 1;
       margin-bottom: 1.25rem;
+      white-space: nowrap;
     }
 
     .hero-name span { color: var(--accent); }
@@ -659,7 +660,7 @@
 
       .hero { padding: 3rem 0; }
       .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .hero-name { font-size: 2.25rem; }
+      .hero-name { font-size: 2.5rem; white-space: normal; }
       .hero-photo-col { order: -1; }
       .photo-ring { width: 160px; height: 160px; }
 
@@ -699,7 +700,7 @@
           <span class="hero-eyebrow-dot"></span>
           Systems &amp; Operations Consultant
         </p>
-        <h1 class="hero-name">Irving<br><span>Lopez</span></h1>
+        <h1 class="hero-name">Irving <span>Lopez</span></h1>
         <p class="hero-tagline">
           Based in Tennessee. I work with small businesses on <strong>monday.com, workflow automation,</strong> and building systems that actually make day-to-day work easier.
         </p>

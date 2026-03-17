@@ -635,7 +635,7 @@
                     I'm a <strong>Product Manager at Ramsey Solutions</strong> in Nashville, where I focus on <strong>driving business growth</strong> through customer-focused product development. I solve real problems, optimize for efficiency, and create solutions that generate measurable revenue impact.
                 </p>
                 <p>
-                    Beyond my product management role, I run <strong>Streamline</strong> — a consultancy where I specialize in monday.com implementations and operational optimization. I help businesses across the U.S. build custom work management systems that eliminate chaos and create clarity, from project tracking to workflow automation backed by AI tools and integrations.
+                    Beyond my product management role, I run <strong>Irving Lopez</strong> — a consultancy where I specialize in monday.com implementations and operational optimization. I help businesses across the U.S. build custom work management systems that eliminate chaos and create clarity, from project tracking to workflow automation backed by AI tools and integrations.
                 </p>
                 <p>
                     Originally from New Mexico, I now call Tennessee home with my beautiful wife and two incredible kiddos. I bring a unique blend of product thinking, systems design, and hands-on technical implementation to everything I do.
