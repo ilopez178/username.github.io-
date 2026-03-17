@@ -1,1079 +1,1034 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Irving Lopez — Product Manager at Ramsey Solutions & Systems Consultant. monday.com expert helping businesses build better systems.">
-    <title>Irving Lopez — PM & Systems Consultant</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --bg: #060911;
-            --surface: #0c1120;
-            --surface-2: #111827;
-            --border: rgba(99, 102, 241, 0.15);
-            --border-subtle: rgba(255, 255, 255, 0.05);
-            --border-hover: rgba(99, 102, 241, 0.35);
-            --text: #cbd5e1;
-            --muted: #64748b;
-            --dim: #334155;
-            --white: #f1f5f9;
-            --accent: #6366f1;
-            --accent-light: #818cf8;
-            --accent-2: #a78bfa;
-            --green: #10b981;
-            --green-dim: rgba(16, 185, 129, 0.12);
-            --amber: #fbbf24;
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            -webkit-font-smoothing: antialiased;
-            line-height: 1.6;
-            font-size: 15px;
-            overflow-x: hidden;
-        }
-
-        a { color: inherit; text-decoration: none; }
-
-        .wrap {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* ── NAV ── */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 1rem 0;
-            background: rgba(6, 9, 17, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        nav .wrap {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .nav-avatar {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent), var(--accent-2));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.62rem;
-            font-weight: 700;
-            color: white;
-            letter-spacing: 0.02em;
-            flex-shrink: 0;
-        }
-
-        .nav-name {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--white);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            font-size: 0.825rem;
-            color: var(--muted);
-            transition: color 0.2s;
-        }
-
-        .nav-link:hover { color: var(--text); }
-
-        .nav-cta {
-            font-size: 0.8rem;
-            font-weight: 500;
-            background: rgba(99, 102, 241, 0.12);
-            color: var(--accent-light);
-            padding: 0.475rem 1.1rem;
-            border-radius: 7px;
-            border: 1px solid rgba(99, 102, 241, 0.25);
-            transition: all 0.2s;
-        }
-
-        .nav-cta:hover {
-            background: rgba(99, 102, 241, 0.22);
-            border-color: rgba(99, 102, 241, 0.5);
-        }
-
-        /* ── HERO ── */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 8rem 0 5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-glow-1 {
-            position: absolute;
-            top: -15%;
-            right: -5%;
-            width: 65%;
-            height: 75%;
-            background: radial-gradient(ellipse, rgba(99, 102, 241, 0.09) 0%, transparent 65%);
-            pointer-events: none;
-        }
-
-        .hero-glow-2 {
-            position: absolute;
-            bottom: -15%;
-            left: -5%;
-            width: 55%;
-            height: 65%;
-            background: radial-gradient(ellipse, rgba(167, 139, 250, 0.06) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-inner {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.375rem 0.9rem;
-            background: rgba(16, 185, 129, 0.08);
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            border-radius: 100px;
-            font-size: 0.72rem;
-            color: #34d399;
-            font-weight: 500;
-            letter-spacing: 0.02em;
-            margin-bottom: 1.5rem;
-        }
-
-        .badge-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--green);
-            box-shadow: 0 0 8px var(--green);
-            animation: blink 2.2s ease-in-out infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.35; }
-        }
-
-        .hero-role {
-            font-size: 0.73rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--accent-light);
-            font-weight: 600;
-            margin-bottom: 1.1rem;
-        }
-
-        .hero-name {
-            font-size: clamp(2.75rem, 5.5vw, 4.25rem);
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            line-height: 1.05;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--white) 30%, var(--accent-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-desc {
-            font-size: 0.975rem;
-            color: var(--muted);
-            line-height: 1.85;
-            max-width: 50ch;
-            margin-bottom: 1.75rem;
-            font-weight: 300;
-        }
-
-        .hero-desc strong {
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        .hero-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 2.25rem;
-        }
-
-        .tag {
-            padding: 0.3rem 0.8rem;
-            background: var(--surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: 100px;
-            font-size: 0.72rem;
-            color: var(--muted);
-        }
-
-        .hero-ctas {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.725rem 1.35rem;
-            border-radius: 8px;
-            font-size: 0.855rem;
-            font-weight: 500;
-            transition: all 0.2s;
-            white-space: nowrap;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-            box-shadow: 0 0 24px rgba(99, 102, 241, 0.32);
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-light);
-            box-shadow: 0 0 36px rgba(99, 102, 241, 0.45);
-            transform: translateY(-1px);
-        }
-
-        .btn-ghost {
-            background: var(--surface);
-            border: 1px solid var(--border-subtle);
-            color: var(--text);
-        }
-
-        .btn-ghost:hover {
-            border-color: var(--border-hover);
-            background: rgba(99, 102, 241, 0.07);
-            transform: translateY(-1px);
-        }
-
-        /* Hero Right */
-        .hero-right {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .card {
-            background: var(--surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: 14px;
-            padding: 1.5rem;
-            transition: border-color 0.2s;
-        }
-
-        .card:hover { border-color: var(--border); }
-
-        .card-label {
-            font-size: 0.68rem;
-            letter-spacing: 0.13em;
-            text-transform: uppercase;
-            color: var(--dim);
-            font-weight: 600;
-            margin-bottom: 1.25rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.75rem;
-        }
-
-        .stat {
-            padding: 1.1rem;
-            background: var(--bg);
-            border: 1px solid var(--border-subtle);
-            border-radius: 10px;
-            transition: border-color 0.2s;
-        }
-
-        .stat:hover { border-color: var(--border); }
-
-        .stat-num {
-            font-size: 1.625rem;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: -0.03em;
-            line-height: 1;
-            margin-bottom: 0.3rem;
-        }
-
-        .stat-label {
-            font-size: 0.72rem;
-            color: var(--muted);
-        }
-
-        .role-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 0.625rem;
-        }
-
-        .role-card {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.825rem 1rem;
-            background: var(--bg);
-            border: 1px solid var(--border-subtle);
-            border-radius: 10px;
-            transition: all 0.2s;
-        }
-
-        .role-card:hover {
-            border-color: var(--border);
-            background: rgba(99, 102, 241, 0.04);
-        }
-
-        .role-card-left {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .role-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            flex-shrink: 0;
-        }
-
-        .ri-blue { background: rgba(99, 102, 241, 0.14); }
-        .ri-green { background: rgba(16, 185, 129, 0.12); }
-        .ri-amber { background: rgba(251, 191, 36, 0.12); }
-
-        .role-name { font-size: 0.8rem; font-weight: 500; color: var(--white); line-height: 1.2; }
-        .role-co { font-size: 0.7rem; color: var(--muted); }
-
-        .pill {
-            font-size: 0.65rem;
-            padding: 0.22rem 0.65rem;
-            border-radius: 100px;
-            font-weight: 500;
-        }
-
-        .pill-green { background: rgba(16, 185, 129, 0.1); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.2); }
-        .pill-amber { background: rgba(251, 191, 36, 0.1); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.2); }
-
-        /* ── ABOUT ── */
-        .about {
-            padding: 6rem 0;
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .about-inner {
-            display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
-            gap: 5rem;
-            align-items: start;
-        }
-
-        .section-eyebrow {
-            font-size: 0.72rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--accent-light);
-            font-weight: 600;
-            margin-bottom: 0.875rem;
-        }
-
-        .section-title {
-            font-size: 1.875rem;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: -0.03em;
-            line-height: 1.2;
-            margin-bottom: 0.875rem;
-        }
-
-        .section-sub {
-            font-size: 0.875rem;
-            color: var(--muted);
-            line-height: 1.8;
-            font-weight: 300;
-        }
-
-        .about-body p {
-            font-size: 0.9rem;
-            color: var(--text);
-            line-height: 1.9;
-            margin-bottom: 1.25rem;
-            font-weight: 300;
-        }
-
-        .about-body p:last-of-type { margin-bottom: 1.5rem; }
-        .about-body strong { color: var(--white); font-weight: 500; }
-
-        .highlights {
-            display: flex;
-            flex-direction: column;
-            gap: 0.625rem;
-        }
-
-        .highlight {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            padding: 0.875rem 1rem;
-            background: var(--surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: 9px;
-            font-size: 0.825rem;
-            color: var(--text);
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-
-        .highlight:hover { border-color: var(--border); }
-
-        .h-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--accent);
-            margin-top: 0.48rem;
-            flex-shrink: 0;
-            box-shadow: 0 0 6px rgba(99, 102, 241, 0.5);
-        }
-
-        /* ── WORK ── */
-        .work {
-            padding: 6rem 0;
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .work-header { margin-bottom: 3rem; }
-
-        .work-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.25rem;
-        }
-
-        .work-card {
-            background: var(--surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: 14px;
-            padding: 2rem;
-            transition: all 0.25s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .work-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .work-card:hover { border-color: var(--border); transform: translateY(-2px); }
-        .work-card:hover::before { opacity: 1; }
-
-        .work-card-icon {
-            width: 46px;
-            height: 46px;
-            border-radius: 11px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            margin-bottom: 1.375rem;
-        }
-
-        .wci-blue { background: rgba(99, 102, 241, 0.12); }
-        .wci-green { background: rgba(16, 185, 129, 0.1); }
-
-        .work-card-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--white);
-            margin-bottom: 0.3rem;
-            letter-spacing: -0.02em;
-        }
-
-        .work-card-org {
-            font-size: 0.78rem;
-            color: var(--accent-light);
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .work-card-desc {
-            font-size: 0.845rem;
-            color: var(--muted);
-            line-height: 1.8;
-            margin-bottom: 1.375rem;
-            font-weight: 300;
-        }
-
-        .tag-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-        }
-
-        .work-tag {
-            padding: 0.22rem 0.65rem;
-            background: var(--bg);
-            border: 1px solid var(--border-subtle);
-            border-radius: 100px;
-            font-size: 0.68rem;
-            color: var(--dim);
-        }
-
-        /* ── SERVICES ── */
-        .services {
-            padding: 6rem 0;
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .services-header {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: end;
-            margin-bottom: 3rem;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: var(--border-subtle);
-            border: 1px solid var(--border-subtle);
-            border-radius: 14px;
-            overflow: hidden;
-        }
-
-        .service-card {
-            background: var(--surface);
-            padding: 1.875rem;
-            transition: background 0.2s;
-        }
-
-        .service-card:hover { background: var(--surface-2); }
-
-        .service-num {
-            font-size: 0.65rem;
-            color: var(--accent-light);
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            margin-bottom: 1.25rem;
-        }
-
-        .service-title {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--white);
-            margin-bottom: 0.625rem;
-            line-height: 1.35;
-        }
-
-        .service-desc {
-            font-size: 0.815rem;
-            color: var(--muted);
-            line-height: 1.8;
-            font-weight: 300;
-        }
-
-        /* ── CONTACT ── */
-        .contact {
-            padding: 6rem 0;
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .contact-inner {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: start;
-        }
-
-        .contact-title {
-            font-size: 1.875rem;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: -0.03em;
-            line-height: 1.2;
-            margin-bottom: 0.875rem;
-        }
-
-        .contact-sub {
-            font-size: 0.875rem;
-            color: var(--muted);
-            margin-bottom: 2rem;
-            font-weight: 300;
-            line-height: 1.75;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.625rem;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 1.125rem;
-            background: var(--surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: 11px;
-            transition: all 0.2s;
-        }
-
-        .contact-link:hover {
-            border-color: var(--border-hover);
-            background: rgba(99, 102, 241, 0.05);
-        }
-
-        .cl-left { display: flex; align-items: center; gap: 0.875rem; }
-
-        .cl-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 9px;
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-            color: var(--accent-light);
-            flex-shrink: 0;
-            font-style: normal;
-        }
-
-        .cl-meta { display: flex; flex-direction: column; gap: 0.1rem; }
-        .cl-label { font-size: 0.64rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
-        .cl-val { font-size: 0.855rem; color: var(--text); }
-        .cl-arrow { color: var(--dim); font-size: 0.875rem; transition: all 0.2s; }
-        .contact-link:hover .cl-arrow { color: var(--accent-light); transform: translateX(3px); }
-
-        .social-title {
-            font-size: 0.72rem;
-            letter-spacing: 0.13em;
-            text-transform: uppercase;
-            color: var(--dim);
-            font-weight: 600;
-            margin-bottom: 1.25rem;
-        }
-
-        .social-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.625rem;
-        }
-
-        .social-btn {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.875rem 1rem;
-            background: var(--surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: 9px;
-            font-size: 0.825rem;
-            color: var(--muted);
-            transition: all 0.2s;
-        }
-
-        .social-btn:hover {
-            border-color: var(--border-hover);
-            color: var(--text);
-            background: rgba(99, 102, 241, 0.05);
-        }
-
-        .s-arr { font-size: 0.8rem; opacity: 0.35; transition: opacity 0.2s; }
-        .social-btn:hover .s-arr { opacity: 0.7; }
-
-        /* ── FOOTER ── */
-        footer {
-            border-top: 1px solid var(--border-subtle);
-            padding: 1.75rem 0;
-        }
-
-        footer .wrap {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .footer-text { font-size: 0.775rem; color: var(--dim); }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 900px) {
-            .hero-inner { grid-template-columns: 1fr; gap: 0; }
-            .hero-right { display: none; }
-            .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-            .work-grid { grid-template-columns: 1fr; }
-            .services-header { grid-template-columns: 1fr; gap: 1rem; }
-            .service-grid { grid-template-columns: 1fr; }
-            .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
-        }
-
-        @media (max-width: 640px) {
-            .wrap { padding: 0 1.25rem; }
-            .nav-links { gap: 1rem; }
-            .nav-link { display: none; }
-            .hero { padding: 7rem 0 4rem; min-height: auto; }
-            .hero-name { font-size: 2.5rem; }
-            .section-title { font-size: 1.5rem; }
-            footer .wrap { flex-direction: column; gap: 0.5rem; text-align: center; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Irving Lopez — Systems Consultant & AI-powered Operations Expert. monday.com, workflow automation, and AI-driven business systems.">
+  <title>Irving Lopez</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:       #080808;
+      --surface:  #0f0f0f;
+      --card:     #141414;
+      --border:   #1c1c1c;
+      --border2:  #242424;
+      --text:     #c8c8c8;
+      --muted:    #5a5a5a;
+      --dim:      #333;
+      --white:    #f2f2f2;
+      --accent:   #0ea5e9;
+      --accent2:  #38bdf8;
+      --glow:     rgba(14,165,233,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+      font-size: 15px;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+      background: rgba(8,8,8,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    nav .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .nav-link {
+      font-size: 0.8rem;
+      color: var(--muted);
+      transition: color 0.15s;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.2s;
+    }
+
+    .nav-link:hover { color: var(--text); }
+    .nav-link:hover::after,
+    .nav-link.active::after { width: 100%; }
+    .nav-link.active { color: var(--text); }
+
+    .nav-cta {
+      font-size: 0.78rem;
+      font-weight: 500;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.45rem 1rem;
+      border-radius: 6px;
+      transition: opacity 0.15s, box-shadow 0.15s;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.9;
+      box-shadow: 0 0 20px var(--glow);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 5.5rem 0 5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-eyebrow-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    .hero-name {
+      font-size: 3.25rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-name span { color: var(--accent); }
+
+    .hero-tagline {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.75;
+      font-weight: 300;
+      max-width: 44ch;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tagline strong { color: var(--text); font-weight: 500; }
+
+    .typing-line {
+      min-height: 1.5em;
+      color: var(--text);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: var(--accent);
+      vertical-align: middle;
+      margin-left: 1px;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 0.625rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.65rem 1.2rem;
+      border-radius: 7px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+      box-shadow: 0 0 24px var(--glow);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      border: 1px solid var(--border2);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      color: var(--text);
+      background: var(--card);
+      transform: translateY(-1px);
+    }
+
+    /* Photo */
+    .hero-photo-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .photo-ring {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      flex-shrink: 0;
+    }
+
+    .photo-ring::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: conic-gradient(var(--accent) 0deg, transparent 120deg, var(--accent2) 240deg, transparent 360deg);
+      animation: spin 8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .photo-ring img,
+    .photo-fallback {
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      width: calc(100% - 8px);
+      height: calc(100% - 8px);
+      object-fit: cover;
+      object-position: center top;
+      background: var(--card);
+      border: 2px solid var(--surface);
+    }
+
+    .photo-fallback {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .photo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: rgba(14,165,233,0.08);
+      border: 1px solid rgba(14,165,233,0.2);
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+    }
+
+    .badge-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 0;
+      background: var(--surface);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat-item {
+      padding: 1.25rem 2rem;
+      border-right: 1px solid var(--border);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .stat-item:last-child { border-right: none; }
+    .stat-item.visible { opacity: 1; transform: translateY(0); }
+
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .stat-num .accent { color: var(--accent); }
+
+    .stat-label { font-size: 0.775rem; color: var(--muted); }
+
+    /* ── AI SECTION ── */
+    .ai-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-sub {
+      font-size: 0.875rem;
+      color: var(--muted);
+      max-width: 52ch;
+      font-weight: 300;
+      line-height: 1.75;
+      margin-bottom: 3rem;
+    }
+
+    .ai-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+    }
+
+    .ai-card {
+      background: var(--card);
+      padding: 2rem;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s, transform 0.5s, background 0.2s;
+    }
+
+    .ai-card:hover { background: #181818; }
+    .ai-card.visible { opacity: 1; transform: translateY(0); }
+    .ai-card:nth-child(2) { transition-delay: 0.1s; }
+    .ai-card:nth-child(3) { transition-delay: 0.2s; }
+
+    .ai-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(14,165,233,0.1);
+      border: 1px solid rgba(14,165,233,0.2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .ai-card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .ai-card-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 1.25rem;
+    }
+
+    .ai-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .ai-tool-tag {
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: rgba(14,165,233,0.08);
+      border: 1px solid rgba(14,165,233,0.15);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+    }
+
+    /* Ticker */
+    .ai-ticker {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.875rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: var(--card);
+    }
+
+    .ticker-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      white-space: nowrap;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .ticker-track {
+      overflow: hidden;
+      flex: 1;
+    }
+
+    .ticker-inner {
+      display: flex;
+      gap: 2.5rem;
+      animation: ticker 22s linear infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .ticker-item { font-size: 0.8rem; color: var(--text); }
+    .ticker-item span { color: var(--accent); margin-right: 0.25rem; }
+
+    /* ── SERVICES ── */
+    .services {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: var(--card);
+      padding: 2rem;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s, transform 0.5s, background 0.2s;
+    }
+
+    .service-card:hover { background: #181818; }
+    .service-card.visible { opacity: 1; transform: translateY(0); }
+    .service-card:nth-child(2) { transition-delay: 0.1s; }
+    .service-card:nth-child(3) { transition-delay: 0.2s; }
+
+    .service-num {
+      font-size: 0.65rem;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.625rem;
+      line-height: 1.4;
+    }
+
+    .service-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* ── CONTACT ── */
+    .contact { padding: 5rem 0; }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-heading {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-sub {
+      font-size: 0.825rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.1rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.15s;
+    }
+
+    .contact-link:hover {
+      border-color: rgba(14,165,233,0.3);
+      background: rgba(14,165,233,0.04);
+      transform: translateX(3px);
+    }
+
+    .cl-meta { display: flex; flex-direction: column; gap: 0.15rem; }
+    .cl-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; }
+    .cl-val { font-size: 0.85rem; color: var(--text); }
+    .cl-arrow { color: var(--dim); font-size: 0.85rem; transition: color 0.15s; }
+    .contact-link:hover .cl-arrow { color: var(--accent); }
+
+    .social-section-title {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      transition: all 0.15s;
+    }
+
+    .social-btn:hover {
+      border-color: rgba(14,165,233,0.25);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .social-arr { font-size: 0.75rem; opacity: 0.4; transition: opacity 0.15s; }
+    .social-btn:hover .social-arr { opacity: 1; color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 0;
+    }
+
+    footer .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-text { font-size: 0.775rem; color: var(--dim); }
+
+    .footer-ai-tag {
+      font-size: 0.65rem;
+      color: var(--accent);
+      background: rgba(14,165,233,0.08);
+      border: 1px solid rgba(14,165,233,0.15);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .wrap { padding: 0 1.25rem; }
+      .nav-link { display: none; }
+      .nav-links { gap: 0.75rem; }
+
+      .hero { padding: 3rem 0; }
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-name { font-size: 2.25rem; }
+      .hero-photo-col { order: -1; }
+      .photo-ring { width: 160px; height: 160px; }
+
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat-item:nth-child(odd) { border-right: 1px solid var(--border); }
+      .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+
+      .ai-grid,
+      .service-grid { grid-template-columns: 1fr; }
+
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    }
+  </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-    <div class="wrap">
-        <div class="nav-logo">
-            <div class="nav-avatar">IL</div>
-            <span class="nav-name">Irving Lopez</span>
-        </div>
-        <div class="nav-links">
-            <a href="#about" class="nav-link">About</a>
-            <a href="#work" class="nav-link">Work</a>
-            <a href="#services" class="nav-link">Services</a>
-            <a href="#contact" class="nav-link">Contact</a>
-            <a href="mailto:irving@irvinglopez.com" class="nav-cta">Get in touch</a>
-        </div>
+  <div class="wrap">
+    <span class="nav-name">Irving Lopez</span>
+    <div class="nav-links">
+      <a href="#ai"       class="nav-link">AI</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#contact"  class="nav-link">Contact</a>
+      <a href="mailto:irving@irvinglopez.com" class="nav-cta">Email me</a>
     </div>
+  </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-    <div class="hero-glow-1"></div>
-    <div class="hero-glow-2"></div>
-    <div class="wrap">
-        <div class="hero-inner">
-            <div>
-                <div class="hero-badge">
-                    <div class="badge-dot"></div>
-                    Open to new opportunities
-                </div>
-                <p class="hero-role">Product Manager · Systems Consultant</p>
-                <h1 class="hero-name">Irving Lopez</h1>
-                <p class="hero-desc">
-                    PM at <strong>Ramsey Solutions</strong> driving business growth through customer-focused products.
-                    Also running <strong>Streamline</strong> — helping businesses replace chaos with clarity through
-                    monday.com implementations and workflow automation.
-                </p>
-                <div class="hero-tags">
-                    <span class="tag">Nashville, TN</span>
-                    <span class="tag">Product Management</span>
-                    <span class="tag">monday.com Expert</span>
-                    <span class="tag">Workflow Automation</span>
-                    <span class="tag">Ramsey Solutions</span>
-                </div>
-                <div class="hero-ctas">
-                    <a href="#contact" class="btn btn-primary">Get in touch</a>
-                    <a href="#work" class="btn btn-ghost">View my work →</a>
-                </div>
-            </div>
-            <div class="hero-right">
-                <div class="card">
-                    <p class="card-label">By the numbers</p>
-                    <div class="stats-grid">
-                        <div class="stat">
-                            <p class="stat-num">5+</p>
-                            <p class="stat-label">Years experience</p>
-                        </div>
-                        <div class="stat">
-                            <p class="stat-num">50+</p>
-                            <p class="stat-label">Teams helped</p>
-                        </div>
-                        <div class="stat">
-                            <p class="stat-num">100%</p>
-                            <p class="stat-label">Remote-ready</p>
-                        </div>
-                        <div class="stat">
-                            <p class="stat-num">US</p>
-                            <p class="stat-label">Nationwide reach</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <p class="card-label">Currently</p>
-                    <div class="role-cards">
-                        <div class="role-card">
-                            <div class="role-card-left">
-                                <div class="role-icon ri-blue">📈</div>
-                                <div>
-                                    <p class="role-name">Product Manager</p>
-                                    <p class="role-co">Ramsey Solutions</p>
-                                </div>
-                            </div>
-                            <span class="pill pill-green">Active</span>
-                        </div>
-                        <div class="role-card">
-                            <div class="role-card-left">
-                                <div class="role-icon ri-green">⚡</div>
-                                <div>
-                                    <p class="role-name">Founder</p>
-                                    <p class="role-co">Streamline Consultancy</p>
-                                </div>
-                            </div>
-                            <span class="pill pill-green">Active</span>
-                        </div>
-                        <div class="role-card">
-                            <div class="role-card-left">
-                                <div class="role-icon ri-amber">⭐</div>
-                                <div>
-                                    <p class="role-name">Top Rated</p>
-                                    <p class="role-co">Upwork</p>
-                                </div>
-                            </div>
-                            <span class="pill pill-amber">Top Rated</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div>
+        <p class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>
+          Systems Consultant &amp; AI Operator
+        </p>
+        <h1 class="hero-name">Irving<br><span>Lopez</span></h1>
+        <p class="hero-tagline">
+          I help small and mid-sized businesses <strong>replace chaos with clarity</strong> —
+          using AI tools, monday.com, and workflow automation built to scale.
+        </p>
+        <p class="typing-line" id="typing-line"><span class="cursor"></span></p>
+        <div class="hero-ctas">
+          <a href="mailto:irving@irvinglopez.com" class="btn btn-primary">Email me</a>
+          <a href="https://www.upwork.com/freelancers/~010c369f358457a4b2?mp_source=share" target="_blank" rel="noopener" class="btn btn-ghost">Upwork ↗</a>
+          <a href="tel:+15053609429" class="btn btn-ghost">(505) 360-9429</a>
         </div>
+      </div>
+
+      <div class="hero-photo-col">
+        <div class="photo-ring">
+          <img
+            src="images/irving.jpg"
+            alt="Irving Lopez"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+          >
+          <div class="photo-fallback" style="display:none">IL</div>
+        </div>
+        <div class="photo-badge">
+          <span class="badge-dot"></span>
+          Available for projects
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-    <div class="wrap">
-        <div class="about-inner">
-            <div>
-                <p class="section-eyebrow">About Me</p>
-                <h2 class="section-title">Product thinking meets systems design</h2>
-                <p class="section-sub">A unique blend of product leadership, operational expertise, and hands-on technical implementation.</p>
-            </div>
-            <div class="about-body">
-                <p>
-                    I'm a <strong>Product Manager at Ramsey Solutions</strong> in Nashville, where I focus on driving business growth
-                    through customer-focused product development. I solve real problems, optimize for efficiency, and create solutions
-                    that generate measurable revenue impact.
-                </p>
-                <p>
-                    Beyond my product role, I run <strong>Streamline</strong> — a consultancy specializing in monday.com
-                    implementations and operational optimization. I help businesses across the U.S. build custom work management
-                    systems that eliminate chaos and create clarity, from project tracking to workflow automation backed by AI tools.
-                </p>
-                <p>
-                    Originally from <strong>New Mexico</strong>, I now call Tennessee home with my beautiful wife and two incredible
-                    kiddos. I bring a unique blend of product thinking, systems design, and hands-on technical implementation to everything I do.
-                </p>
-                <div class="highlights">
-                    <div class="highlight">
-                        <div class="h-dot"></div>
-                        Strategic product development that drives business growth and revenue
-                    </div>
-                    <div class="highlight">
-                        <div class="h-dot"></div>
-                        Deep expertise in workflow automation and process optimization
-                    </div>
-                    <div class="highlight">
-                        <div class="h-dot"></div>
-                        Technical fluency in modern tools, AI integrations, and monday.com
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- STATS -->
+<div class="stats-bar" id="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item" data-target="5">
+        <div class="stat-num"><span class="count">0</span><span class="accent">+</span></div>
+        <div class="stat-label">Years experience</div>
+      </div>
+      <div class="stat-item" data-target="50">
+        <div class="stat-num"><span class="count">0</span><span class="accent">+</span></div>
+        <div class="stat-label">Teams helped</div>
+      </div>
+      <div class="stat-item" data-target="100">
+        <div class="stat-num"><span class="count">0</span><span class="accent">%</span></div>
+        <div class="stat-label">Client satisfaction</div>
+      </div>
+      <div class="stat-item" data-target="3">
+        <div class="stat-num"><span class="count">0</span><span class="accent">×</span></div>
+        <div class="stat-label">Avg. efficiency gain</div>
+      </div>
     </div>
-</section>
+  </div>
+</div>
 
-<!-- WORK -->
-<section class="work" id="work">
-    <div class="wrap">
-        <div class="work-header">
-            <p class="section-eyebrow">Experience</p>
-            <h2 class="section-title">Where I work</h2>
+<!-- AI SECTION -->
+<section class="ai-section" id="ai">
+  <div class="wrap">
+    <p class="section-eyebrow">AI-Powered Operations</p>
+    <h2 class="section-title">I work with AI every day.</h2>
+    <p class="section-sub">
+      From automating client workflows with GPT to using Claude for systems thinking —
+      AI isn't a buzzword here, it's how I deliver faster, smarter results for every client.
+    </p>
+
+    <div class="ai-grid">
+      <div class="ai-card">
+        <div class="ai-icon">⚡</div>
+        <h3 class="ai-card-title">AI Workflow Automation</h3>
+        <p class="ai-card-desc">Connect AI models to your existing tools — auto-draft emails, summarize tickets, classify leads, and route tasks without lifting a finger.</p>
+        <div class="ai-tools">
+          <span class="ai-tool-tag">Claude</span>
+          <span class="ai-tool-tag">ChatGPT</span>
+          <span class="ai-tool-tag">Zapier AI</span>
+          <span class="ai-tool-tag">Make</span>
         </div>
-        <div class="work-grid">
-            <div class="work-card">
-                <div class="work-card-icon wci-blue">📈</div>
-                <h3 class="work-card-title">Product Manager</h3>
-                <p class="work-card-org">Ramsey Solutions · Nashville, TN</p>
-                <p class="work-card-desc">
-                    Driving business growth through customer-focused product development. Solving real problems
-                    at scale, optimizing for efficiency, and delivering measurable revenue impact across Ramsey's
-                    product ecosystem.
-                </p>
-                <div class="tag-row">
-                    <span class="work-tag">Product Strategy</span>
-                    <span class="work-tag">Revenue Growth</span>
-                    <span class="work-tag">Customer Research</span>
-                    <span class="work-tag">Roadmapping</span>
-                </div>
-            </div>
-            <div class="work-card">
-                <div class="work-card-icon wci-green">⚡</div>
-                <h3 class="work-card-title">Founder & Consultant</h3>
-                <p class="work-card-org">Streamline · Remote, US-wide</p>
-                <p class="work-card-desc">
-                    Building custom work management systems that eliminate chaos and create clarity.
-                    Specializing in monday.com implementations, workflow automation, and AI-backed
-                    integrations for growing businesses across the country.
-                </p>
-                <div class="tag-row">
-                    <span class="work-tag">monday.com</span>
-                    <span class="work-tag">Workflow Automation</span>
-                    <span class="work-tag">Systems Design</span>
-                    <span class="work-tag">AI Tools</span>
-                </div>
-            </div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-icon">🧠</div>
+        <h3 class="ai-card-title">Intelligent CRM &amp; Ops</h3>
+        <p class="ai-card-desc">monday.com boards supercharged with AI — smart status updates, predictive timelines, and AI-assisted reporting dashboards.</p>
+        <div class="ai-tools">
+          <span class="ai-tool-tag">monday AI</span>
+          <span class="ai-tool-tag">OpenAI API</span>
+          <span class="ai-tool-tag">Notion AI</span>
         </div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-icon">🔗</div>
+        <h3 class="ai-card-title">AI-Assisted Consulting</h3>
+        <p class="ai-card-desc">I use AI to analyze your operations, identify bottlenecks faster, build SOPs in hours not weeks, and deliver data-backed recommendations.</p>
+        <div class="ai-tools">
+          <span class="ai-tool-tag">Claude Code</span>
+          <span class="ai-tool-tag">Perplexity</span>
+          <span class="ai-tool-tag">Cursor</span>
+          <span class="ai-tool-tag">Gemini</span>
+        </div>
+      </div>
     </div>
+
+    <div class="ai-ticker">
+      <span class="ticker-label">AI tools I use</span>
+      <div class="ticker-track">
+        <div class="ticker-inner" id="ticker"></div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- SERVICES -->
 <section class="services" id="services">
-    <div class="wrap">
-        <div class="services-header">
-            <div>
-                <p class="section-eyebrow">Services</p>
-                <h2 class="section-title">What I can do for you</h2>
-            </div>
-            <p class="section-sub">Focused on delivering real, measurable results — not just deliverables. Every system I build is designed to get used and keep improving.</p>
-        </div>
-        <div class="service-grid">
-            <div class="service-card">
-                <p class="service-num">01</p>
-                <h3 class="service-title">monday.com Implementation</h3>
-                <p class="service-desc">Custom workspace builds — CRM setup, project boards, automations, and integrations tailored to how your team actually works.</p>
-            </div>
-            <div class="service-card">
-                <p class="service-num">02</p>
-                <h3 class="service-title">Workflow Automation</h3>
-                <p class="service-desc">Eliminate manual, repetitive work by connecting your tools and building automations that run quietly in the background.</p>
-            </div>
-            <div class="service-card">
-                <p class="service-num">03</p>
-                <h3 class="service-title">Ongoing Management & Training</h3>
-                <p class="service-desc">Continuous optimization and hands-on team onboarding so the system actually gets used and keeps improving over time.</p>
-            </div>
-        </div>
+  <div class="wrap">
+    <p class="section-eyebrow">What I do</p>
+    <h2 class="section-title">Services</h2>
+    <p class="section-sub">End-to-end systems work — from the initial audit to the automation running quietly in the background.</p>
+
+    <div class="service-grid">
+      <div class="service-card">
+        <p class="service-num">01</p>
+        <h3 class="service-title">monday.com Implementation</h3>
+        <p class="service-desc">Custom workspace builds — CRM setup, project boards, automations, and integrations tailored to how your team actually works.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">02</p>
+        <h3 class="service-title">Workflow Automation</h3>
+        <p class="service-desc">Eliminate manual, repetitive work by connecting your tools and building automations — including AI-powered ones — that run quietly in the background.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">03</p>
+        <h3 class="service-title">Ongoing Management &amp; Training</h3>
+        <p class="service-desc">Continuous optimization and hands-on team onboarding so the system actually gets used — and keeps improving with AI over time.</p>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-    <div class="wrap">
-        <div class="contact-inner">
-            <div>
-                <p class="section-eyebrow">Contact</p>
-                <h2 class="contact-title">Let's work together</h2>
-                <p class="contact-sub">
-                    Whether you're looking to discuss product roles, explore consulting partnerships,
-                    or just connect with a fellow PM and systems nerd — I'd love to hear from you.
-                </p>
-                <div class="contact-links">
-                    <a href="mailto:irving@irvinglopez.com" class="contact-link">
-                        <div class="cl-left">
-                            <i class="cl-icon">✉</i>
-                            <div class="cl-meta">
-                                <span class="cl-label">Email</span>
-                                <span class="cl-val">irving@irvinglopez.com</span>
-                            </div>
-                        </div>
-                        <span class="cl-arrow">→</span>
-                    </a>
-                    <a href="tel:+15053609429" class="contact-link">
-                        <div class="cl-left">
-                            <i class="cl-icon">📞</i>
-                            <div class="cl-meta">
-                                <span class="cl-label">Phone</span>
-                                <span class="cl-val">(505) 360-9429</span>
-                            </div>
-                        </div>
-                        <span class="cl-arrow">→</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/irving-lop" target="_blank" rel="noopener" class="contact-link">
-                        <div class="cl-left">
-                            <i class="cl-icon" style="font-size:0.7rem;font-weight:700;">in</i>
-                            <div class="cl-meta">
-                                <span class="cl-label">LinkedIn</span>
-                                <span class="cl-val">Connect professionally</span>
-                            </div>
-                        </div>
-                        <span class="cl-arrow">→</span>
-                    </a>
-                </div>
+  <div class="wrap">
+    <div class="contact-inner">
+      <div>
+        <h2 class="contact-heading">Let's work together</h2>
+        <p class="contact-sub">Reach out directly — no forms, no wait.</p>
+        <div class="contact-links">
+          <a href="mailto:irving@irvinglopez.com" class="contact-link">
+            <div class="cl-meta">
+              <span class="cl-label">Email</span>
+              <span class="cl-val">irving@irvinglopez.com</span>
             </div>
-            <div>
-                <p class="social-title">Find me on</p>
-                <div class="social-grid">
-                    <a href="https://www.upwork.com/freelancers/~010c369f358457a4b2?mp_source=share" target="_blank" rel="noopener" class="social-btn">
-                        <span>Upwork</span><span class="s-arr">↗</span>
-                    </a>
-                    <a href="https://www.fastexpert.com/pros-technology/irving-lopez-102263/" target="_blank" rel="noopener" class="social-btn">
-                        <span>FastExpert</span><span class="s-arr">↗</span>
-                    </a>
-                    <a href="https://www.instagram.com/irving_lopez14/" target="_blank" rel="noopener" class="social-btn">
-                        <span>Instagram</span><span class="s-arr">↗</span>
-                    </a>
-                    <a href="https://www.facebook.com/share/18WpqXZXTE/?mibextid=LQQJ4d" target="_blank" rel="noopener" class="social-btn">
-                        <span>Facebook</span><span class="s-arr">↗</span>
-                    </a>
-                </div>
+            <span class="cl-arrow">→</span>
+          </a>
+          <a href="tel:+15053609429" class="contact-link">
+            <div class="cl-meta">
+              <span class="cl-label">Phone</span>
+              <span class="cl-val">(505) 360-9429</span>
             </div>
+            <span class="cl-arrow">→</span>
+          </a>
+          <a href="https://www.upwork.com/freelancers/~010c369f358457a4b2?mp_source=share" target="_blank" rel="noopener" class="contact-link">
+            <div class="cl-meta">
+              <span class="cl-label">Freelance</span>
+              <span class="cl-val">Upwork — Top Rated</span>
+            </div>
+            <span class="cl-arrow">↗</span>
+          </a>
         </div>
+      </div>
+      <div>
+        <p class="social-section-title">Find me on</p>
+        <div class="social-grid">
+          <a href="https://www.linkedin.com/in/irving-lop" target="_blank" rel="noopener" class="social-btn">
+            <span>LinkedIn</span><span class="social-arr">↗</span>
+          </a>
+          <a href="https://www.upwork.com/freelancers/~010c369f358457a4b2?mp_source=share" target="_blank" rel="noopener" class="social-btn">
+            <span>Upwork</span><span class="social-arr">↗</span>
+          </a>
+          <a href="https://www.fastexpert.com/pros-technology/irving-lopez-102263/" target="_blank" rel="noopener" class="social-btn">
+            <span>FastExpert</span><span class="social-arr">↗</span>
+          </a>
+          <a href="https://www.instagram.com/irving_lopez14/" target="_blank" rel="noopener" class="social-btn">
+            <span>Instagram</span><span class="social-arr">↗</span>
+          </a>
+          <a href="https://www.facebook.com/share/18WpqXZXTE/?mibextid=LQQJ4d" target="_blank" rel="noopener" class="social-btn">
+            <span>Facebook</span><span class="social-arr">↗</span>
+          </a>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-    <div class="wrap">
-        <span class="footer-text">Irving Lopez © 2025 · Nashville, TN</span>
-        <span class="footer-text">Product Manager · Systems Consultant · monday.com Expert</span>
-    </div>
+  <div class="wrap">
+    <span class="footer-text">Irving Lopez © 2025 · Tennessee, USA</span>
+    <span class="footer-ai-tag">Built with AI</span>
+  </div>
 </footer>
 
+<script>
+  (() => {
+    'use strict';
+
+    /* ── TYPING ANIMATION ── */
+    const phrases = [
+      'monday.com Expert & Certified Partner',
+      'AI workflow builder since day one',
+      'Upwork Top Rated consultant',
+      'Turning ops chaos into clean systems',
+    ];
+
+    const typingEl = document.getElementById('typing-line');
+    let phraseIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    let pauseNext = false;
+
+    const type = () => {
+      const current = phrases[phraseIdx];
+
+      if (pauseNext) {
+        pauseNext = false;
+        setTimeout(type, 1400);
+        return;
+      }
+
+      if (!isDeleting) {
+        charIdx++;
+        typingEl.innerHTML = current.slice(0, charIdx) + '<span class="cursor"></span>';
+        if (charIdx === current.length) {
+          pauseNext = true;
+          isDeleting = true;
+        }
+      } else {
+        charIdx--;
+        typingEl.innerHTML = current.slice(0, charIdx) + '<span class="cursor"></span>';
+        if (charIdx === 0) {
+          isDeleting = false;
+          phraseIdx = (phraseIdx + 1) % phrases.length;
+        }
+      }
+
+      setTimeout(type, isDeleting ? 32 : 68);
+    };
+
+    setTimeout(type, 900);
+
+
+    /* ── COUNTER ANIMATION ── */
+    const easeOut = (t) => 1 - (1 - t) ** 3;
+
+    const animateCount = (el, target, duration = 1400) => {
+      const countEl = el.querySelector('.count');
+      if (!countEl) return;
+      const start = performance.now();
+
+      const step = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        countEl.textContent = Math.round(easeOut(progress) * target);
+        if (progress < 1) requestAnimationFrame(step);
+      };
+
+      requestAnimationFrame(step);
+    };
+
+
+    /* ── INTERSECTION OBSERVER ── */
+    const once = (selector, cb, threshold = 0.15) => {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          cb(entry.target);
+          io.unobserve(entry.target);
+        });
+      }, { threshold });
+      document.querySelectorAll(selector).forEach((el) => io.observe(el));
+    };
+
+    once('.ai-card, .service-card', (el) => el.classList.add('visible'));
+
+    once('.stat-item', (el) => {
+      el.classList.add('visible');
+      const target = parseInt(el.dataset.target, 10);
+      if (!isNaN(target)) animateCount(el, target);
+    });
+
+
+    /* ── ACTIVE NAV ── */
+    const sections = document.querySelectorAll('[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const navIO = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link) => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+        });
+      });
+    }, { threshold: 0.45 });
+
+    sections.forEach((s) => navIO.observe(s));
+
+
+    /* ── AI TICKER ── */
+    const tools = [
+      'Claude', 'ChatGPT', 'Gemini', 'Perplexity',
+      'Zapier AI', 'Make', 'monday AI', 'OpenAI API',
+      'Cursor', 'Claude Code', 'Notion AI', 'n8n',
+    ];
+
+    const tickerEl = document.getElementById('ticker');
+    if (tickerEl) {
+      const items = [...tools, ...tools]
+        .map((t) => `<span class="ticker-item"><span>✦</span>${t}</span>`)
+        .join('');
+      tickerEl.innerHTML = items;
+    }
+
+
+    /* ── SMOOTH SCROLL ── */
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+  })();
+</script>
 </body>
 </html>
