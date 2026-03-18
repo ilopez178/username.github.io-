@@ -671,6 +671,22 @@
       background: var(--card);
     }
 
+    .ai-ticker-row2 {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .ai-ticker-row2 {
+        display: flex;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.875rem 1.5rem;
+        background: var(--card);
+        margin-top: 0.5rem;
+      }
+    }
+
     .ticker-label {
       font-size: 0.68rem;
       text-transform: uppercase;
@@ -686,11 +702,23 @@
     .ticker-inner {
       display: flex;
       gap: 2.5rem;
-      animation: ticker 28s linear infinite;
+      animation: ticker 20s linear infinite;
+      white-space: nowrap;
+    }
+
+    .ticker-inner2 {
+      display: flex;
+      gap: 2.5rem;
+      animation: ticker2 18s linear infinite;
       white-space: nowrap;
     }
 
     @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    @keyframes ticker2 {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
     }
@@ -1512,6 +1540,11 @@
         <div class="ticker-inner" id="ticker"></div>
       </div>
     </div>
+    <div class="ai-ticker-row2">
+      <div class="ticker-track">
+        <div class="ticker-inner2" id="ticker2"></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1962,6 +1995,16 @@
         .map((t) => `<span class="ticker-item"><span>✦</span>${t}</span>`)
         .join('');
       tickerEl.innerHTML = items;
+    }
+
+    const ticker2El = document.getElementById('ticker2');
+    if (ticker2El) {
+      const mid = Math.floor(tools.length / 2);
+      const rotated = [...tools.slice(mid), ...tools.slice(0, mid)];
+      const items2 = [...rotated, ...rotated]
+        .map((t) => `<span class="ticker-item"><span>✦</span>${t}</span>`)
+        .join('');
+      ticker2El.innerHTML = items2;
     }
 
 
