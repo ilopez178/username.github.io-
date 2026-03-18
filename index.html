@@ -140,17 +140,17 @@
       font-size: 0.78rem;
       font-weight: 500;
       background: transparent;
-      color: var(--muted);
-      border: 1px solid var(--border2);
+      color: var(--text);
+      border: 1px solid rgba(14,165,233,0.45);
       padding: 0.45rem 1rem;
       border-radius: 6px;
       transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
     }
 
     .nav-cta-ghost:hover {
-      color: var(--text);
-      background: var(--card);
-      border-color: rgba(14,165,233,0.3);
+      color: var(--white);
+      background: rgba(14,165,233,0.08);
+      border-color: rgba(14,165,233,0.7);
     }
 
     /* ── HAMBURGER ── */
@@ -387,13 +387,14 @@
     }
 
     .btn-ghost {
-      border: 1px solid var(--border2);
-      color: var(--muted);
+      border: 1px solid rgba(14,165,233,0.45);
+      color: var(--text);
     }
 
     .btn-ghost:hover {
-      color: var(--text);
-      background: var(--card);
+      color: var(--white);
+      background: rgba(14,165,233,0.08);
+      border-color: rgba(14,165,233,0.7);
       transform: translateY(-1px);
     }
 
@@ -697,34 +698,7 @@
     .ticker-item { font-size: 0.8rem; color: var(--accent); font-weight: 500; }
     .ticker-item span { color: rgba(14,165,233,0.45); margin-right: 0.25rem; }
 
-    .ticker-track { touch-action: none; pointer-events: none; }
-
-    /* Static tools grid — mobile only */
-    .tools-static {
-      display: none;
-    }
-    @media (max-width: 768px) {
-      .tools-static {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.4rem;
-        margin-top: 0.75rem;
-        padding: 0.875rem 1.25rem;
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-      }
-      .tools-static-pill {
-        font-size: 0.72rem;
-        font-weight: 500;
-        color: var(--accent);
-        background: rgba(14,165,233,0.07);
-        border: 1px solid rgba(14,165,233,0.15);
-        padding: 0.2rem 0.6rem;
-        border-radius: 4px;
-        white-space: nowrap;
-      }
-    }
+    .ticker-track { overflow: hidden; flex: 1; }
 
     /* ── PM WORK ── */
     .pm-work {
@@ -1121,7 +1095,7 @@
       font-weight: 700;
       color: var(--white);
       letter-spacing: -0.03em;
-      margin-bottom: 0.35rem;
+      margin-bottom: 1.5rem;
     }
 
     .contact-sub {
@@ -1369,7 +1343,6 @@
     <span class="nav-name">Irving Lopez</span>
     <div class="nav-links">
       <a href="#about"          class="nav-link">About</a>
-      <a href="#work"           class="nav-link">Work</a>
       <a href="#services"       class="nav-link">Consulting</a>
       <a href="#certifications" class="nav-link">Certifications</a>
       <a href="#contact"        class="nav-link">Contact</a>
@@ -1392,7 +1365,6 @@
     </svg>
   </button>
   <a href="#about"          class="mobile-menu-link">About</a>
-  <a href="#work"           class="mobile-menu-link">Work</a>
   <a href="#services"       class="mobile-menu-link">Consulting</a>
   <a href="#certifications" class="mobile-menu-link">Certifications</a>
   <a href="#contact"        class="mobile-menu-link">Contact</a>
@@ -1470,7 +1442,7 @@
     <div class="about-header">
       <div class="about-header-left">
         <p class="section-eyebrow">About me</p>
-        <h2 class="section-title">PM by day. Consultant on the side.</h2>
+        <h2 class="section-title">PM by day. Consultant by night.</h2>
         <div class="about-text">
           <p>
             I'm a product manager at <strong>Ramsey Solutions</strong> in Tennessee, leading product work across a three-sided real estate marketplace — agents, customers, and the business.
@@ -1537,46 +1509,6 @@
       <span class="ticker-label">Tools I work with</span>
       <div class="ticker-track">
         <div class="ticker-inner" id="ticker"></div>
-      </div>
-    </div>
-    <div class="tools-static" id="tools-static"></div>
-  </div>
-</section>
-
-<!-- PM WORK -->
-<section class="pm-work" id="work">
-  <div class="wrap">
-    <p class="section-eyebrow">PM Work</p>
-    <h2 class="section-title">What I've built.</h2>
-    <p class="section-sub">A look at what I've shipped at Ramsey Solutions — across a three-sided real estate marketplace.</p>
-
-    <div class="work-grid">
-      <div class="work-card">
-        <p class="work-eyebrow">Revenue Impact</p>
-        <h3 class="work-title">Found $2.8M hiding in plain sight</h3>
-        <p class="work-desc">Referral fees were closing and we weren't collecting — unnoticed for years. I found it, built the case, and led the fix: MLS integration, tracking system, collection flow. $50K recovered in three days. $2.8M and counting.</p>
-        <div class="work-stat">
-          <span class="work-stat-num">$2.8M</span>
-          <span class="work-stat-label">collected and counting</span>
-        </div>
-      </div>
-      <div class="work-card">
-        <p class="work-eyebrow">Full-Funnel Product Work</p>
-        <h3 class="work-title">Across marketing, data, and AI</h3>
-        <p class="work-desc">SEO, Google Ads, Klaviyo, Magnolia CMS, data pipelines, AI features with Anthropic and OpenAI APIs — 100+ projects, every one tied to a real business metric.</p>
-        <div class="work-stat">
-          <span class="work-stat-num">100+</span>
-          <span class="work-stat-label">features & products shipped</span>
-        </div>
-      </div>
-      <div class="work-card">
-        <p class="work-eyebrow">ML & Platform</p>
-        <h3 class="work-title">Built the connection system</h3>
-        <p class="work-desc">Designed and shipped a connection system powered by an ML algorithm — matching customers to the right agents, built with engineering, data science, and ops.</p>
-        <div class="work-stat">
-          <span class="work-stat-num">3-sided</span>
-          <span class="work-stat-label">marketplace served</span>
-        </div>
       </div>
     </div>
   </div>
@@ -1743,9 +1675,9 @@
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="wrap">
+    <h2 class="contact-heading">Get in touch</h2>
     <div class="contact-inner">
       <div>
-        <h2 class="contact-heading">Get in touch</h2>
         <p class="contact-sub">Have a project, a question, or just want to talk — I'm easy to reach.</p>
         <div class="contact-links">
           <a href="mailto:contact@irvinglopez.com" class="contact-link">
@@ -2034,12 +1966,6 @@
       tickerEl.innerHTML = items;
     }
 
-    const toolsStaticEl = document.getElementById('tools-static');
-    if (toolsStaticEl) {
-      toolsStaticEl.innerHTML = tools
-        .map((t) => `<span class="tools-static-pill">${t}</span>`)
-        .join('');
-    }
 
 
     /* ── SMOOTH SCROLL ── */
