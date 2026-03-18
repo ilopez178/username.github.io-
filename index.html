@@ -679,19 +679,16 @@
       .ai-ticker .ticker-track { display: none; }
       .ai-ticker-row2 {
         display: block;
-        overflow-x: scroll;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
+        overflow: hidden;
         border: 1px solid var(--border);
         border-radius: 8px;
         padding: 0.875rem 1.5rem;
         background: var(--card);
         margin-top: 0.5rem;
         cursor: grab;
+        user-select: none;
       }
       .ai-ticker-row2:active { cursor: grabbing; }
-      .ai-ticker-row2::-webkit-scrollbar { display: none; }
-      .ai-ticker-row2 .ticker-track { overflow: visible; flex: none; }
     }
 
     .ticker-label {
@@ -2008,59 +2005,71 @@
       ticker2El.innerHTML = items2;
     }
 
-    /* ── TICKER ROW2: auto-scroll + drag (touch & mouse) ── */
+    /* ── TICKER ROW2: transform-based auto-scroll + drag ── */
     const row2El = document.querySelector('.ai-ticker-row2');
     if (row2El && ticker2El) {
-      let animRunning = true;
-      const speed = 0.75; // px per frame
+      let pos = 0;
+      let running = true;
+      let isDragging = false;
+      let dragStartX = 0;
+      let posAtDrag = 0;
+      const speed = 0.75;
+
+      const normalize = (p, half) => {
+        if (half <= 0) return p;
+        while (p > 0) p -= half;
+        while (p < -half) p += half;
+        return p;
+      };
 
       const autoTick = () => {
-        if (animRunning) {
-          const halfWidth = ticker2El.scrollWidth / 2;
-          if (halfWidth > 0) {
-            row2El.scrollLeft += speed;
-            if (row2El.scrollLeft >= halfWidth) row2El.scrollLeft = 0;
-          }
+        const half = ticker2El.scrollWidth / 2;
+        if (running && half > 0) {
+          pos -= speed;
+          pos = normalize(pos, half);
+          ticker2El.style.transform = `translateX(${pos}px)`;
         }
         requestAnimationFrame(autoTick);
       };
-      // Delay start so layout is fully computed before reading scrollWidth
-      setTimeout(() => requestAnimationFrame(autoTick), 150);
+      requestAnimationFrame(autoTick);
 
       // Mouse drag
-      let isDragging = false;
-      let dragStartX = 0;
-      let scrollAtDragStart = 0;
-
       row2El.addEventListener('mousedown', (e) => {
         isDragging = true;
-        animRunning = false;
+        running = false;
         dragStartX = e.clientX;
-        scrollAtDragStart = row2El.scrollLeft;
+        posAtDrag = pos;
         row2El.style.cursor = 'grabbing';
       });
       window.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
-        row2El.scrollLeft = scrollAtDragStart - (e.clientX - dragStartX);
+        const half = ticker2El.scrollWidth / 2;
+        pos = normalize(posAtDrag + (e.clientX - dragStartX), half);
+        ticker2El.style.transform = `translateX(${pos}px)`;
       });
       window.addEventListener('mouseup', () => {
         if (!isDragging) return;
         isDragging = false;
-        animRunning = true;
+        running = true;
         row2El.style.cursor = 'grab';
       });
 
       // Touch drag
       row2El.addEventListener('touchstart', (e) => {
-        animRunning = false;
+        isDragging = true;
+        running = false;
         dragStartX = e.touches[0].clientX;
-        scrollAtDragStart = row2El.scrollLeft;
+        posAtDrag = pos;
       }, { passive: true });
       row2El.addEventListener('touchmove', (e) => {
-        row2El.scrollLeft = scrollAtDragStart - (e.touches[0].clientX - dragStartX);
+        if (!isDragging) return;
+        const half = ticker2El.scrollWidth / 2;
+        pos = normalize(posAtDrag + (e.touches[0].clientX - dragStartX), half);
+        ticker2El.style.transform = `translateX(${pos}px)`;
       }, { passive: true });
       row2El.addEventListener('touchend', () => {
-        animRunning = true;
+        isDragging = false;
+        running = true;
       }, { passive: true });
     }
 
