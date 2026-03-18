@@ -678,14 +678,20 @@
     @media (max-width: 768px) {
       .ai-ticker .ticker-track { display: none; }
       .ai-ticker-row2 {
-        display: flex;
-        overflow: hidden;
+        display: block;
+        overflow-x: scroll;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
         border: 1px solid var(--border);
         border-radius: 8px;
         padding: 0.875rem 1.5rem;
         background: var(--card);
         margin-top: 0.5rem;
+        cursor: grab;
       }
+      .ai-ticker-row2:active { cursor: grabbing; }
+      .ai-ticker-row2::-webkit-scrollbar { display: none; }
+      .ai-ticker-row2 .ticker-track { overflow: visible; flex: none; }
     }
 
     .ticker-label {
@@ -710,16 +716,10 @@
     .ticker-inner2 {
       display: flex;
       gap: 2.5rem;
-      animation: ticker2 18s linear infinite;
       white-space: nowrap;
     }
 
     @keyframes ticker {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    @keyframes ticker2 {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
     }
@@ -1414,7 +1414,7 @@
         <h1 class="hero-name">Irving <span>Lopez</span></h1>
         <div class="domain-chip">Tech · Real Estate · Operations</div>
         <p class="hero-tagline">
-          I'm a <strong>product manager</strong> who digs into real customer problems and ships solutions that move the business. Tech is the lever, not the answer. On the side, I help small businesses work smarter with <strong>monday.com</strong> and automation.
+          I'm a <strong>product manager</strong> focused on solving <strong>customer problems</strong>, driving <strong>business outcomes</strong>, and leveraging <strong>technology</strong> to connect the two. By night, I help small businesses build systems that scale with <strong>monday.com</strong>.
         </p>
         <p class="typing-line" id="typing-line"><span class="cursor"></span></p>
         <div class="hero-ctas">
@@ -2006,6 +2006,59 @@
         .map((t) => `<span class="ticker-item"><span>✦</span>${t}</span>`)
         .join('');
       ticker2El.innerHTML = items2;
+    }
+
+    /* ── TICKER ROW2: auto-scroll + drag (touch & mouse) ── */
+    const row2El = document.querySelector('.ai-ticker-row2');
+    if (row2El && ticker2El) {
+      let animRunning = true;
+      const speed = 1.1; // px per frame
+
+      const autoTick = () => {
+        if (animRunning) {
+          row2El.scrollLeft += speed;
+          const halfWidth = ticker2El.scrollWidth / 2;
+          if (row2El.scrollLeft >= halfWidth) row2El.scrollLeft = 0;
+        }
+        requestAnimationFrame(autoTick);
+      };
+      requestAnimationFrame(autoTick);
+
+      // Mouse drag
+      let isDragging = false;
+      let dragStartX = 0;
+      let scrollAtDragStart = 0;
+
+      row2El.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        animRunning = false;
+        dragStartX = e.clientX;
+        scrollAtDragStart = row2El.scrollLeft;
+        row2El.style.cursor = 'grabbing';
+      });
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        row2El.scrollLeft = scrollAtDragStart - (e.clientX - dragStartX);
+      });
+      window.addEventListener('mouseup', () => {
+        if (!isDragging) return;
+        isDragging = false;
+        animRunning = true;
+        row2El.style.cursor = 'grab';
+      });
+
+      // Touch drag
+      row2El.addEventListener('touchstart', (e) => {
+        animRunning = false;
+        dragStartX = e.touches[0].clientX;
+        scrollAtDragStart = row2El.scrollLeft;
+      }, { passive: true });
+      row2El.addEventListener('touchmove', (e) => {
+        row2El.scrollLeft = scrollAtDragStart - (e.touches[0].clientX - dragStartX);
+      }, { passive: true });
+      row2El.addEventListener('touchend', () => {
+        animRunning = true;
+      }, { passive: true });
     }
 
 
