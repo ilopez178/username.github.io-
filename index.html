@@ -1414,7 +1414,7 @@
         <h1 class="hero-name">Irving <span>Lopez</span></h1>
         <div class="domain-chip">Tech · Real Estate · Operations</div>
         <p class="hero-tagline">
-          I'm a <strong>product manager</strong> focused on solving customer problems, driving business outcomes, and leveraging <strong>technology</strong> to connect the two. By night, I help and <strong>consult</strong> small businesses build systems that scale with monday.com.
+          I'm a product manager focused on solving customer problems, driving business outcomes, and leveraging technology to connect the two. By night, I help small businesses build systems that scale with <strong>monday.com</strong>.
         </p>
         <p class="typing-line" id="typing-line"><span class="cursor"></span></p>
         <div class="hero-ctas">
@@ -2016,13 +2016,16 @@
 
       const autoTick = () => {
         if (animRunning) {
-          row2El.scrollLeft += speed;
           const halfWidth = ticker2El.scrollWidth / 2;
-          if (row2El.scrollLeft >= halfWidth) row2El.scrollLeft = 0;
+          if (halfWidth > 0) {
+            row2El.scrollLeft += speed;
+            if (row2El.scrollLeft >= halfWidth) row2El.scrollLeft = 0;
+          }
         }
         requestAnimationFrame(autoTick);
       };
-      requestAnimationFrame(autoTick);
+      // Delay start so layout is fully computed before reading scrollWidth
+      setTimeout(() => requestAnimationFrame(autoTick), 150);
 
       // Mouse drag
       let isDragging = false;
