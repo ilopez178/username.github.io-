@@ -819,6 +819,8 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 0.875rem 1.5rem;
+      cursor: grab;
+      user-select: none;
       display: flex;
       align-items: center;
       gap: 1.5rem;
@@ -838,6 +840,7 @@
       cursor: grab;
       user-select: none;
     }
+    .ai-ticker:active { cursor: grabbing; }
     .ai-ticker-row2:active { cursor: grabbing; }
 
     .ticker-label {
@@ -855,7 +858,6 @@
     .ticker-inner {
       display: flex;
       gap: 2.5rem;
-      animation: ticker 20s linear infinite;
       white-space: nowrap;
     }
 
@@ -1667,13 +1669,6 @@
           </div>
         </div>
         <div class="ahi">
-          <span class="ahi-icon">⚙️</span>
-          <div>
-            <div class="ahi-label">Product & Tech Breadth</div>
-            <div class="ahi-text">AI integrations · APIs · Automations · Analytics · Marketing Tech · SEO · Paid Acquisition · Webhooks · CMS</div>
-          </div>
-        </div>
-        <div class="ahi">
           <span class="ahi-icon">💻</span>
           <div>
             <div class="ahi-label">Code Skills · Google & monday.com Certified</div>
@@ -2174,6 +2169,74 @@
       ticker2El.innerHTML = items2;
     }
 
+    /* ── TICKER ROW1: transform-based auto-scroll + drag ── */
+    const row1El = document.querySelector('.ai-ticker');
+    if (row1El && tickerEl) {
+      let pos = 0;
+      let running = true;
+      let isDragging = false;
+      let dragStartX = 0;
+      let posAtDrag = 0;
+      const speed = 0.35;
+
+      const normalize = (p, half) => {
+        if (half <= 0) return p;
+        while (p > 0) p -= half;
+        while (p < -half) p += half;
+        return p;
+      };
+
+      const autoTick = () => {
+        const half = tickerEl.scrollWidth / 2;
+        if (running && half > 0) {
+          pos -= speed;
+          pos = normalize(pos, half);
+          tickerEl.style.transform = `translateX(${pos}px)`;
+        }
+        requestAnimationFrame(autoTick);
+      };
+      requestAnimationFrame(autoTick);
+
+      // Mouse drag
+      row1El.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        running = false;
+        dragStartX = e.clientX;
+        posAtDrag = pos;
+        row1El.style.cursor = 'grabbing';
+      });
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const half = tickerEl.scrollWidth / 2;
+        pos = normalize(posAtDrag + (e.clientX - dragStartX), half);
+        tickerEl.style.transform = `translateX(${pos}px)`;
+      });
+      window.addEventListener('mouseup', () => {
+        if (!isDragging) return;
+        isDragging = false;
+        running = true;
+        row1El.style.cursor = 'grab';
+      });
+
+      // Touch drag
+      row1El.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        running = false;
+        dragStartX = e.touches[0].clientX;
+        posAtDrag = pos;
+      }, { passive: true });
+      row1El.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const half = tickerEl.scrollWidth / 2;
+        pos = normalize(posAtDrag + (e.touches[0].clientX - dragStartX), half);
+        tickerEl.style.transform = `translateX(${pos}px)`;
+      }, { passive: true });
+      row1El.addEventListener('touchend', () => {
+        isDragging = false;
+        running = true;
+      }, { passive: true });
+    }
+
     /* ── TICKER ROW2: transform-based auto-scroll + drag ── */
     const row2El = document.querySelector('.ai-ticker-row2');
     if (row2El && ticker2El) {
@@ -2182,7 +2245,7 @@
       let isDragging = false;
       let dragStartX = 0;
       let posAtDrag = 0;
-      const speed = 0.75;
+      const speed = 0.28;
 
       const normalize = (p, half) => {
         if (half <= 0) return p;
