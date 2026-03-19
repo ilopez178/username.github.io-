@@ -176,7 +176,29 @@ In order, top to bottom:
 |---|---|
 | `robots.txt` | Tells crawlers they can index everything; points to sitemap |
 | `sitemap.xml` | Tells Google/Bing the canonical URL and update frequency |
-| JSON-LD in `<head>` | Structured data (Schema.org `Person`) for rich search results |
+| JSON-LD in `<head>` | Structured data (Schema.org `@graph`) for rich search results |
+
+### JSON-LD Schema Summary
+
+The structured data uses `@graph` with a `Person` node targeting two audiences:
+
+1. **As a Product Manager** — job title, employer (Ramsey Solutions), PM experience
+2. **As a monday.com Consultant** — this is the primary SEO target for consulting leads
+
+Key fields used to signal monday.com expertise to Google:
+
+| Field | Purpose |
+|---|---|
+| `jobTitle` | Array: "Product Manager", "monday.com Consultant", "monday.com Implementation Specialist" |
+| `knowsAbout` | 20+ specific monday.com and automation topics Google can index |
+| `hasCredential` | Both Partner Verified monday.com certifications |
+| `hasOccupation` | `Occupation` type with skills targeting monday.com consulting searches |
+| `makesOffer` | All 6 services listed as `Service` objects with names and descriptions |
+
+**When to update the JSON-LD:**
+- Add a new service → add an entry to `makesOffer`
+- Earn a new certification → add an entry to `hasCredential`
+- Expand into a new tool/area → add it to `knowsAbout`
 
 Update `sitemap.xml`'s `<lastmod>` date whenever significant content changes are made.
 
