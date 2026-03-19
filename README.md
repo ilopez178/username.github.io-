@@ -37,9 +37,43 @@ The entire site lives in a single `index.html` file. There is no build step.
 
 ---
 
-## Deployment
+## Git Workflow
 
-Push to `main` → GitHub Actions deploys automatically (~1 minute).
+### Pull latest version (do this first before editing)
+
+**Terminal** (open with `` Ctrl+` `` / `` Cmd+` `` in VS Code):
+
+```bash
+git pull origin main --rebase
+```
+
+---
+
+### Push to production (publishes to irvinglopez.com)
+
+**Option A — Ask Claude Code (easiest)**
+
+Make your edits, then just say: *"Commit and push my changes"*
+Claude will stage the files, write the commit message, and push — no terminal needed.
+
+**Option B — Source Control panel (GUI)**
+
+1. Make your edits to `index.html`
+2. Open **Source Control** (`Ctrl+Shift+G` / `Cmd+Shift+G`)
+3. Hover over **Changes** → click **+** to stage files
+4. Type a commit message in the box at the top
+5. Click **✓ Commit**
+6. Click **Sync Changes** (or the **↑ Push** button)
+
+**Option C — Terminal**
+
+```bash
+git add index.html
+git commit -m "Updated Personal Website"
+git push origin main
+```
+
+GitHub Actions deploys automatically after push — live in ~1 minute.
 
 ---
 
