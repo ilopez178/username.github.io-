@@ -826,24 +826,19 @@
     }
 
     .ai-ticker-row2 {
-      display: none;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.875rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: var(--card);
+      margin-top: 0.5rem;
+      cursor: grab;
+      user-select: none;
     }
-
-    @media (max-width: 768px) {
-      .ai-ticker .ticker-track { display: none; }
-      .ai-ticker-row2 {
-        display: block;
-        overflow: hidden;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        padding: 0.875rem 1.5rem;
-        background: var(--card);
-        margin-top: 0.5rem;
-        cursor: grab;
-        user-select: none;
-      }
-      .ai-ticker-row2:active { cursor: grabbing; }
-    }
+    .ai-ticker-row2:active { cursor: grabbing; }
 
     .ticker-label {
       font-size: 0.68rem;
@@ -1700,6 +1695,7 @@
       </div>
     </div>
     <div class="ai-ticker-row2">
+      <span class="ticker-label">Skills I have</span>
       <div class="ticker-track">
         <div class="ticker-inner2" id="ticker2"></div>
       </div>
@@ -2136,13 +2132,21 @@
 
     /* ── TICKER ── */
     const tools = [
-      'monday.com', 'Figma', 'SQL', 'Mixpanel',
-      'Tableau', 'Salesforce', 'HubSpot', 'Zapier',
-      'Make', 'n8n', 'Claude', 'ChatGPT',
-      'Redshift', 'Notion', 'Jira', 'Airtable',
-      'Pendo', 'Optimizely', 'HotJar', 'Google Ads',
-      'Google Tag Manager', 'GitHub', 'Postman',
-      'Zendesk', 'GraphQL', 'Regex', 'Anthropic API',
+      'monday.com', 'Figma', 'Mixpanel', 'Tableau',
+      'Salesforce', 'HubSpot', 'Zapier', 'Make',
+      'n8n', 'Claude', 'ChatGPT', 'Redshift',
+      'Notion', 'Jira', 'Airtable', 'Pendo',
+      'Optimizely', 'HotJar', 'Google Ads', 'Google Tag Manager',
+      'GitHub', 'Postman', 'Zendesk', 'Anthropic API',
+    ];
+
+    const skills = [
+      'SQL', 'GraphQL', 'Regex', 'JavaScript',
+      'HTML/CSS', 'APIs', 'Automations', 'Analytics',
+      'Webhooks', 'Product Strategy', 'Roadmapping',
+      'Stakeholder Management', 'Engineering Fluency',
+      'Business Acumen', 'A/B Testing', 'User Research',
+      'Go-to-Market', 'Data Analysis', 'Cross-functional Leadership',
     ];
 
     const tickerEl = document.getElementById('ticker');
@@ -2155,9 +2159,7 @@
 
     const ticker2El = document.getElementById('ticker2');
     if (ticker2El) {
-      const mid = Math.floor(tools.length / 2);
-      const rotated = [...tools.slice(mid), ...tools.slice(0, mid)];
-      const items2 = [...rotated, ...rotated]
+      const items2 = [...skills, ...skills]
         .map((t) => `<span class="ticker-item"><span>✦</span>${t}</span>`)
         .join('');
       ticker2El.innerHTML = items2;
