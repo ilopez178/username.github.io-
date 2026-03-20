@@ -221,8 +221,11 @@
 
     /* ── NAV ── */
     nav {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
       z-index: 100;
       border-bottom: 1px solid var(--border);
       padding: 1rem 0;
@@ -414,6 +417,7 @@
     /* ── HERO ── */
     .hero {
       padding: 5.5rem 0 5rem;
+      padding-top: calc(5.5rem + 64px);
       border-bottom: 1px solid var(--border);
     }
 
@@ -1495,7 +1499,7 @@
         padding: 0.35rem 0.65rem;
       }
 
-      .hero { padding: 2.25rem 0 2.5rem; }
+      .hero { padding: calc(2.25rem + 64px) 0 2.5rem; }
       .hero-inner { grid-template-columns: 1fr; gap: 1.75rem; }
       .hero-name { font-size: 2.5rem; white-space: normal; margin-bottom: 0.5rem; }
       .hero-photo-col { order: -1; gap: 0.75rem; }
