@@ -199,7 +199,7 @@
       --glow:     rgba(255,255,255,0.03);
     }
 
-    html { scroll-behavior: smooth; overflow-x: hidden; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
 
     body {
       font-family: 'Inter', -apple-system, sans-serif;
@@ -209,6 +209,7 @@
       line-height: 1.6;
       font-size: 15px;
       overflow-x: hidden;
+      touch-action: pan-y;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -357,7 +358,7 @@
     .mobile-menu-link {
       font-size: 1.35rem;
       font-weight: 600;
-      color: var(--muted);
+      color: var(--white);
       padding: 0.75rem 1.5rem;
       border-radius: 8px;
       transition: color 0.15s, background 0.15s;
@@ -388,6 +389,18 @@
     .mobile-menu-cta:hover {
       background: var(--accent2);
       box-shadow: 0 0 20px rgba(14,165,233,0.3);
+    }
+
+    .mobile-menu-cta-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--border);
+      margin-top: 0.5rem;
+    }
+    .mobile-menu-cta-ghost:hover {
+      background: rgba(255,255,255,0.04);
+      border-color: var(--accent);
+      box-shadow: none;
     }
 
     .mobile-menu-close {
@@ -1560,6 +1573,7 @@
   <a href="#experience" class="mobile-menu-link">Experience</a>
   <a href="#contact"        class="mobile-menu-link">Contact</a>
   <a href="mailto:contact@irvinglopez.com" class="mobile-menu-cta">Email me</a>
+  <a href="tel:+15053609429" class="mobile-menu-cta mobile-menu-cta-ghost">Call me</a>
 </div>
 
 <!-- HERO -->
@@ -1655,14 +1669,14 @@
           <span class="ahi-icon">📍</span>
           <div>
             <div class="ahi-label">Location</div>
-            <div class="ahi-text">Tennessee, USA</div>
+            <div class="ahi-text">Nashville, TN</div>
           </div>
         </div>
         <div class="ahi">
           <span class="ahi-icon">🏢</span>
           <div>
             <div class="ahi-label">Current Role</div>
-            <div class="ahi-text">Product Manager · Ramsey Solutions · monday.com Consultant · Top Rated</div>
+            <div class="ahi-text">Product Manager and monday.com specialist / consultant</div>
           </div>
         </div>
         <div class="ahi">
@@ -1683,6 +1697,7 @@
           <span class="ahi-icon">🤝</span>
           <div>
             <div class="ahi-label">Engineering Fluency</div>
+            <div class="ahi-text">Writes specs engineers want to build from · Creates engineer-ready clarity and cohesive teams so teams can ship fast!</div>
             <div class="ahi-text">Create engineer-ready clarity so teams ship fast · takes a first pass · knows when to clarify and when to get out of the way</div>
           </div>
         </div>
@@ -1690,7 +1705,7 @@
           <span class="ahi-icon">🧭</span>
           <div>
             <div class="ahi-label">Business Acumen</div>
-            <div class="ahi-text">Understands the levers that move revenue, retention, and growth — translates business goals into product bets and product work into business outcomes</div>
+            <div class="ahi-text">Understands the levers that move revenue, retention, and growth</div>
           </div>
         </div>
       </div>
@@ -1823,12 +1838,12 @@
 
     <div class="certs-grid">
       <div class="cert-card">
-        <div class="cert-issuer">monday.com · Partner Verified</div>
+        <div class="cert-issuer">Certified monday.com Specialist</div>
         <div class="cert-name">Advanced Workflow — monday.com</div>
         <div class="cert-date">Issued July 2024</div>
       </div>
       <div class="cert-card">
-        <div class="cert-issuer">monday.com · Partner Verified</div>
+        <div class="cert-issuer">Certified monday.com Specialist</div>
         <div class="cert-name">Work Management — monday.com</div>
         <div class="cert-date">Issued July 2024</div>
       </div>
@@ -2095,6 +2110,7 @@
       hamburger.classList.add('open');
       hamburger.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
       const firstLink = mobileMenu.querySelector('.mobile-menu-link');
       if (firstLink) firstLink.focus();
     };
@@ -2104,6 +2120,7 @@
       hamburger.classList.remove('open');
       hamburger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
       hamburger.focus();
     };
 
